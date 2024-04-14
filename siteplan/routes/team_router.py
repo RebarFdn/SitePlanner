@@ -20,9 +20,25 @@ async def team_member(request):
     
     return HTMLResponse(f"""
                         <div>
-                            <div class="flex flex-row space-y-1.5">
-                                <div class="bg-gray-300 p-5 border rounded">{e.get('name')}</div>
-                                
+                        <div class="navbar">
+                            <div class="navbar-start">
+                                <div class="avatar">
+                                    <img src="{e.get('imgurl')}" alt="avatar" />
+                                </div>
+                                 <a class="navbar-item">{e.get('oc')}</a>
+                            </div>
+                            <div class="navbar-end">
+                                <a class="navbar-item">Home</a>
+                                <a class="navbar-item">About</a>
+                                <a class="navbar-item">Contact</a>
+                            </div>
+                        </div>
+
+                            <div class="flex flex-row py-5 pv-5 space-y-1.5">
+                            <div class="avatar avatar-xl avatar-square">
+                                <img class="w-32" src="{e.get('imgurl')}" alt="avatar" />
+                            </div>
+                               
                                 <div class="bg-gray-300 p-5 border rounded">{e.get('address')}</div>
                                 </div
                                 <div class="flex flex-col space-y-1.5">

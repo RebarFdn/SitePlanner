@@ -1,10 +1,12 @@
 from starlette.applications import Starlette
 from starlette.routing import Route, Mount
 from starlette.staticfiles import StaticFiles
+from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse, HTMLResponse, StreamingResponse, RedirectResponse
 from starlette.background import BackgroundTasks
 from starlette.websockets import WebSocket
+from starlette_htmx.middleware import HtmxMiddleware, HtmxDetails
 import asyncio
 from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES)
 from modules.zen import zen_now
@@ -62,7 +64,7 @@ async def dashboard(request):
     return TEMPLATES.TemplateResponse('/dash.html', {'request': request})
 
 async def uikit(request):
-    return TEMPLATES.TemplateResponse('/analytics.html', {'request': request})
+    return TEMPLATES.TemplateResponse('/test.html', {'request': request})
 
 
 
@@ -102,6 +104,7 @@ def shutdownApp():
 
 app = Starlette(
     debug=DEBUG, 
+    middleware=[Middleware(HtmxMiddleware)],
     routes=routes,
     on_startup= startApp(),
     on_shutdown= shutdownApp()

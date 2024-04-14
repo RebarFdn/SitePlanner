@@ -1820,8 +1820,17 @@ class Project:
                 </nav>
                 </header>
                     <div id="account-coms"></div>
-                            
-                            <div id="account" class="bg-gray-300 p-5 border rounded">{p.get('account')}</div>
+                            <div class="acc">
+                            <div class="p-5 border rounded">
+                                <div id="account">
+                               
+                                <div class="card">
+                                    <div class="card-body"> {p.get('account')}</div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                            </div>
                     </div> 
                 """
     
