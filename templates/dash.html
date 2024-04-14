@@ -1,0 +1,52 @@
+
+{% extends 'temp/main_template.html' %}
+
+{% block content %}
+
+    <div class="container mx-auto h-screen bg-teal-200">
+        
+            <div class="flex py-10 bg-base-200">
+                <div class="grid grid-cols-12 gap-4">
+
+                    <div id="dash-left-pane" class="col-span-4 bg-gray-100">
+                        <div >
+                            <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                                <li><a href="#">International</a></li>
+                                <li><a href="#">Regional</a></li>
+                                <li><a href="#">Local</a></li>
+                            </ul>
+                            
+                            <ul class="uk-switcher uk-margin">
+                                <li>
+                                    <span>International Construction News</span>
+                                    <a href="#" uk-switcher-item="2">Switch to item 3</a>
+                                    <div class="h-96 p-5 overflow-y-auto bg-gray-800 text-gray-50">
+                                        {% include 'news/rss/news-international.xml' %}
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Engineering Materials News</span>
+                                    
+                                    <div class="h-96 p-5 overflow-y-auto bg-gray-800 text-gray-50">
+                                        {% include 'news/rss/news-engineering.xml' %}
+                                    </div>
+                                </li>
+                                <li>Local Construction News <a href="#" uk-switcher-item="previous">Previous item</a></li>
+                            </ul>
+                           
+                        
+                           
+                        </div>
+                        
+                    </div> 
+        
+                    <div id="dash-content-pane" class="col-span-8 bg-gray-200">
+                        <div >{{  request.get('headers') }}</div>
+                    </div>
+                    
+                </div>
+            </div>
+          
+    </div>
+   
+{% endblock content %}
