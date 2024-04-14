@@ -14,7 +14,8 @@
     "apexcharts": "^3.48.0",
     "htmx.org": "^1.9.11",
     "lodash": "^4.17.21",
-    "preline": "^2.0.3"
+    "preline": "^2.0.3",
+    "rippleui": "^1.12.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

@@ -31,7 +31,33 @@
                                         {% include 'news/rss/news-engineering.xml' %}
                                     </div>
                                 </li>
-                                <li>Local Construction News <a href="#" uk-switcher-item="previous">Previous item</a></li>
+                                <li>
+                                    <label class="btn btn-primary" for="modal-2">Open Modal</label>
+
+                                    <input class="modal-state" id="modal-2" type="checkbox" />
+                                    <div class="modal w-screen">
+                                        <label class="modal-overlay" for="modal-2"></label>
+                                        <div class="modal-content flex flex-col gap-5 max-w-3xl">
+                                            <label for="modal-2" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+                                            <h2 class="text-xl">Modal title 2</h2>
+                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur dolorum voluptate ratione dicta. Maxime cupiditate, est commodi consectetur earum iure, optio, obcaecati in nulla saepe maiores nobis iste quasi alias!</span>
+                                            <div class="flex gap-3">
+                                                <button class="btn btn-error btn-block">Delete</button>
+                                                <button class="btn btn-block">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    Local Construction News 
+                                    <a href="#" uk-switcher-item="previous">Previous item</a>
+                                    <div class="dropdown">
+                                        <label class="btn btn-solid-primary my-2" tabindex="0">Click</label>
+                                        <div class="dropdown-menu dropdown-menu-bottom-right">
+                                            <a class="dropdown-item text-sm">Profile</a>
+                                            <a tabindex="-1" class="dropdown-item text-sm">Account settings</a>
+                                            <a tabindex="-1" class="dropdown-item text-sm">Subscriptions</a>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                            
                         

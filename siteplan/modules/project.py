@@ -2086,26 +2086,26 @@ class Project:
             <div class="flex flex-row bg-gray-300 py-3 px-4 items-inline text-center rounded">
                 <span class="cursor-pointer" uk-toggle="target: #new-employee-modal"uk-icon="plus"></span>
                     <p class="mx-5">{p.get('name')} Workers Index</>                
-                    <span class="bg-gray-50 py-1 px-2 border rounded-full">{len(filtered)}<span>   
+                    <span class="bg-gray-50 py-1 px-2 border rounded-full mx-10">{len(filtered)}<span>   
                       <a href><span uk-drop-parent-icon></span></a>
                     <div uk-dropdown="pos: bottom-center">
                     <ul class="uk-nav uk-dropdown-nav">
                      <li class="uk-nav-header">Filter Workers</li>
                      <li><a 
                                 href="#"
-                                hx-get="/rates_html_table/{'all'}"
+                                hx-get="/project_workers/{id}/{'all'}"
                                 hx-target="#project_properties"
                                 hx-trigger="click"                                 
-                                >All Categories</a>
+                                >All Workers</a>
                         </li>
                         """
 
             for item in categories:
                 yield f""" <li>
                                 <a 
-                                href="#"
-                                hx-get="/rates_html_table/{item}"
-                                hx-target="#dash-content-pane"
+                                href="#"                               
+                                hx-get="/project_workers/{id}/{item}"
+                                hx-target="#project_properties"
                                 hx-trigger="click"                                 
                                 >{item}</a></li>"""
                        
@@ -2126,9 +2126,10 @@ class Project:
                 </thead>
                 <tbody> """
             for e in filtered:
+
                 yield f"""<tr
-                            hx-get="/rate/"
-                            hx-target="#dash-content-pane"
+                            hx-get="/team/{e.get('id').split('-')[1]}"
+                            hx-target="#project_properties"
                             hx-trigger="click"
                             >
                         <td><img class="h-12 w-12 rounded-full" src="{e.get('value').get('imgurl')}" alt="P"></td>
@@ -2161,10 +2162,10 @@ class Project:
                      <li class="uk-nav-header">Filter Workers</li>
                      <li><a 
                                 href="#"
-                                hx-get="/rates_html_table/{'all'}"
-                                hx-target="#dash-content-pane"
+                                hx-get="/project_workers/{id}/{'all'}"
+                                hx-target="#project_properties"
                                 hx-trigger="click"                                 
-                                >All Categories</a>
+                                >All Workers</a>
                         </li>
                         """
 
@@ -2172,8 +2173,8 @@ class Project:
                 yield f""" <li>
                                 <a 
                                 href="#"
-                                hx-get="/rates_html_table/{item}"
-                                hx-target="#dash-content-pane"
+                                hx-get="/project_workers/{id}/{item}"
+                                hx-target="#project_properties"
                                 hx-trigger="click"                                 
                                 >{item}</a></li>"""
                        
@@ -2191,8 +2192,8 @@ class Project:
                 <tbody> """
             for e in workers:
                 yield f"""<tr
-                            hx-get="/rate/"
-                            hx-target="#dash-content-pane"
+                            hx-get="/team/{e.get('_id').split('-')[1]}"
+                            hx-target="#project_properties"
                             hx-trigger="click"
                             >
                         <td>{e.get('_id')}</td>
