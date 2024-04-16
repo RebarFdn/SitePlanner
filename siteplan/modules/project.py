@@ -1673,6 +1673,7 @@ class Project:
         
         # Html Project index Generator
     
+    # HTML Responces
     
     async def projects_index_generator(self):
         p = await self.all()
@@ -2089,42 +2090,19 @@ class Project:
                                 <tbody>
                 """
         for item in jobs:
-            yield f"""<tr>
+            yield f"""<tr 
+                class="cursor-pointer"
+                hx-get="/html_job/{item.get('_id')}"
+                hx-target="#project_properties"
+                hx-trigger="click"  
+                >
                 <td>{item.get('title')}</td>
                 <td class="uk-text-wrap">{item.get('description')}</td>
                 <td>{item.get('projectPhase')}</td>
                 <td>{item.get('crew').get('name')}</td>
                  <td>{len(item.get('tasks'))}</td>
                 <td>"""
-            item_state = f"""
-                    <div id="{item.get('id')}-state" class="dropdown">
-                        <label class="btn btn-solid-primary my-2" tabindex="0">Set State</label>
-                        <div class="dropdown-menu">
-                            <a 
-                            class="dropdown-item text-sm"
-                            hx-get="/update_project_job_state/{item.get('id')}/{'active'}"
-                            hx-target="#{item.get('id')}-state"
-                            >Active</a>
-                            <a 
-                            tabindex="-1" 
-                            class="dropdown-item text-sm"
-                            hx-get="/update_project_job_state/{item.get('id')}/{'completed'}"
-                            hx-target="#{item.get('id')}-state"
-                            >Completed</a>
-                            <a 
-                            tabindex="-1" 
-                            class="dropdown-item text-sm"
-                            hx-get="/update_project_job_state/{item.get('id')}/{'paused'}"
-                            hx-target="#{item.get('id')}-state"                            
-                            >Paused</a>
-                            <a 
-                            tabindex="-1" 
-                            class="dropdown-item text-sm"
-                            hx-get="/update_project_job_state/{item.get('id')}/{'terminated'}"
-                            hx-target="#{item.get('id')}-state"                           
-                            >Terminated</a>
-                        </div>
-                    </div> """
+            item_state = f"""<span class="uk-badge">Unset</span>"""
             if item.get('state').get('active') == 'True':
                 item_state = "<span>Active</span>"
             elif item.get('state').get('completed') == 'True':
@@ -2144,7 +2122,79 @@ class Project:
         yield f"""</tbody></table>"""
 
             
-            
+    async def html_job_page_generator(self, id:str=None): 
+        idd = id.split('-')
+        p = await self.get(id=idd[0])
+        jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
+        if len(jb) > 0:
+            job = jb[0] 
+        else:
+            job={}
+       
+        interface = f"""
+            <div class="flex flex-col space-y-1.5">
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <a class="navbar-item"><span>{p.get('name')} Job Task</span></a>
+                    </div>
+                    <div class="navbar-center">
+                        <a class="navbar-item">Tasks</a>
+                        <a class="navbar-item">Crew</a>
+                        <a class="navbar-item">Analytics</a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item">Home</a>
+                        <div id="state" class="dropdown">
+                        <label class="btn btn-solid-primary my-2" tabindex="0">Set State</label>
+                        <div class="dropdown-menu">
+                            <a 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{job.get('_id')}/{'active'}"
+                            hx-target="#state"
+                            >Active</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{job.get('_id')}/{'completed'}"
+                            hx-target="#state"
+                            >Completed</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{job.get('_id')}/{'paused'}"
+                            hx-target="#state"                            
+                            >Paused</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{job.get('_id')}/{'terminated'}"
+                            hx-target="#state"                           
+                            >Terminated</a>
+                        </div>
+                    </div> 
+                    </div>
+                </div>
+                <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Tasks</a></li>
+                    <li><a href="#">Crew</a></li>
+                   
+                </ul>
+
+                <ul class="uk-switcher uk-margin">
+                    <li>                    
+                        <div class="bg-gray-300 p-5 border rounded">{job}</div>                    
+                    </li>
+                    <li>
+                        <div class="bg-gray-300 p-5 border rounded">{job.get("tasks")}</div>                     
+                    </li>
+                    <li><div class="bg-gray-300 p-5 border rounded">{job.get("crew")}</div></li>
+                </ul>
+                           
+                            
+                    </div>  """   
+        
+        return interface
     
     async def html_days_page(self, id:str=None):
         p = await self.get(id=id)

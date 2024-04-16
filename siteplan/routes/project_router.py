@@ -138,3 +138,9 @@ async def update_project_job_state(request):
     
     return HTMLResponse(jobstate.get(state))
 
+@router.get('/html_job/{id}')
+async def html_job_page(request):
+    id = request.path_params.get('id')
+    return HTMLResponse(await Project().html_job_page_generator(id=id))
+
+

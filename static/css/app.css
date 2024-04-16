@@ -2462,6 +2462,10 @@ html:has(.modal-state:checked) {
   width: 100%;
 }
 
+.navbar-center {
+  justify-content: center;
+}
+
 .navbar-end {
   justify-content: flex-end;
   width: 100%;
