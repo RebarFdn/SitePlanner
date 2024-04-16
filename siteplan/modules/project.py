@@ -1672,14 +1672,16 @@ class Project:
 
         
         # Html Project index Generator
+    
+    
     async def projects_index_generator(self):
         p = await self.all()
         yield '<div>'
-        yield f"""<p class="bg-gray-400 py-2 px-4 mx-5 text-center rounded">
+        yield f"""<p class="bg-gray-400 px-2 py-2 text-left rounded">
                 Projects Index
                 <span class="bg-gray-50 ml-10 py-1 px-2 border rounded-full">{len(p.get('rows', []))}<span>
                 </p>""" 
-        yield '<ul class="mx-5 h-96 p-2 overflow-y-auto">'
+        yield '<ul class="mx-2 h-96 overflow-y-auto">'
         
         for project in p.get('rows', []):
             yield f"""<li>
@@ -2064,13 +2066,85 @@ class Project:
         return p.get('account').get('records', {}).get('purchase_orders', [])
 
 
-    async def html_jobs_page(self, id:str=None): 
+    async def html_jobs_page_generator(self, id:str=None): 
         p = await self.get(id=id)
-        return f"""<div class="flex flex-col space-y-1.5">
-                            <div class="bg-gray-300 p-5 border rounded">{p.get('name')} Jobs Queue</div>
-                            <div class="bg-gray-300 p-5 border rounded">{p.get('tasks')}</div>
-                    </div> 
+        jobs = p.get('tasks')
+        yield f"""<div class="flex flex-col space-y-1.5">
+                        <div class="bg-gray-300 p-5 border rounded">{p.get('name')} Jobs Queue</div>
+                        
+                        <div class="uk-overflow-auto">
+                            <table class="uk-table uk-table-striped uk-table-hover uk-table-small uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Project Phase</th>
+                                        <th>Crew</th>
+                                        <th>Jobs</th>
+                                        <th>State</th>
+                                        <th>Progress</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
                 """
+        for item in jobs:
+            yield f"""<tr>
+                <td>{item.get('title')}</td>
+                <td class="uk-text-wrap">{item.get('description')}</td>
+                <td>{item.get('projectPhase')}</td>
+                <td>{item.get('crew').get('name')}</td>
+                 <td>{len(item.get('tasks'))}</td>
+                <td>"""
+            item_state = f"""
+                    <div id="{item.get('id')}-state" class="dropdown">
+                        <label class="btn btn-solid-primary my-2" tabindex="0">Set State</label>
+                        <div class="dropdown-menu">
+                            <a 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{item.get('id')}/{'active'}"
+                            hx-target="#{item.get('id')}-state"
+                            >Active</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{item.get('id')}/{'completed'}"
+                            hx-target="#{item.get('id')}-state"
+                            >Completed</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{item.get('id')}/{'paused'}"
+                            hx-target="#{item.get('id')}-state"                            
+                            >Paused</a>
+                            <a 
+                            tabindex="-1" 
+                            class="dropdown-item text-sm"
+                            hx-get="/update_project_job_state/{item.get('id')}/{'terminated'}"
+                            hx-target="#{item.get('id')}-state"                           
+                            >Terminated</a>
+                        </div>
+                    </div> """
+            if item.get('state').get('active') == 'True':
+                item_state = "<span>Active</span>"
+            elif item.get('state').get('completed') == 'True':
+                item_state = "<span>Completed</span>"
+            elif item.get('state').get('paused') == 'True':
+                item_state = "<span>Paused</span>"
+            elif item.get('state').get('terminated') == 'True':
+                item_state = "<span>Terminated</span>"
+            
+            yield f"""
+                {item_state}
+                </td>
+                <td><span class="uk-badge">{item.get('progress')}%</span></td>
+                
+                </tr>
+                """
+        yield f"""</tbody></table>"""
+
+            
+            
     
     async def html_days_page(self, id:str=None):
         p = await self.get(id=id)

@@ -100,8 +100,8 @@ async def get_project_account_purchases(request):
 @router.get('/project_jobs/{id}')
 async def get_project_jobs(request):
     id = request.path_params.get('id')
-    p = await Project().html_jobs_page(id=id)
-    return HTMLResponse(p)
+    generator = Project().html_jobs_page_generator(id=id)
+    return StreamingResponse(generator, media_type="text/html" )
 
 @router.get('/project_days/{id}')
 async def get_project_days(request):
@@ -121,3 +121,20 @@ async def get_project_rates(request):
     id = request.path_params.get('id')
     generator = Project().html_rates_page_generator(id=id)
     return StreamingResponse(generator, media_type="text/html" )
+
+
+@router.get('/update_project_job_state/{id}/{state}')
+async def update_project_job_state(request):
+    id = request.path_params.get('id')
+    state = request.path_params.get('state')
+    jobstate = {
+        "active": f"""<span class="badge badge-success">Active</span>""",
+        "completed": f"""<span class="badge badge-primary">Completed</span>""",
+        "paused": f"""<span class="badge badge-secondary">Paused</span>""",
+
+        "terminated": f"""<span class="badge badge-error">Terminated</span>""",
+
+    }
+    
+    return HTMLResponse(jobstate.get(state))
+

@@ -189,27 +189,31 @@ class Employee:
     async def team_index_generator(self):
         e = await self.all_workers()
         try:
-            yield """
+            yield f"""
                 <div>
-                    <p class="bg-gray-400 py-2 px-4 mx-5 text-center rounded">Team Index</p>   
+                    <p class="bg-gray-400 py-2 px-2 text-left rounded">
+                    Team Index
+                     <span class="bg-gray-50 ml-10 py-1 px-2 border rounded-full">{len(e.get('rows', []))}<span>
+                    </p>   
                 </div>"""
-            yield '<ul class="mx-5 h-96 overflow-y-auto">'
+            yield '<ul class="mx-2 h-96 overflow-y-auto">'
         
             for employee in e.get('rows', []):
                 yield f"""<li class="mt-2">        
                             <div
-                                class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4 cursor-pointer"
+                                class="p-2 max-w-sm mx-auto bg-white rounded-lg shadow-lg flex items-center space-x-4 cursor-pointer"
                                 hx-get="/team/{employee.get('id')}"
                                 hx-target="#dash-content-pane"
                                 hx-trigger="click"
                             >
                             <div class="shrink-0">
                                 <img class="h-12 w-12 rounded-full" src="{employee.get('value').get('imgurl')}" alt="P">
-                                <span> {employee.get('id')}</span>
+                                <span class="text-xs"> {employee.get('id')}</span>
                             </div>
                             <div>
-                                <div class="text-md font-medium text-black"> {employee.get('value').get('name')} </div>
-                                <p class="text-slate-500"><span class="bg-blue-700 text-gray-50 py-1 p2-4">{employee.get('value').get('occupation')}</span></p>
+                                <div class="text-md font-medium text-gray-800"> {employee.get('value').get('name')} </div>
+                                <span class="uk-badge">{employee.get('value').get('occupation')}</span>
+                                
                             </div></div>
                             </li> """
             yield """</ul></div>"""
