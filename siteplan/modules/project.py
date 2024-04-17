@@ -2135,7 +2135,7 @@ class Project:
             <div class="flex flex-col space-y-1.5">
                 <div class="navbar">
                     <div class="navbar-start">
-                        <a class="navbar-item"><span>{p.get('name')} Job Task</span></a>
+                        <a class="navbar-item"><span>{p.get('name')} Job Task </span></a>
                     </div>
                     <div class="navbar-center">
                         <a class="navbar-item">Tasks</a>
@@ -2183,7 +2183,35 @@ class Project:
 
                 <ul class="uk-switcher uk-margin">
                     <li>                    
-                        <div class="bg-gray-300 p-5 border rounded">{job}</div>                    
+                        <div class="flex flex-row bg-gray-300 p-5 border rounded">
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-header"><span class="uk-badge">{job.get('_id')}</span> {job.get('title')}
+                                </h2>
+                                <p class="text-content2">
+                                {job.get('description')}
+                                projectPhase  {job.get('projectPhase')}
+                                Crew {job.get('crew').get('name')} | Members {len(job.get('crew').get('members'))}
+                                </p>
+                                <div class="card-footer">
+                                    <button class="btn-secondary btn">Learn More</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-header">{job.get('title')}</h2>
+                                <p class="text-content2">{job}</p>
+                                <div class="card-footer">
+                                    <button class="btn-secondary btn">Learn More</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        </div>                    
                     </li>
                     <li>
                         <div class="bg-gray-300 p-5 border rounded">{job.get("tasks")}</div>                     

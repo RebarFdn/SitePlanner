@@ -49,7 +49,7 @@ async def project_account_deposit(request):
         #return RedirectResponse(url='/dash', status_code=303)
         return HTMLResponse(f""" <div class="uk-alert-success" uk-alert>
                                 <a href class="uk-alert-close" uk-close></a>
-                                <p>{to_dollars(result.get('amount'))} was deposited on {result.get('date')}</p>
+                                <p>Ref: {result.get('ref')} {to_dollars(result.get('amount'))} was deposited on {result.get('date')}</p>
                                 </div>""")
     except Exception as e:
         return HTMLResponse(f"""
