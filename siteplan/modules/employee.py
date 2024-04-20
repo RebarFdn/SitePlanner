@@ -223,24 +223,82 @@ class Employee:
             <!-- This is the modal -->
                         <div id="new-worker" uk-modal>
                             <div class="uk-modal-dialog uk-modal-body">
-                                <h2 class="uk-modal-title">Headline</h2>
-                                <form>
+                                <h2 class="uk-modal-title">New Employee Registration </h2>
 
-                                    <div class="uk-margin">
-                                        <input class="uk-input uk-form-width-large" type="text" placeholder="Large" aria-label="Large">
+                                <form class="uk-form-stacked uk-grid-small uk-margin-top" uk-grid>
+
+                                    <div class="uk-width-1-2">
+                                     <label class="uk-form-label">Employee's Full Name</label>
+                                        <input class="uk-input uk-form-width-large" type="text" name="name" placeholder="John Brown" aria-label="Large">
+                                    </div>
+                                   
+                                    <div class="uk-width-1-2@s">
+                                    <label class="uk-form-label">Employee's Alias </label>
+                                        <input class="uk-input uk-form-width-medium" type="text" name="oc" placeholder="A.K.A" aria-label="Medium">
+                                    </div>
+                                   
+                                    <div class="uk-width-1-4@s">
+                                      <label class="uk-form-label">Sex </label>
+                                        <select class="uk-select" name="sex" aria-label="Select">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Machine</option>
+                                        </select>
                                     </div>
 
-                                    <div class="uk-margin">
-                                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Medium" aria-label="Medium">
+                                    
+
+                                    <div class="uk-width-1-4@s">
+                                      <label class="uk-form-label">Date Of Birth</label>
+                                        <input class="uk-input uk-form-width-small" type="date" name="dob">
                                     </div>
 
-                                    <div class="uk-margin">
-                                        <input class="uk-input uk-form-width-small" type="text" placeholder="Small" aria-label="Small">
+                                    <div class="uk-width-1-4@s">
+                                      <label class="uk-form-label">Height in cm</label>
+                                        <input class="uk-input uk-form-width-small" type="number" name="height" placeholder="102 cm" >
                                     </div>
 
-                                    <div class="uk-margin">
-                                        <input class="uk-input uk-form-width-xsmall" type="text" placeholder="X-Small" aria-label="X-Small">
+
+                                    <div class="uk-width-1-3@s">
+                                      <label class="uk-form-label">Identity</label>
+                                        <input class="uk-input uk-form-width-small" type="text" name="identity">
                                     </div>
+
+                                    <div class="uk-width-1-3@s">
+                                      <label class="uk-form-label">Id Type</label>
+                                        <select class="uk-select" name="id_type" aria-label="Select">
+                                            <option>Passport</option>
+                                            <option>Drivers License</option>
+                                            <option>National</option>
+                                        </select>
+                                    </div>
+
+                                     <div class="uk-width-1-3@s">
+                                      <label class="uk-form-label">TRN</label>
+                                        <input class="uk-input uk-form-width-small" type="text" name="trn">
+                                    </div>
+
+                                    <ul uk-accordion>
+                                        <li class="uk-open">
+                                            <a class="uk-accordion-title" href>Item 1</a>
+                                            <div class="uk-accordion-content">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href>Item 2</a>
+                                            <div class="uk-accordion-content">
+                                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href>Item 3</a>
+                                            <div class="uk-accordion-content">
+                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
 
                                 </form>
 

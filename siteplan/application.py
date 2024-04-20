@@ -1,14 +1,17 @@
 from starlette.applications import Starlette
-from starlette.routing import Route, Mount
+from starlette.routing import Route, Mount, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
+from starlette.endpoints import WebSocketEndpoint, HTTPEndpoint
 from starlette.responses import JSONResponse, HTMLResponse, StreamingResponse, RedirectResponse
 from starlette.background import BackgroundTasks
 from starlette.websockets import WebSocket
 from starlette_htmx.middleware import HtmxMiddleware, HtmxDetails
+from starlette.websockets import WebSocket
+
 import asyncio
-from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES)
+from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
 from modules.zen import zen_now
 
 from routes.auth_router import router as auth_routes, loadusers
@@ -69,20 +72,41 @@ async def uikit(request):
 
 
 async def zenNow(request):
-  return HTMLResponse(f"""
-        
-            <p class="text-xs font-bold bg-gray-100 py-2 px-4 rounded w-96">{zen_now()}</P> 
-        
+    return HTMLResponse(f"""        
+        <p class="text-xs font-bold bg-gray-100 py-2 px-4 rounded w-96">{zen_now()}</P> 
+
         """)
+
+async def get_logs(request):
+    context = {"title": "FastAPI Streaming Log Viewer over WebSockets", "log_file": SERVER_LOG_PATH,}
+    return TEMPLATES.TemplateResponse("logs.html", {"request": request, "context": context})       
+
+
+
+async def log_reader(n=5):
+    log_lines = []
+    with open(SERVER_LOG_PATH, "r") as file:
+        for line in file.readlines()[-n:]:
+            if line.__contains__("ERROR"):
+                log_lines.append(f'<span class="text-red-400">{line}</span><br/>')
+            elif line.__contains__("WARNING"):
+                log_lines.append(f'<span class="text-orange-300">{line}</span><br/>')
+            else:
+                log_lines.append(f'<span class="text-sm text-gray-600">{line}</span><br/>')
+        return log_lines
+    
+  
+
     
 routes =[
     Route('/', endpoint=home), 
     Route('/uikit', endpoint=uikit), 
     Route('/dash', endpoint=dashboard),    
     Route('/loading', endpoint=loading),  
-    Route('/users', endpoint=users),  
+    Route('/users', endpoint=users), 
+    Route('/logs', endpoint=get_logs),  
     Route('/user/{name}', endpoint=get_user),  
-    Route('/zen', endpoint=zenNow),  
+    Route('/zen', endpoint=zenNow),   
     Mount('/static', StaticFiles(directory='static'))
 ]
 
@@ -124,6 +148,20 @@ app.add_middleware(
     ],
     max_age=3600,
 )
+
+@app.websocket_route('/ws')
+async def websocket_endpoint(websocket):
+    await websocket.accept()
+    await websocket.send_text(f"""<p class="text-xl font-bold">Loading System Logs ...</p>""")
+    try:
+        while True:
+            await asyncio.sleep(1)
+            logs = await log_reader(360)
+            await websocket.send_text(logs)
+    except Exception as e:
+            print(e)
+    finally:
+        await websocket.close()
 
 
 def run_http():
