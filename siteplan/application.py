@@ -19,6 +19,7 @@ from routes.project_router import router as p_router
 from routes.team_router import router as team_router
 from routes.base_router import router as base_router
 from modules.supplier import supplier_router 
+from routes.estimator_router import router as estimate_router
 
 
 
@@ -82,7 +83,6 @@ async def get_logs(request):
     return TEMPLATES.TemplateResponse("logs.html", {"request": request, "context": context})       
 
 
-
 async def log_reader(n=5):
     log_lines = []
     with open(SERVER_LOG_PATH, "r") as file:
@@ -106,7 +106,8 @@ routes =[
     Route('/users', endpoint=users), 
     Route('/logs', endpoint=get_logs),  
     Route('/user/{name}', endpoint=get_user),  
-    Route('/zen', endpoint=zenNow),   
+    Route('/zen', endpoint=zenNow),  
+
     Mount('/static', StaticFiles(directory='static'))
 ]
 
@@ -115,6 +116,7 @@ routes.extend([route for route in p_router])
 routes.extend([route for route in team_router])
 routes.extend([route for route in base_router])
 routes.extend([route for route in supplier_router])
+routes.extend([route for route in estimate_router])
 
 
 def startApp():
@@ -152,12 +154,12 @@ app.add_middleware(
 @app.websocket_route('/ws')
 async def websocket_endpoint(websocket):
     await websocket.accept()
-    await websocket.send_text(f"""<p class="text-xl font-bold">Loading System Logs ...</p>""")
+    
     try:
         while True:
             await asyncio.sleep(1)
-            logs = await log_reader(360)
-            await websocket.send_text(logs)
+            await websocket.send_text(f"""<form ><input type="text" placeholder="Wall Length" name="length">
+                                      </form>""")
     except Exception as e:
             print(e)
     finally:
