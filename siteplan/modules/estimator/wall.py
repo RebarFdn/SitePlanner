@@ -12,6 +12,13 @@ class Wall:
            
         else:
             logging.info("Empty Wall Object Initializd")
+
+        if self.data.get('type') == 'cmu':
+            self.block = {
+                "length": {"unit": 'mm', "value": 400},
+                "depth": {"unit": 'mm', "value": 200}
+            }
+            self.block['area'] = self.block.get('length') * self.block.get('depth')
     
     def set_unit_system(self, unit): 
         ''' Establish or convert the system of measurement units'''       
@@ -41,14 +48,14 @@ class Wall:
                 self.rebar.vb_spacing = round(self.rebar.vb_spacing / factor,2)
                 self.rebar.hb_spacing = round(self.rebar.hb_spacing / factor,2)
                 self.rebar.vb_height = round(self.rebar.vb_height / factor,2)
-                self.rebar.hb_length = round(srebar.hb_length / factor,2)                
+                self.rebar.hb_length = round(self.rebar.hb_length / factor,2)                
             elif unit == "m" and self.rebar.unit== 'ft':
                 factor = 0.3048
                 self.rebar.unit = "m"
                 self.rebar.vb_spacing = round(self.rebar.vb_spacing * factor,2)
                 self.rebar.hb_spacing = round(self.rebar.hb_spacing * factor,2)
                 self.rebar.vb_height = round(self.rebar.vb_height * factor,2)
-                self.rebar.hb_length = round(srebar.hb_length * factor,2)                
+                self.rebar.hb_length = round(self.rebar.hb_length * factor,2)                
                 self.rebar.vb = await lib.convert_bar(self.rebar.vb)
                 self.rebar.hb = await lib.convert_bar(self.rebar.hb)
             elif unit == "ft" and self.rebar.unit== 'mm':
@@ -57,7 +64,7 @@ class Wall:
                 self.rebar.vb_spacing = round(self.rebar.vb_spacing / factor,2)
                 self.rebar.hb_spacing = round(self.rebar.hb_spacing / factor,2)
                 self.rebar.vb_height = round(self.rebar.vb_height / factor,2)
-                self.rebar.hb_length = round(srebar.hb_length / factor,2)
+                self.rebar.hb_length = round(self.rebar.hb_length / factor,2)
                 self.rebar.vb = await lib.convert_bar(self.rebar.vb)
                 self.rebar.hb = await lib.convert_bar(self.rebar.hb) 
             elif unit == "ft" and self.rebar.unit== 'm':
@@ -66,7 +73,7 @@ class Wall:
                 self.rebar.vb_spacing = round(self.rebar.vb_spacing * factor,2)
                 self.rebar.hb_spacing = round(self.rebar.hb_spacing * factor,2)
                 self.rebar.vb_height = round(self.rebar.vb_height * factor,2)
-                self.rebar.hb_length = round(srebar.hb_length * factor,2)                
+                self.rebar.hb_length = round(self.rebar.hb_length * factor,2)                
                 self.rebar.vb = await lib.convert_bar(self.rebar.vb)
                 self.rebar.hb = await lib.convert_bar(self.rebar.hb)
         except Exception as e:
@@ -98,7 +105,8 @@ class Wall:
         return round(self.data.height * self.data.length, 2)
     
     @property
-    async def process_materials(self):        
+    async def process_materials(self):   
+            
         self.blocks = {
             "amount": {
                 "value": int(self.area / self.block.get('area').get('value')),
