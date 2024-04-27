@@ -278,21 +278,79 @@ class Employee:
                                         <input class="uk-input uk-form-width-small" type="text" name="trn">
                                     </div>
 
-                                    <ul uk-accordion>
-                                        <li class="uk-open">
-                                            <a class="uk-accordion-title" href>Item 1</a>
+                                      <div class="uk-width-1-2">
+                                     <label class="uk-form-label">Occupation</label>
+                                        <input class="uk-input uk-form-width-large" type="text" name="occupation" placeholder="Occupation" aria-label="Large">
+                                    </div>
+                                   
+                                    <div class="uk-width-1-2@s">
+                                    <label class="uk-form-label">Rating</label>
+                                        <input class="uk-input uk-form-width-medium" type="text" name="rating" placeholder="Rating" aria-label="Medium">
+                                    </div>
+                                    <div class="accordion-group accordion-group-bordered">
+                                        <div class="accordion" tabindex="0">
+                                            <label class="accordion-title">Toggle Accordion 1</label>
+                                            <div class="accordion-content">
+                                                <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion" tabindex="0">
+                                            <label class="accordion-title">Toggle Accordion 2</label>
+                                            <div class="accordion-content">
+                                                <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod iure quod iure quibusdam corrupti eos quos quod iure quibusdam</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul uk-accordion="multiple: true">
+                                        <li >
+                                            <a class="uk-accordion-title" href>Contact</a>
                                             <div class="uk-accordion-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                               <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Tel</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="tel" placeholder="876-123-4567" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Mobile</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="mobile" placeholder="Mobile" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                    <label class="uk-form-label">Email</label>
+                                                        <input class="uk-input uk-form-width-medium" type="text" name="email" placeholder="email" aria-label="Medium">
+                                                    </div>
+                                     
+                                       </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href>Address</a>
+                                            <div class="uk-accordion-content">
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Lot</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="lot" placeholder="Lot" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Street</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="street" placeholder="Street" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Town</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="town" placeholder="Town" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">City/Parish</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="city_parish" placeholder="City or Parish" aria-label="Medium">
+                                                </div>
+                                     
+                                       </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href>Banking Information</a>
+                                            <div class="uk-accordion-content">
+                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
                                             </div>
                                         </li>
                                         <li>
-                                            <a class="uk-accordion-title" href>Item 2</a>
-                                            <div class="uk-accordion-content">
-                                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a class="uk-accordion-title" href>Item 3</a>
+                                            <a class="uk-accordion-title" href>Next Of Kin</a>
                                             <div class="uk-accordion-content">
                                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
                                             </div>

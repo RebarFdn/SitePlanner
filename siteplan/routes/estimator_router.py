@@ -18,7 +18,7 @@ async def get_estimates(request):
 
 @router.get('/wall')
 async def get_wall(request):
-    return HTMLResponse(f"""<div class="text-3xl font-semibold">Wall Estimator</div>
+    return HTMLResponse(f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Wall Estimator</div>
                         <section class="bg-gray-2 rounded-xl">
                             <div class="p-8 shadow-lg">
                                 <form 
@@ -70,12 +70,14 @@ async def get_wall(request):
                                 </div>
                             <div>
                                     
-                                    <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
+                                  
    
-                                        <div>
-                                            <div class="uk-tile uk-tile-primary">
-                                                <p class="text-3xl font-semibold">Vertical Bars </p>
-                                                    <div>
+                                        
+                        
+                                            <div class="card">
+                                            <div class="card-body">
+                                                <h2 class="card-header">Vertical Bars </h2>
+                                                <div>
                                                     <label class="sr-only" for="v-bartype">Vertical Bar Type</label>
                                                     <input class="input input-solid max-w-full" placeholder="Bar Type" type="text" id="vbartype" name="vbar_type" />
                                                 </div>
@@ -83,22 +85,31 @@ async def get_wall(request):
                                                         <label class="sr-only" for="v-barspacing">Spacing</label>
                                                         <input class="input input-solid" placeholder="Bar Spacing" type="number" step="0.1" id="vbar_spacing" name="vbar_spacing" />
                                                 </div>
+		
                                             </div>
                                         </div>
-                                        <div>
-                                            <div class="uk-tile uk-tile-secondary">
-                                                <p class="text-3xl font-semibold">Horizontal Bars </p>
-                                    <div>
-                                        <label class="sr-only" for="h-bartype">Horizontal Bar Type</label>
-                                        <input class="input input-solid max-w-full" placeholder="Bar Type" type="text" id="hbartype" name="hbar_type" />
-                                    </div>
-                                    <div>
-                                            <label class="sr-only" for="h-barspacing">Spacing</label>
-                                            <input class="input input-solid" placeholder="Bar Spacing" type="number" step="0.1" id="hbar_spacing" name="hbar_spacing" />
-                                    </div>
+
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h2 class="card-header">Horizontal Bars </h2>
+                                                <div>
+                                                    <label class="sr-only" for="h-bartype">Horizontal Bar Type</label>
+                                                    <input class="input input-solid max-w-full" placeholder="Bar Type" type="text" id="hbartype" name="hbar_type" />
+                                                </div>
+                                                <div>
+                                                        <label class="sr-only" for="h-barspacing">Spacing</label>
+                                                        <input class="input input-solid" placeholder="Bar Spacing" type="number" step="0.1" id="hbar_spacing" name="hbar_spacing" />
+                                                </div>
+		
                                             </div>
                                         </div>
-                                    </div>
+                        
+                        
+
+
+                        
+
+                                        
                                     
                         </div>
                             <div>Bazinga!</div>
@@ -149,7 +160,7 @@ async def process_wall(request):
     
 @router.get('/column')
 async def get_column(request):
-    return HTMLResponse(f"""<div class="text-3xl font-semibold">Column Estimator</div>
+    return HTMLResponse(f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Column Estimator</div>
                         <section class="bg-gray-2 rounded-xl">
                             <div class="p-8 shadow-lg">
                                 <form 
@@ -210,7 +221,7 @@ async def get_column(request):
     
 @router.get('/beam')
 async def get_beam(request):
-    return HTMLResponse(f"""<div class="text-3xl font-semibold">Beam Estimator</div>
+    return HTMLResponse(f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Beam Estimator</div>
                         <section class="bg-gray-2 rounded-xl">
                         <ul class="uk-subnav uk-subnav-pill" uk-switcher>
                             <li><a href="#">Data</a></li>
@@ -219,17 +230,17 @@ async def get_beam(request):
                         </ul>
 
                         <div class="uk-switcher uk-margin">
-                            <div class="p-8 shadow-lg">
+                            <div class="p-5 shadow-lg">
                                 <form 
-                                    class="space-y-4" 
+                                    class="space-y-4 uk-form-stacked" 
                                    
                                 >
                                     <div class="w-full">
-                                        <label class="sr-only" for="tag">Tag</label>
+                                        <label class="sr-only uk-form-label" for="tag">Tag</label>
                                         <input class="input input-solid max-w-full" placeholder="Beam Tag" type="text" id="tag" name="tag" />
                                     </div>
                                     <div class="w-full">
-                                        <label class="sr-only" for="type">Type</label>
+                                        <label class="sr-only uk-form-label" for="type">Type</label>
                                         <input class="input input-solid max-w-full" placeholder="Beam  Type" type="text" id="type" name="type" />
                                     </div>
 
@@ -270,7 +281,38 @@ async def get_beam(request):
                                     </div>
                                 </form>
                             </div>
-                            <div>Hello again!</div>
+                            <div>
+                        
+                        <form class="uk-form-stacked">
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Text</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Some text...">
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-select">Select</label>
+        <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select">
+                <option>Option 01</option>
+                <option>Option 02</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <div class="uk-form-label">Radio</div>
+        <div class="uk-form-controls">
+            <label><input class="uk-radio" type="radio" name="radio1"> Option 01</label><br>
+            <label><input class="uk-radio" type="radio" name="radio1"> Option 02</label>
+        </div>
+    </div>
+
+</form>
+                        
+                        </div>
                             
                         </div>
                             

@@ -150,6 +150,7 @@ app.add_middleware(
     ],
     max_age=3600,
 )
+app.state.ADMIN_EMAIL = 'admin@example.org'
 
 @app.websocket_route('/ws')
 async def websocket_endpoint(websocket):

@@ -1,0 +1,1706 @@
+04/23/2024 10:49:52 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+04/23/2024 10:49:52 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/23/2024 10:49:52 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/23/2024 10:49:52 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x702773ebfaf0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x702773ebfaf0>
+04/23/2024 10:49:52 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+04/23/2024 10:49:52 PM DEBUG:send_request_headers.complete
+send_request_headers.complete
+04/23/2024 10:49:52 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+04/23/2024 10:49:52 PM DEBUG:send_request_body.complete
+send_request_body.complete
+04/23/2024 10:49:52 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+04/23/2024 10:49:52 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Wed, 24 Apr 2024 03:49:51 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'd073f04414'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Wed, 24 Apr 2024 03:49:51 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'd073f04414'), (b'X-CouchDB-Body-Time', b'0')])
+04/23/2024 10:49:52 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+04/23/2024 10:49:52 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+04/23/2024 10:49:52 PM DEBUG:receive_response_body.complete
+receive_response_body.complete
+04/23/2024 10:49:52 PM DEBUG:response_closed.started
+response_closed.started
+04/23/2024 10:49:52 PM DEBUG:response_closed.complete
+response_closed.complete
+04/23/2024 10:49:52 PM DEBUG:close.started
+close.started
+04/23/2024 10:49:52 PM DEBUG:close.complete
+close.complete
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_name with data[9:15]
+Calling on_field_name with data[9:15]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_data with data[16:20]
+Calling on_field_data with data[16:20]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_name with data[21:27]
+Calling on_field_name with data[21:27]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_data with data[28:32]
+Calling on_field_data with data[28:32]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_name with data[33:40]
+Calling on_field_name with data[33:40]
+04/24/2024 07:16:14 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:16:14 AM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_data with data[14:16]
+Calling on_field_data with data[14:16]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_name with data[17:23]
+Calling on_field_name with data[17:23]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_data with data[24:28]
+Calling on_field_data with data[24:28]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_name with data[29:35]
+Calling on_field_name with data[29:35]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_data with data[36:40]
+Calling on_field_data with data[36:40]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_name with data[41:48]
+Calling on_field_name with data[41:48]
+04/24/2024 07:21:42 AM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 07:21:42 AM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 07:21:42 AM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:41:59 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:41:59 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:41:59 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:44:10 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:44:10 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:44:10 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:46:55 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:46:55 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:46:55 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:48:51 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:48:51 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:54:06 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:54:06 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:55:30 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:55:30 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:55:30 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 01:59:48 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 01:59:48 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 01:59:48 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 02:04:36 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:04:36 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:04:36 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[50:53]
+Calling on_field_data with data[50:53]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[54:60]
+Calling on_field_name with data[54:60]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_data with data[61:65]
+Calling on_field_data with data[61:65]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_name with data[66:73]
+Calling on_field_name with data[66:73]
+04/24/2024 02:07:47 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:07:47 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:07:47 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 02:09:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:09:26 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:09:26 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 02:10:13 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:10:13 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:10:13 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 02:20:25 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:25 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:20:25 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[14:20]
+Calling on_field_data with data[14:20]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[21:25]
+Calling on_field_name with data[21:25]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[26:28]
+Calling on_field_data with data[26:28]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[29:38]
+Calling on_field_name with data[29:38]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[39:42]
+Calling on_field_data with data[39:42]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[43:49]
+Calling on_field_name with data[43:49]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[50:54]
+Calling on_field_data with data[50:54]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[55:61]
+Calling on_field_name with data[55:61]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_data with data[62:66]
+Calling on_field_data with data[62:66]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_name with data[67:74]
+Calling on_field_name with data[67:74]
+04/24/2024 02:20:26 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:20:26 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:20:26 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[14:21]
+Calling on_field_data with data[14:21]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[22:26]
+Calling on_field_name with data[22:26]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[27:29]
+Calling on_field_data with data[27:29]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[30:39]
+Calling on_field_name with data[30:39]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[40:43]
+Calling on_field_data with data[40:43]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[44:50]
+Calling on_field_name with data[44:50]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[51:55]
+Calling on_field_data with data[51:55]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[56:62]
+Calling on_field_name with data[56:62]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_data with data[63:67]
+Calling on_field_data with data[63:67]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_name with data[68:75]
+Calling on_field_name with data[68:75]
+04/24/2024 02:28:27 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:28:27 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:28:27 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[14:21]
+Calling on_field_data with data[14:21]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[22:26]
+Calling on_field_name with data[22:26]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[27:29]
+Calling on_field_data with data[27:29]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[30:39]
+Calling on_field_name with data[30:39]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[40:43]
+Calling on_field_data with data[40:43]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[44:50]
+Calling on_field_name with data[44:50]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[51:55]
+Calling on_field_data with data[51:55]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[56:62]
+Calling on_field_name with data[56:62]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_data with data[63:67]
+Calling on_field_data with data[63:67]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_name with data[68:75]
+Calling on_field_name with data[68:75]
+04/24/2024 02:30:07 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:07 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:30:07 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[14:21]
+Calling on_field_data with data[14:21]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[22:26]
+Calling on_field_name with data[22:26]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[27:29]
+Calling on_field_data with data[27:29]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[30:39]
+Calling on_field_name with data[30:39]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[40:43]
+Calling on_field_data with data[40:43]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[44:50]
+Calling on_field_name with data[44:50]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[51:55]
+Calling on_field_data with data[51:55]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[56:62]
+Calling on_field_name with data[56:62]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_data with data[63:67]
+Calling on_field_data with data[63:67]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_name with data[68:75]
+Calling on_field_name with data[68:75]
+04/24/2024 02:30:09 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:09 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:30:09 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[14:21]
+Calling on_field_data with data[14:21]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[22:26]
+Calling on_field_name with data[22:26]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[27:29]
+Calling on_field_data with data[27:29]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[30:39]
+Calling on_field_name with data[30:39]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[40:43]
+Calling on_field_data with data[40:43]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[44:50]
+Calling on_field_name with data[44:50]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[51:55]
+Calling on_field_data with data[51:55]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[56:62]
+Calling on_field_name with data[56:62]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_data with data[63:67]
+Calling on_field_data with data[63:67]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_name with data[68:75]
+Calling on_field_name with data[68:75]
+04/24/2024 02:30:23 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:30:23 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:30:23 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[14:17]
+Calling on_field_data with data[14:17]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[18:22]
+Calling on_field_name with data[18:22]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[23:25]
+Calling on_field_data with data[23:25]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[26:35]
+Calling on_field_name with data[26:35]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[36:39]
+Calling on_field_data with data[36:39]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[40:46]
+Calling on_field_name with data[40:46]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[47:51]
+Calling on_field_data with data[47:51]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[52:58]
+Calling on_field_name with data[52:58]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_data with data[59:63]
+Calling on_field_data with data[59:63]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_name with data[64:71]
+Calling on_field_name with data[64:71]
+04/24/2024 02:31:31 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:31:31 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:31:31 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[14:17]
+Calling on_field_data with data[14:17]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[18:22]
+Calling on_field_name with data[18:22]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[23:25]
+Calling on_field_data with data[23:25]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[26:35]
+Calling on_field_name with data[26:35]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[36:39]
+Calling on_field_data with data[36:39]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[40:46]
+Calling on_field_name with data[40:46]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[47:51]
+Calling on_field_data with data[47:51]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[52:58]
+Calling on_field_name with data[52:58]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_data with data[59:63]
+Calling on_field_data with data[59:63]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_name with data[64:71]
+Calling on_field_name with data[64:71]
+04/24/2024 02:32:18 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:32:18 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:32:18 PM INFO:System units converted to mm.
+System units converted to mm.
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[0:3]
+Calling on_field_name with data[0:3]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[4:8]
+Calling on_field_data with data[4:8]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[9:13]
+Calling on_field_name with data[9:13]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[14:17]
+Calling on_field_data with data[14:17]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[18:22]
+Calling on_field_name with data[18:22]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[23:25]
+Calling on_field_data with data[23:25]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[26:35]
+Calling on_field_name with data[26:35]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[36:39]
+Calling on_field_data with data[36:39]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[40:46]
+Calling on_field_name with data[40:46]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[47:51]
+Calling on_field_data with data[47:51]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[52:58]
+Calling on_field_name with data[52:58]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_data with data[59:63]
+Calling on_field_data with data[59:63]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_start with no data
+Calling on_field_start with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_name with data[64:71]
+Calling on_field_name with data[64:71]
+04/24/2024 02:38:21 PM DEBUG:Calling on_field_end with no data
+Calling on_field_end with no data
+04/24/2024 02:38:21 PM DEBUG:Calling on_end with no data
+Calling on_end with no data
+04/24/2024 02:38:21 PM INFO:System units converted to mm.
+System units converted to mm.
+04/25/2024 09:55:59 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:55:59 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:55:59 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:55:59 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fca03df0>
+04/25/2024 09:55:59 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:55:59 PM DEBUG:send_request_headers.complete
+04/25/2024 09:55:59 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:55:59 PM DEBUG:send_request_body.complete
+04/25/2024 09:55:59 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:55:59 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:55:58 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'7a8a2a17a2'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:55:59 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:55:59 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:55:59 PM DEBUG:receive_response_body.complete
+04/25/2024 09:55:59 PM DEBUG:response_closed.started
+04/25/2024 09:55:59 PM DEBUG:response_closed.complete
+04/25/2024 09:55:59 PM DEBUG:close.started
+04/25/2024 09:55:59 PM DEBUG:close.complete
+04/25/2024 09:56:10 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:10 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:10 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:10 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4fead0>
+04/25/2024 09:56:10 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:10 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:10 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:10 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:10 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:10 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'637'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:09 GMT'), (b'ETag', b'"1-40c8579b38da109a096aa619b77be8fe"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'df216b9972'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:10 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/CT8166 "HTTP/1.1 200 OK"
+04/25/2024 09:56:10 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:10 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:10 PM DEBUG:response_closed.started
+04/25/2024 09:56:10 PM DEBUG:response_closed.complete
+04/25/2024 09:56:10 PM DEBUG:close.started
+04/25/2024 09:56:10 PM DEBUG:close.complete
+04/25/2024 09:56:17 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:17 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:17 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:17 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc50df60>
+04/25/2024 09:56:17 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:17 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:17 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:17 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:17 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:17 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:16 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'42f5c5b968'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:17 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:17 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:17 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:17 PM DEBUG:response_closed.started
+04/25/2024 09:56:17 PM DEBUG:response_closed.complete
+04/25/2024 09:56:17 PM DEBUG:close.started
+04/25/2024 09:56:17 PM DEBUG:close.complete
+04/25/2024 09:56:34 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:34 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:34 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:34 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4ff520>
+04/25/2024 09:56:34 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:34 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:34 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:34 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:34 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:34 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:33 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'8611610ebe'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:34 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:34 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:34 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:34 PM DEBUG:response_closed.started
+04/25/2024 09:56:34 PM DEBUG:response_closed.complete
+04/25/2024 09:56:34 PM DEBUG:close.started
+04/25/2024 09:56:34 PM DEBUG:close.complete
+04/25/2024 09:56:40 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:40 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:40 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:40 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc50d2a0>
+04/25/2024 09:56:40 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:40 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:40 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:40 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:40 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:40 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:39 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'9082191856'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:40 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:40 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:40 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:40 PM DEBUG:response_closed.started
+04/25/2024 09:56:40 PM DEBUG:response_closed.complete
+04/25/2024 09:56:40 PM DEBUG:close.started
+04/25/2024 09:56:40 PM DEBUG:close.complete
+04/25/2024 09:56:48 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:48 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:48 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:48 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc50c250>
+04/25/2024 09:56:48 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:48 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:48 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:48 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:48 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:48 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:47 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'744dd45d12'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:48 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:48 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:48 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:48 PM DEBUG:response_closed.started
+04/25/2024 09:56:48 PM DEBUG:response_closed.complete
+04/25/2024 09:56:48 PM DEBUG:close.started
+04/25/2024 09:56:48 PM DEBUG:close.complete
+04/25/2024 09:56:53 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:53 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:53 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:53 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc50f310>
+04/25/2024 09:56:53 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:53 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:53 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:53 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:53 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:53 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:52 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'cd09baee66'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:53 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:53 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:53 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:53 PM DEBUG:response_closed.started
+04/25/2024 09:56:53 PM DEBUG:response_closed.complete
+04/25/2024 09:56:53 PM DEBUG:close.started
+04/25/2024 09:56:53 PM DEBUG:close.complete
+04/25/2024 09:56:56 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:56 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:56 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:56 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4cfd30>
+04/25/2024 09:56:56 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:56 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:56 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:56 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:56 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:56 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:55 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'8efa01fe1d'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:56 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:56 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:56 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:56 PM DEBUG:response_closed.started
+04/25/2024 09:56:56 PM DEBUG:response_closed.complete
+04/25/2024 09:56:56 PM DEBUG:close.started
+04/25/2024 09:56:56 PM DEBUG:close.complete
+04/25/2024 09:56:59 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:56:59 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:56:59 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:56:59 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4cdde0>
+04/25/2024 09:56:59 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:59 PM DEBUG:send_request_headers.complete
+04/25/2024 09:56:59 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:56:59 PM DEBUG:send_request_body.complete
+04/25/2024 09:56:59 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:56:59 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:56:59 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'a17279b0c1'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:56:59 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:56:59 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:56:59 PM DEBUG:receive_response_body.complete
+04/25/2024 09:56:59 PM DEBUG:response_closed.started
+04/25/2024 09:56:59 PM DEBUG:response_closed.complete
+04/25/2024 09:56:59 PM DEBUG:close.started
+04/25/2024 09:56:59 PM DEBUG:close.complete
+04/25/2024 09:57:04 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 09:57:04 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 09:57:04 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 09:57:04 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa376320>
+04/25/2024 09:57:04 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 09:57:04 PM DEBUG:send_request_headers.complete
+04/25/2024 09:57:04 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 09:57:04 PM DEBUG:send_request_body.complete
+04/25/2024 09:57:04 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 09:57:04 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 02:57:03 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'186c947f89'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 09:57:04 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 09:57:04 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 09:57:04 PM DEBUG:receive_response_body.complete
+04/25/2024 09:57:04 PM DEBUG:response_closed.started
+04/25/2024 09:57:04 PM DEBUG:response_closed.complete
+04/25/2024 09:57:04 PM DEBUG:close.started
+04/25/2024 09:57:04 PM DEBUG:close.complete
+04/25/2024 10:10:41 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:10:41 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:10:41 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:10:41 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc488040>
+04/25/2024 10:10:41 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:10:41 PM DEBUG:send_request_headers.complete
+04/25/2024 10:10:41 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:10:41 PM DEBUG:send_request_body.complete
+04/25/2024 10:10:41 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:10:41 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:10:40 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'9b26c0cde7'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:10:41 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 10:10:41 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:10:41 PM DEBUG:receive_response_body.complete
+04/25/2024 10:10:41 PM DEBUG:response_closed.started
+04/25/2024 10:10:41 PM DEBUG:response_closed.complete
+04/25/2024 10:10:41 PM DEBUG:close.started
+04/25/2024 10:10:41 PM DEBUG:close.complete
+04/25/2024 10:10:49 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:10:49 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:10:49 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:10:49 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa376a70>
+04/25/2024 10:10:49 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:10:49 PM DEBUG:send_request_headers.complete
+04/25/2024 10:10:49 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:10:49 PM DEBUG:send_request_body.complete
+04/25/2024 10:10:49 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:10:49 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:10:48 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'635e54ed7d'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:10:49 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+04/25/2024 10:10:49 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:10:49 PM DEBUG:receive_response_body.complete
+04/25/2024 10:10:49 PM DEBUG:response_closed.started
+04/25/2024 10:10:49 PM DEBUG:response_closed.complete
+04/25/2024 10:10:49 PM DEBUG:close.started
+04/25/2024 10:10:49 PM DEBUG:close.complete
+04/25/2024 10:11:02 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:11:02 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:11:02 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:11:02 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa377f70>
+04/25/2024 10:11:02 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:11:02 PM DEBUG:send_request_headers.complete
+04/25/2024 10:11:02 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:11:02 PM DEBUG:send_request_body.complete
+04/25/2024 10:11:02 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:11:02 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:11:02 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'3b18dfcf1e'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:11:02 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+04/25/2024 10:11:02 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:11:02 PM DEBUG:receive_response_body.complete
+04/25/2024 10:11:02 PM DEBUG:response_closed.started
+04/25/2024 10:11:02 PM DEBUG:response_closed.complete
+04/25/2024 10:11:02 PM DEBUG:close.started
+04/25/2024 10:11:02 PM DEBUG:close.complete
+04/25/2024 10:11:11 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:11:11 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:11:11 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:11:11 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa375cf0>
+04/25/2024 10:11:11 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:11:11 PM DEBUG:send_request_headers.complete
+04/25/2024 10:11:12 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:11:12 PM DEBUG:send_request_body.complete
+04/25/2024 10:11:12 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:11:12 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:11:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'6fdee2907f'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:11:12 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-workers/_design/workers/_view/name-index "HTTP/1.1 200 OK"
+04/25/2024 10:11:12 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:11:12 PM DEBUG:receive_response_body.complete
+04/25/2024 10:11:12 PM DEBUG:response_closed.started
+04/25/2024 10:11:12 PM DEBUG:response_closed.complete
+04/25/2024 10:11:12 PM DEBUG:close.started
+04/25/2024 10:11:12 PM DEBUG:close.complete
+04/25/2024 10:12:06 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:06 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:06 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:06 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc489c90>
+04/25/2024 10:12:06 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:06 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:06 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:06 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:06 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:06 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:05 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'df2292ef8f'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:06 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+04/25/2024 10:12:06 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:06 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:06 PM DEBUG:response_closed.started
+04/25/2024 10:12:06 PM DEBUG:response_closed.complete
+04/25/2024 10:12:06 PM DEBUG:close.started
+04/25/2024 10:12:06 PM DEBUG:close.complete
+04/25/2024 10:12:12 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:12 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:12 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:12 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa376290>
+04/25/2024 10:12:12 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:12 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:12 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:12 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:12 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:12 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'3fbb0ed147'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:12 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 10:12:12 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:12 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:12 PM DEBUG:response_closed.started
+04/25/2024 10:12:12 PM DEBUG:response_closed.complete
+04/25/2024 10:12:12 PM DEBUG:close.started
+04/25/2024 10:12:12 PM DEBUG:close.complete
+04/25/2024 10:12:19 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:19 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:19 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:19 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa375c30>
+04/25/2024 10:12:19 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:19 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:19 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:19 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:19 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:19 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:19 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'a968d8768d'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:19 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 10:12:19 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:19 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:20 PM DEBUG:response_closed.started
+04/25/2024 10:12:20 PM DEBUG:response_closed.complete
+04/25/2024 10:12:20 PM DEBUG:close.started
+04/25/2024 10:12:20 PM DEBUG:close.complete
+04/25/2024 10:12:31 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:31 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:31 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:31 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4fcb20>
+04/25/2024 10:12:31 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:31 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:31 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:31 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:31 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:31 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:30 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'3ebe223f0c'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:31 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/rate-sheet/_design/index/_view/document "HTTP/1.1 200 OK"
+04/25/2024 10:12:31 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:31 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:31 PM DEBUG:response_closed.started
+04/25/2024 10:12:31 PM DEBUG:response_closed.complete
+04/25/2024 10:12:31 PM DEBUG:close.started
+04/25/2024 10:12:31 PM DEBUG:close.complete
+04/25/2024 10:12:40 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:40 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:40 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:40 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4fca90>
+04/25/2024 10:12:40 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:40 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:40 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:40 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:40 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:40 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:40 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'9869090498'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:40 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/_design/suppliers/_view/name-index "HTTP/1.1 200 OK"
+04/25/2024 10:12:40 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:40 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:40 PM DEBUG:response_closed.started
+04/25/2024 10:12:40 PM DEBUG:response_closed.complete
+04/25/2024 10:12:40 PM DEBUG:close.started
+04/25/2024 10:12:40 PM DEBUG:close.complete
+04/25/2024 10:12:51 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:12:51 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:12:51 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:12:51 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc50dd20>
+04/25/2024 10:12:51 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:51 PM DEBUG:send_request_headers.complete
+04/25/2024 10:12:51 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:12:51 PM DEBUG:send_request_body.complete
+04/25/2024 10:12:51 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:12:51 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'684'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:12:50 GMT'), (b'ETag', b'"1-939995310a1bc899cd2b9aa9aabebf8c"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'3b375bc05f'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:12:51 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/000000666 "HTTP/1.1 200 OK"
+04/25/2024 10:12:51 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:12:51 PM DEBUG:receive_response_body.complete
+04/25/2024 10:12:51 PM DEBUG:response_closed.started
+04/25/2024 10:12:51 PM DEBUG:response_closed.complete
+04/25/2024 10:12:51 PM DEBUG:close.started
+04/25/2024 10:12:51 PM DEBUG:close.complete
+04/25/2024 10:13:04 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:13:04 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:13:04 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:13:04 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa3828f0>
+04/25/2024 10:13:04 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:04 PM DEBUG:send_request_headers.complete
+04/25/2024 10:13:04 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:13:04 PM DEBUG:send_request_body.complete
+04/25/2024 10:13:04 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:04 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:13:03 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'1ccfc4e4ab'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:13:04 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/_design/suppliers/_view/name-index "HTTP/1.1 200 OK"
+04/25/2024 10:13:04 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:13:04 PM DEBUG:receive_response_body.complete
+04/25/2024 10:13:04 PM DEBUG:response_closed.started
+04/25/2024 10:13:04 PM DEBUG:response_closed.complete
+04/25/2024 10:13:04 PM DEBUG:close.started
+04/25/2024 10:13:04 PM DEBUG:close.complete
+04/25/2024 10:13:14 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:13:14 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:13:14 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:13:14 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa3758d0>
+04/25/2024 10:13:14 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:14 PM DEBUG:send_request_headers.complete
+04/25/2024 10:13:14 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:13:14 PM DEBUG:send_request_body.complete
+04/25/2024 10:13:14 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:14 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:13:13 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'04748370a2'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:13:14 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/_design/suppliers/_view/name-index "HTTP/1.1 200 OK"
+04/25/2024 10:13:14 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:13:14 PM DEBUG:receive_response_body.complete
+04/25/2024 10:13:14 PM DEBUG:response_closed.started
+04/25/2024 10:13:14 PM DEBUG:response_closed.complete
+04/25/2024 10:13:14 PM DEBUG:close.started
+04/25/2024 10:13:14 PM DEBUG:close.complete
+04/25/2024 10:13:18 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:13:18 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:13:18 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:13:18 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4cf490>
+04/25/2024 10:13:18 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:18 PM DEBUG:send_request_headers.complete
+04/25/2024 10:13:18 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:13:18 PM DEBUG:send_request_body.complete
+04/25/2024 10:13:18 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:13:18 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'606'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:13:17 GMT'), (b'ETag', b'"2-83fae638e2ac07bd7ee9d1dc7085a0ff"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'193203778d'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:13:18 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/001992058 "HTTP/1.1 200 OK"
+04/25/2024 10:13:18 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:13:18 PM DEBUG:receive_response_body.complete
+04/25/2024 10:13:18 PM DEBUG:response_closed.started
+04/25/2024 10:13:18 PM DEBUG:response_closed.complete
+04/25/2024 10:13:18 PM DEBUG:close.started
+04/25/2024 10:13:18 PM DEBUG:close.complete
+04/25/2024 10:30:52 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/25/2024 10:30:52 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/25/2024 10:30:52 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/25/2024 10:30:52 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa376c50>
+04/25/2024 10:30:52 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/25/2024 10:30:52 PM DEBUG:send_request_headers.complete
+04/25/2024 10:30:52 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/25/2024 10:30:52 PM DEBUG:send_request_body.complete
+04/25/2024 10:30:52 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/25/2024 10:30:52 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 03:30:51 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'c336c5e486'), (b'X-CouchDB-Body-Time', b'0')])
+04/25/2024 10:30:52 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-suppliers/_design/suppliers/_view/name-index "HTTP/1.1 200 OK"
+04/25/2024 10:30:52 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/25/2024 10:30:52 PM DEBUG:receive_response_body.complete
+04/25/2024 10:30:52 PM DEBUG:response_closed.started
+04/25/2024 10:30:52 PM DEBUG:response_closed.complete
+04/25/2024 10:30:52 PM DEBUG:close.started
+04/25/2024 10:30:52 PM DEBUG:close.complete
+04/26/2024 06:07:54 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/26/2024 06:07:54 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/26/2024 06:07:54 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/26/2024 06:07:54 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fc4cfe20>
+04/26/2024 06:07:54 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/26/2024 06:07:54 AM DEBUG:send_request_headers.complete
+04/26/2024 06:07:54 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/26/2024 06:07:54 AM DEBUG:send_request_body.complete
+04/26/2024 06:07:54 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/26/2024 06:07:54 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 11:07:53 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'3616bc2b0b'), (b'X-CouchDB-Body-Time', b'0')])
+04/26/2024 06:07:54 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-workers/_design/workers/_view/name-index "HTTP/1.1 200 OK"
+04/26/2024 06:07:54 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/26/2024 06:07:54 AM DEBUG:receive_response_body.complete
+04/26/2024 06:07:54 AM DEBUG:response_closed.started
+04/26/2024 06:07:54 AM DEBUG:response_closed.complete
+04/26/2024 06:07:54 AM DEBUG:close.started
+04/26/2024 06:07:54 AM DEBUG:close.complete
+04/26/2024 06:09:00 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+04/26/2024 06:09:00 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+04/26/2024 06:09:00 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+04/26/2024 06:09:00 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7965fa376740>
+04/26/2024 06:09:00 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+04/26/2024 06:09:00 AM DEBUG:send_request_headers.complete
+04/26/2024 06:09:00 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+04/26/2024 06:09:00 AM DEBUG:send_request_body.complete
+04/26/2024 06:09:00 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+04/26/2024 06:09:00 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'1161'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 26 Apr 2024 11:08:59 GMT'), (b'ETag', b'"1-1ffeb94cb00c419b112a88563e0f218d"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'f5218f02a7'), (b'X-CouchDB-Body-Time', b'0')])
+04/26/2024 06:09:00 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-workers/AM0407 "HTTP/1.1 200 OK"
+04/26/2024 06:09:00 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+04/26/2024 06:09:00 AM DEBUG:receive_response_body.complete
+04/26/2024 06:09:00 AM DEBUG:response_closed.started
+04/26/2024 06:09:00 AM DEBUG:response_closed.complete
+04/26/2024 06:09:00 AM DEBUG:close.started
+04/26/2024 06:09:00 AM DEBUG:close.complete
