@@ -2373,6 +2373,15 @@ html:has(.modal-state:checked) {
   border-radius: .5rem;
 }
 
+.accordion-toggle {
+  display: none;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  z-index: -1;
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -3073,17 +3082,16 @@ html:has(.modal-state:checked) {
   margin-bottom: 1.25rem;
 }
 
-.mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-}
-
 .-mb-0 {
   margin-bottom: -0px;
 }
 
 .-mb-0\.5 {
   margin-bottom: -0.125rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .mb-20 {
@@ -3124,10 +3132,6 @@ html:has(.modal-state:checked) {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-1 {
-  margin-bottom: 0.25rem;
 }
 
 .block {
@@ -3613,11 +3617,6 @@ html:has(.modal-state:checked) {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.bg-gray-3 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--gray-3) / var(--tw-bg-opacity));
-}
-
 .p-1 {
   padding: 0.25rem;
 }
@@ -3735,11 +3734,6 @@ html:has(.modal-state:checked) {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-base {

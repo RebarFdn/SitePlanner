@@ -287,20 +287,25 @@ class Employee:
                                     <label class="uk-form-label">Rating</label>
                                         <input class="uk-input uk-form-width-medium" type="text" name="rating" placeholder="Rating" aria-label="Medium">
                                     </div>
+
+
                                     <div class="accordion-group accordion-group-bordered">
-                                        <div class="accordion" tabindex="0">
-                                            <label class="accordion-title">Toggle Accordion 1</label>
-                                            <div class="accordion-content">
+                                        <div class="accordion">
+                                            <input type="checkbox" id="toggle-7" class="accordion-toggle" />
+                                            <label for="toggle-7" class="accordion-title">Toggle Accordion 1</label>
+                                            <div class="accordion-content text-content2">
                                                 <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod</div>
                                             </div>
                                         </div>
-                                        <div class="accordion" tabindex="0">
-                                            <label class="accordion-title">Toggle Accordion 2</label>
+                                        <div class="accordion">
+                                            <input type="checkbox" id="toggle-8" class="accordion-toggle" />
+                                            <label for="toggle-8" class="accordion-title">Toggle Accordion 2</label>
                                             <div class="accordion-content">
                                                 <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod iure quod iure quibusdam corrupti eos quos quod iure quibusdam</div>
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <ul uk-accordion="multiple: true">
                                         <li >
