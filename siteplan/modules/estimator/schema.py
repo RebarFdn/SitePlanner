@@ -105,6 +105,7 @@ class ColumnSchema(Model):
     depth = FloatType()
     width = FloatType()
     height = FloatType()
+    amount = IntType()
     taken_at = DateTimeType(default=datetime.datetime.now) 
     notes = StringType()
     class Options:

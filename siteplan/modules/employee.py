@@ -236,7 +236,7 @@ class Employee:
                                     <label class="uk-form-label">Employee's Alias </label>
                                         <input class="uk-input uk-form-width-medium" type="text" name="oc" placeholder="A.K.A" aria-label="Medium">
                                     </div>
-                                   
+                                   <hr class="uk-divider-icon">
                                     <div class="uk-width-1-4@s">
                                       <label class="uk-form-label">Sex </label>
                                         <select class="uk-select" name="sex" aria-label="Select">
@@ -257,7 +257,7 @@ class Employee:
                                       <label class="uk-form-label">Height in cm</label>
                                         <input class="uk-input uk-form-width-small" type="number" name="height" placeholder="102 cm" >
                                     </div>
-
+                                   
 
                                     <div class="uk-width-1-3@s">
                                       <label class="uk-form-label">Identity</label>
@@ -277,6 +277,7 @@ class Employee:
                                       <label class="uk-form-label">TRN</label>
                                         <input class="uk-input uk-form-width-small" type="text" name="trn">
                                     </div>
+                                    
 
                                       <div class="uk-width-1-2">
                                      <label class="uk-form-label">Occupation</label>
@@ -292,26 +293,10 @@ class Employee:
                                     <div class="accordion-group accordion-group-bordered">
                                         <div class="accordion">
                                             <input type="checkbox" id="toggle-7" class="accordion-toggle" />
-                                            <label for="toggle-7" class="accordion-title">Toggle Accordion 1</label>
+                                            <label for="toggle-7" class="accordion-title">Contact</label>
                                             <div class="accordion-content text-content2">
-                                                <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion">
-                                            <input type="checkbox" id="toggle-8" class="accordion-toggle" />
-                                            <label for="toggle-8" class="accordion-title">Toggle Accordion 2</label>
-                                            <div class="accordion-content">
-                                                <div class="min-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus iusto laborum autem placeat aspernatur inventore eius deleniti reprehenderit? Numquam commodi totam mollitia quod iure quod iure quibusdam corrupti eos quos quod iure quibusdam</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <ul uk-accordion="multiple: true">
-                                        <li >
-                                            <a class="uk-accordion-title" href>Contact</a>
-                                            <div class="uk-accordion-content">
-                                               <div class="uk-width-1-2@s">
+                                                <div class="min-h-0">
+                                                <div class="uk-width-1-2@s">
                                                 <label class="uk-form-label">Tel</label>
                                                     <input class="uk-input uk-form-width-medium" type="text" name="tel" placeholder="876-123-4567" aria-label="Medium">
                                                 </div>
@@ -323,13 +308,16 @@ class Employee:
                                                     <label class="uk-form-label">Email</label>
                                                         <input class="uk-input uk-form-width-medium" type="text" name="email" placeholder="email" aria-label="Medium">
                                                     </div>
-                                     
-                                       </div>
-                                        </li>
-                                        <li>
-                                            <a class="uk-accordion-title" href>Address</a>
-                                            <div class="uk-accordion-content">
-                                                 <div class="uk-width-1-2@s">
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <input type="checkbox" id="toggle-8" class="accordion-toggle" />
+                                            <label for="toggle-8" class="accordion-title">Address</label>
+                                            <div class="accordion-content">
+                                                <div class="min-h-0">
+                                                <div class="uk-width-1-2@s">
                                                 <label class="uk-form-label">Lot</label>
                                                     <input class="uk-input uk-form-width-medium" type="text" name="lot" placeholder="Lot" aria-label="Medium">
                                                 </div>
@@ -345,311 +333,62 @@ class Employee:
                                                 <label class="uk-form-label">City/Parish</label>
                                                     <input class="uk-input uk-form-width-medium" type="text" name="city_parish" placeholder="City or Parish" aria-label="Medium">
                                                 </div>
-                                     
-                                       </div>
-                                        </li>
-                                        <li>
-                                            <a class="uk-accordion-title" href>Banking Information</a>
-                                            <div class="uk-accordion-content">
-                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                                                
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <a class="uk-accordion-title" href>Next Of Kin</a>
-                                            <div class="uk-accordion-content">
-                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                                        </div>
+                                        <div class="accordion">
+                                            <input type="checkbox" id="toggle-9" class="accordion-toggle" />
+                                            <label for="toggle-9" class="accordion-title">Banking</label>
+                                            <div class="accordion-content text-content2">
+                                                <div class="min-h-0">
+                                                <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Bank</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="bank" placeholder="bank" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Account No.</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="account_no" placeholder="Account No." aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                    <label class="uk-form-label">Account Type</label>
+                                                        <input class="uk-input uk-form-width-medium" type="text" name="accounr_type" placeholder="Account Type" aria-label="Medium">
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                        <div class="accordion">
+                                            <input type="checkbox" id="toggle-10" class="accordion-toggle" />
+                                            <label for="toggle-10" class="accordion-title">Next Of Kin</label>
+                                            <div class="accordion-content text-content2">
+                                                <div class="min-h-0">
+                                                <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Name</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="kin_name" placeholder="Name" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                <label class="uk-form-label">Contact</label>
+                                                    <input class="uk-input uk-form-width-medium" type="text" name="kin_contact" placeholder="Contact" aria-label="Medium">
+                                                </div>
+                                                 <div class="uk-width-1-2@s">
+                                                    <label class="uk-form-label">Address</label>
+                                                       
+                                                     <textarea class="textarea textarea-solid max-w-full" placeholder="Address" rows="4" id="kin_address" name="kin_address"></textarea>
+                                                     </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                   
                                     
 
                                 </form>
 
-                                 <FormKit type="form" id="employee-identity-form" @submit="saveWorkerData" >
-            <n-grid x-gap="12" :cols="2">
-                <n-gi  id="employee-personal">
-                    <div class="light-green">                   
-                        
-                        <FormKit 
-                            type="text" 
-                            label="Employee Full Name" 
-                            v-model="store.newWorker.name"
-                            placeholder="John Brown"
-                            validation="required|length:3"
-                            help="Enter employee full name."
-                            />
-                        <FormKit 
-                            type="text" 
-                            label="Employee Alias Name" 
-                            v-model="store.newWorker.oc"
-                            placeholder="Brownie"
-                            validation="required|length:3"
-                            help="Enter employee alias name."
-                            />
-                        <FormKit 
-                            type="select" 
-                            label="Sex" 
-                            v-model="store.newWorker.sex"
-                            placeholder="Man Woman or Machine ?"
-                            :options="{default:'Sex', male:'Male',female:'Female',robot:'Robot',other:'Other'}"
-                            validation="required"
-                            help="How many time per day."
-                            />
-                            <FormKit
-                            type="date"
-                            label="D.O.B"
-                            v-model="store.newWorker.dob"
-                            validation="date_before:2008-01-01"                    
-                            validation-visibility="live"
-                            help="Enter employees date of birth"
-                        />
-                        <FormKit 
-                            type="number" 
-                            label="Height" 
-                            v-model="store.newWorker.height"
-                            placeholder="102 cm"                   
-                            help="How tall is the Employee."
-                            /> 
-   
-                    </div>
-                </n-gi>
-                <n-gi id="employee-identity">
-                <div class="green">
-                    <FormKit 
-                        type="text" 
-                        label="Identity" 
-                        v-model="store.newWorker.identity"
-                        placeholder="PP000000000"                   
-                        validation="required"
-                        help="Employee's National Identification."
-                        />
-                    <FormKit 
-                        type="select" 
-                        label="Id Type" 
-                        v-model="store.newWorker.id_type"
-                        placeholder="Passport"
-                        :options="[{'label':'Id', value : 'default'},{'label':'Drivers  Lic.', value:'drivers'},{'label':'Passport', value:'passport'},{'label':'National', value:'national'}]"
-                        validation="required"
-                        help="Type of identification."
-                        />
-                        <FormKit 
-                        type="text" 
-                        label="T.R.N" 
-                        v-model="store.newWorker.trn"
-                        placeholder="TRN"                    
-                        validation="required"
-                        help="Tax Payer Registration Number."
-                        />
-                        <FormKit 
-                        type="select" 
-                        label="Employee Occupation" 
-                        v-model="store.newWorker.occupation"
-                        placeholder="Labourer"
-                        :options="jobRoles"
-                        validation="required|length:3"
-                        help="Select one from the list."
-                        />
-                        <FormKit 
-                        type="select" 
-                        label="Rating" 
-                        v-model="store.newWorker.rating"
-                        :options="[1,2,3,4,5]"
-                        placeholder="3 stars"                   
-                        :help="`How good a ${store.newWorker.occupation} is the Employee.`"
-                        />   
-                    </div>
-                </n-gi>
-            </n-grid>
-            <n-divider title-placement="left">
-                Contact Information
-            </n-divider>
-            <n-grid x-gap="12" :cols="2">
-                <n-gi  id="employee-contact">
-                    
-                    <FormKit
-                                type="text"
-                                label="Phone"
-                                v-model="store.newWorker.contact.tel"
-                                placeholder="xxx-xxx-xxxx"
-                                :validation="[ ['matches', /^\d{3}-\d{3}-\d{4}$/]]"
-                                validation-visibility="live"
-                                :validation-messages="{
-                                    matches: 'Phone number must be formatted: xxx-xxx-xxxx',
-                                }"
-                        />
-                        <FormKit
-                                type="text"
-                                label="Mobile"
-                                v-model="store.newWorker.contact.mobile"
-                                placeholder="xxx-xxx-xxxx"
-                                :validation="[ ['matches', /^\d{3}-\d{3}-\d{4}$/]]"
-                                validation-visibility="live"
-                                :validation-messages="{
-                                    matches: 'Mobile number must be formatted: xxx-xxx-xxxx',
-                                }"
-                        />
-        
-                </n-gi>
-                <n-gi  id="employee-contact-ii"> 
-           
-                    <FormKit
-                        label="Email address"
-                        v-model="store.newWorker.contact.email"
-                        validation="email"
-                    />
-                    <FormKit
-                            type="text"
-                            label="WatsApp Contact"
-                            v-model="store.newWorker.contact.watsapp"
-                            placeholder="xxx-xxx-xxxx"
-                            :validation="[['matches', /^\d{3}-\d{3}-\d{4}$/]]"
-                            validation-visibility="live"
-                            :validation-messages="{
-                                matches: 'WatApp contact must be formatted: xxx-xxx-xxxx',
-                            }"
-                    />
-  
- 
-                </n-gi>
-            </n-grid>
-            <n-divider title-placement="left">
-                Address Information
-            </n-divider>
-            <n-grid x-gap="12" :cols="2">
-                <n-gi >
-                <div>
-                    <FormKit 
-                            type="text" 
-                            label="Lot" 
-                            v-model="store.newWorker.address.lot"
-                            placeholder="4b"
-                            help="Employee lot number."
-                            />
-                    <FormKit 
-                            type="text" 
-                            label="Street" 
-                            v-model="store.newWorker.address.street"
-                            placeholder="Some Street"
-                            help="Employee lot street name."
-                            />
-           
-                    </div>
-
-                </n-gi>
-                <n-gi >
-                   <div>
-                    <FormKit 
-                            type="text" 
-                            label="Town" 
-                            v-model="store.newWorker.address.town"
-                            placeholder="Some Town"
-                            help="The town that the Employee resides in."
-                            />
-                    <FormKit 
-                            type="text" 
-                            label="Parish or City" 
-                            v-model="store.newWorker.address.city_parish"
-                            placeholder="Kington"
-                            help="The Parish that the Employee resides in."
-                            />
-                    
-                   </div>
-
-                </n-gi>
-            </n-grid>
-            <n-divider title-placement="left">
-                Banking Information
-            </n-divider>
-            <n-grid x-gap="12" :cols="2">
-                <n-gi >
-                    <div>
-                    
-                        <FormKit 
-                                type="text" 
-                                label="Bank Name" 
-                                v-model="store.newWorker.account.bank.name"
-                                placeholder="NCB"
-                                help="Employee bank Name."
-                                />
-                        <FormKit 
-                                type="text" 
-                                label="Branch" 
-                                v-model="store.newWorker.account.bank.branch"
-                                placeholder="MAYPEN"
-                                help="Bank branch location."
-                                />
-                    </div>
-                </n-gi>
-                <n-gi >
-                    <FormKit 
-                            type="text" 
-                            label="Account No." 
-                            v-model="store.newWorker.account.bank.account"
-                            placeholder="xxxxxxxxxx"
-                            help="Employee Bank Account Number."
-                            />
-                    <FormKit 
-                            type="select" 
-                            label="Account Type" 
-                            v-model="store.newWorker.account.bank.account_type"
-                            :options="{savings: 'Savings', current: 'Current'}"
-                            placeholder="Savings"
-                            help="The type of Account."
-                            />
-                </n-gi>
-            </n-grid>
-            <n-divider title-placement="left">
-                Next of Kin Information
-            </n-divider>
-            <n-grid x-gap="12" :cols="2">
-                <n-gi >
-                            
-                    <FormKit 
-                            type="text" 
-                            label="Name" 
-                            v-model="store.newWorker.nok.name"
-                            placeholder="Jane Brown"
-                            help="Ralative's full name."
-                            />
-                    <FormKit 
-                            type="text" 
-                            label="Relation" 
-                            v-model="store.newWorker.nok.relation"
-                            placeholder="Mother"
-                            help="How is the employee related to this person."
-                            />
-
-                </n-gi>
-                <n-gi >
-                    <FormKit
-                        type="text"
-                        label="Phone"
-                        v-model="store.newWorker.nok.contact.tel"
-                        placeholder="xxx-xxx-xxxx"
-                        :validation="[ ['matches', /^\d{3}-\d{3}-\d{4}$/]]"
-                       
-                        :validation-messages="{
-                            matches: 'Phone number must be formatted: xxx-xxx-xxxx',
-                        }"
-                        help="Relative's Home or Work number."
-                />
-                <FormKit
-                        type="text"
-                        label="Mobile"
-                        v-model="store.newWorker.nok.contact.mobile"
-                        placeholder="xxx-xxx-xxxx"
-                        :validation="[ ['matches', /^\d{3}-\d{3}-\d{4}$/]]"
-                        
-                        :validation-messages="{
-                            matches: 'Mobile number must be formatted: xxx-xxx-xxxx',
-                        }"
-                        help="Relative's Mobile number."
-                />
-       
-                </n-gi>
-            </n-grid>    
-
-</FormKit>
+                                 
                                 
                                 <p class="uk-text-right">
                                     <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>

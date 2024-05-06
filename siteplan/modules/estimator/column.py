@@ -2,8 +2,8 @@
 import json
 import asyncio
 #from pycal import Water
-from appcore.schema import ColumnSchema, RebarSchema
-from appcore.slab import lib, logging
+from modules.estimator.schema import ColumnSchema, RebarSchema
+from modules.estimator.slab import lib, logging
 
 class Column:
     def __init__(self, data:dict=None):
@@ -103,12 +103,7 @@ class Column:
     async def generate_report(self):
         await self.process_materials
         concrete = await lib.get_resource(f'structure-grades-{self.data.concrete.lower()}') 
-        
-        self.report = {
-            "title": f"Structural Engineering Report for Building column {self.data.tag}",
-            #"column_type": self.data.type,
-            #"uri": f'{self.data.type}-{int(self.data.thickness)}',
-            "dimension": {
+        dim = {
                     "width": self.data.width,
                     "height": self.data.height,
                     "depth": self.data.depth,
@@ -117,15 +112,26 @@ class Column:
                     "value": self.area,
                     "unit" : self.usys.get('area')
                     },
-                    "volume": {
+                    "dry_volume": {
+                            "value": round(self.area * self.data.height, 3),
+                            "unit": self.usys.get('volume')
+                    },
+                    "wet_volume": {
                             "value": round(self.area * self.data.height, 3),
                             "unit": self.usys.get('volume')
                     }
-            },            
+            }
+        dim['wet_volume']['value'] = dim.get('dry_volume').get('value') * 1.54
+        
+        self.report = {
+            "title": f"Structural Engineering Report for Building column {self.data.tag}",
+            #"column_type": self.data.type,
+            #"uri": f'{self.data.type}-{int(self.data.thickness)}',
+            "dimension": dim,            
            
             "notes":{                
                 "material": {
-                   # "type": self.data.type,
+                   "type": self.data.concrete,
                    
                 },               
                 "concrete": {
@@ -154,6 +160,87 @@ class Column:
             
 
         }
+
+    async def html_ui(self):
+        return f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Column Estimator</div>
+                        <section class="bg-gray-2 rounded-xl">
+                            <div class="p-2 shadow-lg">
+                                <form 
+                                    class="space-y-4" 
+                                   
+                                >
+                                    <div class="w-full">
+                                        <label class="sr-only" for="tag">Tag</label>
+                                        <input class="input input-solid max-w-full" placeholder="Column Tag" type="text" id="tag" name="tag" />
+                                    </div>
+                                     <div class="w-full">
+                                        <label class="sr-only" for="grid">Grid Label</label>
+                                        <input class="input input-solid max-w-full" placeholder="A1" type="text" id="grid" name="grid" />
+                                    </div>
+                                    
+                                    <div class="w-full">
+                                        <label class="sr-only" for="type">Type</label>
+                                        <input class="input input-solid max-w-full" placeholder="Concrete Type" type="text" id="tconcrete" name="concrete" />
+                                    </div>
+
+
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div>
+                                            <label class="sr-only" for="unit">Unit</label>
+                                            <input class="input input-solid" placeholder="Unit of measurement" type="text" id="unit" name="unit" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="depth">Depth</label>
+                                            <input class="input input-solid" placeholder="Depth of the Column" type="number" step="0.1" id="depth" name="depth" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="width">Width</label>
+                                            <input class="input input-solid" placeholder="Width of the Column" type="number" step="0.1" id="width" name="width" />
+                                        </div>
+
+                                        <div>
+                                            <label class="sr-only" for="height">Height</label>
+                                            <input class="input input-solid" placeholder="Height of the Column" type="number" step="0.1" id="height" name="height" />
+                                       </div>
+                                        <div>
+                                            <label class="sr-only" for="amount">Amount</label>
+                                            <input class="input input-solid" placeholder="Amount" type="number" step="0.1" id="amount" name="amount" />
+                                       </div>
+                                    </div>
+
+                                    <div class="w-full">
+                                        <label class="sr-only" for="notes">Notes</label>
+
+                                        <textarea class="textarea textarea-solid max-w-full" placeholder="Notes" rows="3" id="notes" name="notes"></textarea>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <button 
+                                        type="button" 
+                                        class="rounded-lg btn btn-primary btn-block"
+                                         hx-post="/column"
+                                        hx-target="#e-content"
+                                        >Send Enquiry</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        
+                        """
+    
+    async def html_report(self):
+        await self.generate_report
+        return f""" <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-header">{self.report.get('title')}</h2>
+                            <p class="text-content2">{self.report.get('dimension')}</p>
+                            <p class="text-sm">{self.report.get('notes')}</p>
+                            <div class="card-footer">
+                                <button class="btn-secondary btn">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                """
     
     def __repr__(self):
         return json.dumps(self.data.to_primitive())

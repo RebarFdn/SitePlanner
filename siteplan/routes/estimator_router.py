@@ -2,6 +2,7 @@ from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, St
 from decoRouter import Router
 from modules.project import Project
 from modules.estimator.wall import Wall
+from modules.estimator.column import Column
 from modules.utils import timestamp, to_dollars
 from config import (TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
 
@@ -157,68 +158,39 @@ async def process_wall(request):
                                 <p>{str(e)}</p>
                             </div>
                             """)
-    
+
+
 @router.get('/column')
 async def get_column(request):
-    return HTMLResponse(f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Column Estimator</div>
-                        <section class="bg-gray-2 rounded-xl">
-                            <div class="p-8 shadow-lg">
-                                <form 
-                                    class="space-y-4" 
-                                   
-                                >
-                                    <div class="w-full">
-                                        <label class="sr-only" for="tag">Tag</label>
-                                        <input class="input input-solid max-w-full" placeholder="Column Tag" type="text" id="tag" name="tag" />
-                                    </div>
-                                    <div class="w-full">
-                                        <label class="sr-only" for="type">Type</label>
-                                        <input class="input input-solid max-w-full" placeholder="Column Type" type="text" id="type" name="type" />
-                                    </div>
+    try:
+        html = await Column().html_ui()
+        return HTMLResponse( html )
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(html)
 
 
-                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                        <div>
-                                            <label class="sr-only" for="unit">Unit</label>
-                                            <input class="input input-solid" placeholder="Unit of measurement" type="text" id="unit" name="unit" />
-                                        </div>
-                                        <div>
-                                            <label class="sr-only" for="thickness">Thickness</label>
-                                            <input class="input input-solid" placeholder="Thickness of the Column" type="number" step="0.1" id="thickness" name="thickness" />
-                                        </div>
-                                        <div>
-                                            <label class="sr-only" for="length">Length</label>
-                                            <input class="input input-solid" placeholder="Length of the Column" type="number" step="0.1" id="length" name="length" />
-                                        </div>
+@router.post('/column')
+async def process_column(request):
+       
+    payload = {}
+    try:
+        async with request.form() as form:            
+            for key in form:
+                payload[key] = form.get(key) 
+        column = Column(data=payload)        
+        report = await column.html_report()       
+        return HTMLResponse(report)
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
 
-                                        <div>
-                                            <label class="sr-only" for="height">Height</label>
-                                            <input class="input input-solid" placeholder="Height of the Column" type="number" step="0.1" id="height" name="height" />
-                                       </div>
-                                    </div>
-
-                                    <div class="w-full">
-                                        <label class="sr-only" for="message">Message</label>
-
-                                        <textarea class="textarea textarea-solid max-w-full" placeholder="Message" rows="8" id="message" name="message"></textarea>
-                                    </div>
-
-                                    <div class="mt-4">
-                                        <button 
-                                        type="button" 
-                                        class="rounded-lg btn btn-primary btn-block"
-                                         hx-post="/column"
-                                        hx-target="#e-content"
-                                        >Send Enquiry</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </section>
-                        
-                        """)
-
-
+    finally:
+        del(payload)
+        
     
+
 @router.get('/beam')
 async def get_beam(request):
     return HTMLResponse(f"""<div class="text-xl font-semibold bg-gray-300 mb-1">Beam Estimator</div>
