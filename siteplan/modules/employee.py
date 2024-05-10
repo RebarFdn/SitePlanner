@@ -352,7 +352,7 @@ class Employee:
                                                 </div>
                                                  <div class="uk-width-1-2@s">
                                                     <label class="uk-form-label">Account Type</label>
-                                                        <input class="uk-input uk-form-width-medium" type="text" name="accounr_type" placeholder="Account Type" aria-label="Medium">
+                                                        <input class="uk-input uk-form-width-medium" type="text" name="account_type" placeholder="Account Type" aria-label="Medium">
                                                     </div>
                                                 
                                                 </div>
@@ -381,19 +381,17 @@ class Employee:
                                             </div>
                                         </div>
                                     </div>
-
-
-                                   
-                                    
-
-                                </form>
-
-                                 
-                                
                                 <p class="uk-text-right">
                                     <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                    <button class="uk-button uk-button-primary" type="button">Save</button>
+                                    <button 
+                                        class="uk-button uk-button-primary" 
+                                        type="button"
+                                        hx-post="/newworker"
+                                        hx-target="#dash_message"
+                                        
+                                        >Save</button>
                                 </p>
+                                </form>
                             </div>
                         </div>
             

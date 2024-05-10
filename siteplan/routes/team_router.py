@@ -48,6 +48,50 @@ async def team_member(request):
                         """
                         )
     
+@router.post('/newworker')
+async def new_worker(request):
+    payload = {}
+    try:
+        async with request.form() as form:            
+            payload['name'] = form.get('name')
+            payload['oc'] = form.get('oc')
+            payload['sex'] = form.get('sex')
+            payload['dob'] = form.get('dob')
+            payload['height'] = form.get('height')
+            payload['identity'] = form.get('identity')
+            payload['id_type'] = form.get('id_type')
+            payload['trn'] = form.get('trn')
+            payload['occupation'] = form.get('occupation')
+            payload['rating'] = form.get('rating')
+            payload['address'] = {
+                'lot': form.get('lot'),
+                'street': form.get('street'),
+                  'town': form.get('town'),
+                   'city_parish': form.get('city_parish'),
+                  
+                
+                }
+            payload['contact'] = {
+                'tel': form.get('tel'),
+                'mobile': form.get('mobile'),
+                'email': form.get('email'),
+                
+            }
+            payload['account'] = {
+                
+            }
+            
+            for key in form:
+                payload[key] = form.get(key)                
+              
+        return HTMLResponse(f"""<p class="bg-blue-800 text-white text-sm font-bold py-3 px-4 mx-5 my-2 rounded-md">{payload }</p>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(payload)
+        
+    
 @router.get('/analytics')
 async def analytics(request):
     t = f""" 
