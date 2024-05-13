@@ -1854,6 +1854,7 @@ class Project:
                                 <tr>
                                 <th scope="col" class="px-2 py-2 text-start text-xs font-medium text-gray-500 uppercase">Id.</th>
                                 <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
+                                <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Ref</th>
                                 <th scope="col" class="px-4 py-2 text-end text-xs font-medium text-gray-500 uppercase">Payee</th>
                                 <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Amount</th>
                                 
@@ -1868,6 +1869,7 @@ class Project:
                 yield f"""<tr class="hover:bg-gray-100 dark:hover:bg-gray-700">              
                 <td class="px-2 py-2 whitespace-wrap text-sm font-medium text-gray-800 dark:text-gray-200 w-32">{d.get('id')}</td>
                 <td class="px-4 py-2 whitespace-wrap text-sm text-gray-800 dark:text-gray-200">{datetime.date(datetime.fromtimestamp(d.get('date') / 1000, tz=None)).strftime("%A %d. %B %Y")}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{d.get('ref')} </td>
                 <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{d.get('payee')} </td>
                 <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{self.as_currency(float(d.get('amount')))}</td>
                 <td class="px-4 py-2 whitespace-nowrap text-end text-sm font-medium">

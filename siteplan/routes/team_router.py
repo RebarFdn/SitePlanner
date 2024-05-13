@@ -14,39 +14,8 @@ async def team(request):
 
 
 @router.get('/team/{id}')
-async def team_member(request):
-    id = request.path_params.get('id')
-    e = await Employee().get_worker(id=id)
-    
-    return HTMLResponse(f"""
-                        <div>
-                        <div class="navbar">
-                            <div class="navbar-start">
-                                <div class="avatar">
-                                    <img src="{e.get('imgurl')}" alt="avatar" />
-                                </div>
-                                 <a class="navbar-item">{e.get('oc')}</a>
-                            </div>
-                            <div class="navbar-end">
-                                <a class="navbar-item">Home</a>
-                                <a class="navbar-item">About</a>
-                                <a class="navbar-item">Contact</a>
-                            </div>
-                        </div>
-
-                            <div class="flex flex-row py-5 pv-5 space-y-1.5">
-                            <div class="avatar avatar-xl avatar-square">
-                                <img class="w-32" src="{e.get('imgurl')}" alt="avatar" />
-                            </div>
-                               
-                                <div class="bg-gray-300 p-5 border rounded">{e.get('address')}</div>
-                                </div
-                                <div class="flex flex-col space-y-1.5">
-                                <div class="bg-gray-300 p-5 border rounded">{e}</div>
-                                </div>
-                        </div>
-                        """
-                        )
+async def team_member(request):    
+    return HTMLResponse(await Employee().html_worker(id=request.path_params.get('id')))
     
 @router.post('/newworker')
 async def new_worker(request):
@@ -63,28 +32,60 @@ async def new_worker(request):
             payload['trn'] = form.get('trn')
             payload['occupation'] = form.get('occupation')
             payload['rating'] = form.get('rating')
+            payload['imgurl'] = ""
             payload['address'] = {
                 'lot': form.get('lot'),
                 'street': form.get('street'),
                   'town': form.get('town'),
-                   'city_parish': form.get('city_parish'),
+                   'city_parish': form.get('city_parish')
                   
                 
                 }
             payload['contact'] = {
                 'tel': form.get('tel'),
                 'mobile': form.get('mobile'),
-                'email': form.get('email'),
+                'email': form.get('email')
                 
             }
             payload['account'] = {
+                "bank": {
+                "name": form.get('bank'),
+                "branch": form.get('bank_branch'),
+                "account": form.get('account_no'),
+                "account_type": form.get('account_type')
+                },
+                "payments": [],
+                "loans": []
                 
             }
+            payload["nok"] = {
+                "name": form.get('kin_name'),
+                "relation": form.get('kin_relation'),
+                "address": form.get('kin_address'),
+                "contact":  form.get('kin_contact')
+            }
+            payload[ "tasks"] = []
+            payload["jobs"] = []
+            payload["days"] =  []
+            payload["earnings"] = []
+            payload["state"] = {
+                "active": True,
+                "onleave": False,                
+                "terminated": False
+            },
+            payload["event"] = {
+                "started": None,
+                "onleave":[] ,
+                "restart": [],
+                "terminated": None,
+                "duration": 0
+            },
+            payload["reports"] = []
             
-            for key in form:
-                payload[key] = form.get(key)                
+        ne = await Employee().save(data = payload)   
+
               
-        return HTMLResponse(f"""<p class="bg-blue-800 text-white text-sm font-bold py-3 px-4 mx-5 my-2 rounded-md">{payload }</p>""")
+        return HTMLResponse(f"""<p class="bg-blue-800 text-white text-sm font-bold py-3 px-4 mx-5 my-2 rounded-md">{ne }</p>""")
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
 

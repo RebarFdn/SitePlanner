@@ -1,0 +1,35 @@
+Calling on_field_start with no data
+Calling on_field_name with data[0:8]
+Calling on_field_data with data[9:14]
+Calling on_field_end with no data
+Calling on_field_start with no data
+Calling on_field_name with data[15:23]
+Calling on_field_data with data[24:32]
+Calling on_field_end with no data
+Calling on_end with no data
+05/10/2024 06:31:59 PM DEBUG:Calling on_field_start with no data
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_name with data[0:8]
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_data with data[9:14]
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_end with no data
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_start with no data
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_name with data[15:23]
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_data with data[24:32]
+05/10/2024 06:32:00 PM DEBUG:Calling on_field_end with no data
+05/10/2024 06:32:00 PM DEBUG:Calling on_end with no data
+05/10/2024 06:32:43 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/10/2024 06:32:43 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/10/2024 06:32:43 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/10/2024 06:32:43 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7105bae259c0>
+05/10/2024 06:32:43 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/10/2024 06:32:43 PM DEBUG:send_request_headers.complete
+05/10/2024 06:32:43 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/10/2024 06:32:43 PM DEBUG:send_request_body.complete
+05/10/2024 06:32:43 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/10/2024 06:32:43 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 10 May 2024 23:32:43 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'a6f098c2bb'), (b'X-CouchDB-Body-Time', b'0')])
+05/10/2024 06:32:43 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-workers/_design/workers/_view/name-index "HTTP/1.1 200 OK"
+05/10/2024 06:32:43 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/10/2024 06:32:44 PM DEBUG:receive_response_body.complete
+05/10/2024 06:32:44 PM DEBUG:response_closed.started
+05/10/2024 06:32:44 PM DEBUG:response_closed.complete
+05/10/2024 06:32:44 PM DEBUG:close.started
+05/10/2024 06:32:44 PM DEBUG:close.complete
