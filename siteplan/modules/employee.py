@@ -409,7 +409,7 @@ class Employee:
 
 
 
-    async def html_worker(self, id:str=None):
+    async def html_eworker(self, id:str=None):
         e = await Employee().get_worker(id=id)
     
         return f"""
@@ -450,6 +450,64 @@ class Employee:
                         </div>
                         """
                         
+
+    async def html_worker(self, id:str=None):
+        e = await Employee().get_worker(id=id)
+    
+        return f"""<div>
+        <div class="navbar">
+            <div class="navbar-start">
+                <div class="avatar">
+                    <img src="{e.get('imgurl')}" alt="avatar" />
+                </div>
+                <a class="navbar-item">{e.get('oc')}</a>
+                <a class="navbar-item"><span class="uk-badge">{e.get('_id')}</span></a>
+            </div>
+            <div class="navbar-end">
+                <ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: #my-id">
+    
+                    <li><a href="#" class="navbar-item">Home</a></li>
+                    <li><a href="#" class="navbar-item">Account</a></li>
+                    <li><a href="#" class="navbar-item">Jobs</a></li>
+                    <li><a href="#" class="navbar-item">Tasks</a></li>                                  
+                    <li><a href="#" class="navbar-item">Days </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="my-id" class="uk-switcher uk-margin">
+            <div id="home">
+                <div id="worker-console" class="bg-gray-300 p-5 border rounded">
+                 <div id="about">
+                    <div class="bg-gray-300 p-5 border rounded">{e.get('address')}</div>
+                                                
+                    </div>
+                    <div id="contact">
+                    <div class="bg-gray-300 p-5 border rounded">{e.get('contact')}</div>
+                </div>
+                
+                {e}
+                
+                </div>
+                                        
+            </div>
+            
+            <div id="account">{e.get('account')}</div>
+            <div id="jobs">{e.get('jobs')}</div>
+            <div id="tasks">{e.get('tasks')}</div>
+            <div id="days">{e.get('days')}</div>
+
+            
+        </div>
+
+                            
+
+                        </div>
+                        """
+                        
+
+
+
 
 
 

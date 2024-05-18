@@ -432,8 +432,8 @@ class Project:
         try:
             e = Employee()
             pb = await e.addPay(id=data.get('employeeid'), data=data )       
-            print(project['account']['records']['salary_statements'])
-            print(pb)
+            #print(project['account']['records']['salary_statements'])
+            #print(pb)
             await self.update(data=project) 
             return project.get('account').get('records').get('salary_statements')         
         except Exception as e:
@@ -2073,7 +2073,20 @@ class Project:
         p = await self.get(id=id)
         jobs = p.get('tasks')
         yield f"""<div class="flex flex-col space-y-1.5">
-                        <div class="bg-gray-300 p-5 border rounded">{p.get('name')} Jobs Queue</div>
+                       
+                        <div class="navbar">
+                    <div class="navbar-start">
+                        <a class="navbar-item"><span>{p.get('name')} Job Queue </span></a>
+                    </div>
+                    <div class="navbar-center">
+                        
+                        
+                    </div>
+                    <div class="navbar-end">
+                    <button class="uk-button uk-button-primary uk-button-small uk-margin-small-right navbar-item" type="button" uk-toggle="target: #new-job-modal">Add Job</button>
+
+                    </div>
+                </div>
                         
                         <div class="uk-overflow-auto">
                             <table class="uk-table uk-table-striped uk-table-hover uk-table-small uk-table-divider">
@@ -2121,7 +2134,96 @@ class Project:
                 
                 </tr>
                 """
-        yield f"""</tbody></table>"""
+        yield f"""</tbody></table>
+            
+
+            <!-- This is the modal -->
+            <div id="new-job-modal" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <h2 class="uk-modal-title">New Job Task</h2>
+                    <div> 
+                    <form class="space-y-4"  action="true">
+                     <div class="w-full">
+                        <label class="sr-only" for="title">Title</label>
+                        <input class="input input-solid max-w-full" placeholder="Job Title" type="text" id="title" name="title" />
+                    </div>
+                    <div class="w-full">
+                        <label class="sr-only" for="title">Title</label>
+                        <input class="input input-solid max-w-full" placeholder="Job Description" type="textarea" id="description" name="description" />
+                    </div>
+                    <div class="w-full">
+                        <label class="sr-only" for="phase">Project phase</label>
+                        <input class="input input-solid max-w-full" placeholder="Phase" type="text" id="phase" name="project_phase" />
+                    </div>
+                                    
+                    <div class="w-full">
+                        <label class="sr-only" for="crew">Crew Name</label>
+                        <input class="input input-solid max-w-full" placeholder="Crew" type="text" id="crew" name="crew_name" />
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div>
+                                            <label class="sr-only" for="unit">Unit</label>
+                                            <input class="input input-solid" placeholder="Contractor Fees" name="fees_contractor"
+                                                type="range"
+                                                :label="'Contractor' + ' ' + contractor + '%'"
+                                                min="0"
+                                                max="20"
+                                                step="1"
+                                                />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="depth">Depth</label>
+                                            <input class="input input-solid" placeholder="Contractor Fees" name="fees_contractor"
+                                                type="range"
+                                                :label="'Contractor' + ' ' + contractor + '%'"
+                                                min="0"
+                                                max="20"
+                                                step="1"
+                                                />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="width">Miscellaneous Fees</label>
+                                            <input class="input input-solid" name="fees_misc"
+                                                placeholder="Miscellaneous Fees"
+                                                type="range"
+                                                :label="'Miscellaneous' + ' ' + store.newJobTask.fees.misc + '%'"
+                                                min="0"
+                                                max="10"
+                                                step="1" />
+                                        </div>
+                                         <div>
+                                            <label class="sr-only" for="width">Inscurance Fees</label>
+                                            <input class="input input-solid" name="fees_insurance"
+                                                placeholder="Inscurance Fees"
+                                                type="range"
+                                                :label="'Inscurance' + ' ' + store.newJobTask.fees.misc + '%'"
+                                                min="0"
+                                                max="10"
+                                                step="1" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="width">Overhead Fees</label>
+                                            <input class="input input-solid" name="fees_overhead"
+                                                placeholder="Overhead Fees"
+                                                type="range"
+                                                :label="'Overhead' + ' ' + store.newJobTask.fees.misc + '%'"
+                                                min="0"
+                                                max="10"
+                                                step="1" />
+                                        </div>
+
+                                        
+                                    </div>
+        
+                    
+    </form></div> <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" type="button">Save</button>
+                    </p>
+                </div>
+            </div>
+        
+        """
 
             
     async def html_job_page_generator(self, id:str=None): 
@@ -2133,19 +2235,27 @@ class Project:
         else:
             job={}
        
-        interface = f"""
+        return f"""
             <div class="flex flex-col space-y-1.5">
                 <div class="navbar">
                     <div class="navbar-start">
                         <a class="navbar-item"><span>{p.get('name')} Job Task </span></a>
                     </div>
                     <div class="navbar-center">
-                        <a class="navbar-item">Tasks</a>
-                        <a class="navbar-item">Crew</a>
-                        <a class="navbar-item">Analytics</a>
+                        <ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: #job-properties">
+                            <li><a href="#" class="navbar-item">Home</a></li>
+                            <li><a href="#" class="navbar-item">Tasks</a></li>
+                            <li><a href="#" class="navbar-item">Crew</a></li>
+                            
+                        
+                        </ul>
+                        
                     </div>
                     <div class="navbar-end">
-                        <a class="navbar-item">Home</a>
+                    <a href="#" class="navbar-item">Add Task</a>
+                    <a href="#" class="navbar-item">Add Crew</a>
+                        
+                        
                         <div id="state" class="dropdown">
                         <label class="btn btn-solid-primary my-2" tabindex="0">Set State</label>
                         <div class="dropdown-menu">
@@ -2176,14 +2286,9 @@ class Project:
                     </div> 
                     </div>
                 </div>
-                <ul class="uk-subnav uk-subnav-pill" uk-switcher>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Tasks</a></li>
-                    <li><a href="#">Crew</a></li>
-                   
-                </ul>
+               
 
-                <ul class="uk-switcher uk-margin">
+                <ul id="job-properties" class="uk-switcher uk-margin">
                     <li>                    
                         <div class="flex flex-row bg-gray-300 p-5 border rounded">
                         
@@ -2219,12 +2324,13 @@ class Project:
                         <div class="bg-gray-300 p-5 border rounded">{job.get("tasks")}</div>                     
                     </li>
                     <li><div class="bg-gray-300 p-5 border rounded">{job.get("crew")}</div></li>
+                    
                 </ul>
                            
                             
                     </div>  """   
         
-        return interface
+        
     
     async def html_days_page(self, id:str=None):
         p = await self.get(id=id)
