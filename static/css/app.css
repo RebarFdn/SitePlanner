@@ -2181,6 +2181,11 @@ html:has(.modal-state:checked) {
   color: rgb(255 255 255/var(--tw-text-opacity));
 }
 
+.badge-warning {
+  background-color: rgb(var(--warning)/var(--tw-bg-opacity));
+  border-color: rgb(var(--warning)/var(--tw-border-opacity));
+}
+
 .avatar {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--gray-3)/var(--tw-bg-opacity));

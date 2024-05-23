@@ -2069,163 +2069,7 @@ class Project:
         return p.get('account').get('records', {}).get('purchase_orders', [])
 
 
-    async def html_jobs_page_generator(self, id:str=None): 
-        p = await self.get(id=id)
-        jobs = p.get('tasks')
-        yield f"""<div class="flex flex-col space-y-1.5">
-                       
-                        <div class="navbar">
-                    <div class="navbar-start">
-                        <a class="navbar-item"><span>{p.get('name')} Job Queue </span></a>
-                    </div>
-                    <div class="navbar-center">
-                        
-                        
-                    </div>
-                    <div class="navbar-end">
-                    <button class="uk-button uk-button-primary uk-button-small uk-margin-small-right navbar-item" type="button" uk-toggle="target: #new-job-modal">Add Job</button>
-
-                    </div>
-                </div>
-                        
-                        <div class="uk-overflow-auto">
-                            <table class="uk-table uk-table-striped uk-table-hover uk-table-small uk-table-divider">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Project Phase</th>
-                                        <th>Crew</th>
-                                        <th>Jobs</th>
-                                        <th>State</th>
-                                        <th>Progress</th>
-                                       
-                                    </tr>
-                                </thead>
-                                <tbody>
-                """
-        for item in jobs:
-            yield f"""<tr 
-                class="cursor-pointer"
-                hx-get="/html_job/{item.get('_id')}"
-                hx-target="#project_properties"
-                hx-trigger="click"  
-                >
-                <td>{item.get('title')}</td>
-                <td class="uk-text-wrap">{item.get('description')}</td>
-                <td>{item.get('projectPhase')}</td>
-                <td>{item.get('crew').get('name')}</td>
-                 <td>{len(item.get('tasks'))}</td>
-                <td>"""
-            item_state = f"""<span class="uk-badge">Unset</span>"""
-            if item.get('state').get('active') == 'True':
-                item_state = "<span>Active</span>"
-            elif item.get('state').get('completed') == 'True':
-                item_state = "<span>Completed</span>"
-            elif item.get('state').get('paused') == 'True':
-                item_state = "<span>Paused</span>"
-            elif item.get('state').get('terminated') == 'True':
-                item_state = "<span>Terminated</span>"
-            
-            yield f"""
-                {item_state}
-                </td>
-                <td><span class="uk-badge">{item.get('progress')}%</span></td>
-                
-                </tr>
-                """
-        yield f"""</tbody></table>
-            
-
-            <!-- This is the modal -->
-            <div id="new-job-modal" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body">
-                    <h2 class="uk-modal-title">New Job Task</h2>
-                    <div> 
-                    <form class="space-y-4"  action="true">
-                     <div class="w-full">
-                        <label class="sr-only" for="title">Title</label>
-                        <input class="input input-solid max-w-full" placeholder="Job Title" type="text" id="title" name="title" />
-                    </div>
-                    <div class="w-full">
-                        <label class="sr-only" for="title">Title</label>
-                        <input class="input input-solid max-w-full" placeholder="Job Description" type="textarea" id="description" name="description" />
-                    </div>
-                    <div class="w-full">
-                        <label class="sr-only" for="phase">Project phase</label>
-                        <input class="input input-solid max-w-full" placeholder="Phase" type="text" id="phase" name="project_phase" />
-                    </div>
-                                    
-                    <div class="w-full">
-                        <label class="sr-only" for="crew">Crew Name</label>
-                        <input class="input input-solid max-w-full" placeholder="Crew" type="text" id="crew" name="crew_name" />
-                    </div>
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                        <div>
-                                            <label class="sr-only" for="unit">Unit</label>
-                                            <input class="input input-solid" placeholder="Contractor Fees" name="fees_contractor"
-                                                type="range"
-                                                :label="'Contractor' + ' ' + contractor + '%'"
-                                                min="0"
-                                                max="20"
-                                                step="1"
-                                                />
-                                        </div>
-                                        <div>
-                                            <label class="sr-only" for="depth">Depth</label>
-                                            <input class="input input-solid" placeholder="Contractor Fees" name="fees_contractor"
-                                                type="range"
-                                                :label="'Contractor' + ' ' + contractor + '%'"
-                                                min="0"
-                                                max="20"
-                                                step="1"
-                                                />
-                                        </div>
-                                        <div>
-                                            <label class="sr-only" for="width">Miscellaneous Fees</label>
-                                            <input class="input input-solid" name="fees_misc"
-                                                placeholder="Miscellaneous Fees"
-                                                type="range"
-                                                :label="'Miscellaneous' + ' ' + store.newJobTask.fees.misc + '%'"
-                                                min="0"
-                                                max="10"
-                                                step="1" />
-                                        </div>
-                                         <div>
-                                            <label class="sr-only" for="width">Inscurance Fees</label>
-                                            <input class="input input-solid" name="fees_insurance"
-                                                placeholder="Inscurance Fees"
-                                                type="range"
-                                                :label="'Inscurance' + ' ' + store.newJobTask.fees.misc + '%'"
-                                                min="0"
-                                                max="10"
-                                                step="1" />
-                                        </div>
-                                        <div>
-                                            <label class="sr-only" for="width">Overhead Fees</label>
-                                            <input class="input input-solid" name="fees_overhead"
-                                                placeholder="Overhead Fees"
-                                                type="range"
-                                                :label="'Overhead' + ' ' + store.newJobTask.fees.misc + '%'"
-                                                min="0"
-                                                max="10"
-                                                step="1" />
-                                        </div>
-
-                                        
-                                    </div>
-        
-                    
-    </form></div> <p class="uk-text-right">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button class="uk-button uk-button-primary" type="button">Save</button>
-                    </p>
-                </div>
-            </div>
-        
-        """
-
-            
+               
     async def html_job_page_generator(self, id:str=None): 
         idd = id.split('-')
         p = await self.get(id=idd[0])
@@ -2235,11 +2079,11 @@ class Project:
         else:
             job={}
        
-        return f"""
+        yield f"""
             <div class="flex flex-col space-y-1.5">
                 <div class="navbar">
                     <div class="navbar-start">
-                        <a class="navbar-item"><span>{p.get('name')} Job Task </span></a>
+                        <a class="navbar-item text-sm"><span>{p.get('name')} / {job.get('title')} </span></a>
                     </div>
                     <div class="navbar-center">
                         <ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: #job-properties">
@@ -2252,8 +2096,8 @@ class Project:
                         
                     </div>
                     <div class="navbar-end">
-                    <a href="#" class="navbar-item">Add Task</a>
-                    <a href="#" class="navbar-item">Add Crew</a>
+                    <a href="#add-job-task-modal" uk-toggle class="navbar-item">Add Task</a>
+                    <a href="#add-crew-member-modal" uk-toggle class="navbar-item">Add Crew</a>
                         
                         
                         <div id="state" class="dropdown">
@@ -2287,7 +2131,7 @@ class Project:
                     </div>
                 </div>
                
-
+                <div id="result"></div>
                 <ul id="job-properties" class="uk-switcher uk-margin">
                     <li>                    
                         <div class="flex flex-row bg-gray-300 p-5 border rounded">
@@ -2326,6 +2170,61 @@ class Project:
                     <li><div class="bg-gray-300 p-5 border rounded">{job.get("crew")}</div></li>
                     
                 </ul>
+
+               
+
+                <!-- This is the add task to job modal -->
+                <div id="add-job-task-modal" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Add Job Task</h2>
+                        
+
+                        <div class="uk-child-width-1-3@s" uk-grid>
+                            <div>
+                                <h4>Project Rates Index</h4>
+                                <div uk-sortable="group: sortable-group">
+                                """
+        for task_rate in p.get("rates"):
+            yield f"""<div class="uk-margin">
+                            <div class="uk-card uk-card-default uk-card-body uk-card-small" >{task_rate.get("_id")} {task_rate.get("title")}</div>
+                        </div>"""
+        yield f""" </div>
+                            </div>
+                            
+                            <div>
+                                <h4>Job Tasks List</h4>
+                                <div 
+                                    uk-sortable="group: sortable-group"
+                                    hx-post="/add_job_task" 
+                                   hx-vals='{ {"myVal": task_rate} }' 
+                                    hx-target="#result" 
+                                    hx-trigger="added"
+                                    
+                                    ></div>
+                            </div>
+                        </div>
+
+
+                        <p class="uk-text-right">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-primary" type="button">Save</button>
+                        </p>
+                    </div>
+                </div>
+
+               
+
+                <!-- This is the add crew member modal -->
+                <div id="add-crew-member-modal" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Add Crew Member</h2>
+                        <p>{p.get("workers")}</p>
+                        <p class="uk-text-right">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-primary" type="button">Save</button>
+                        </p>
+                    </div>
+                </div>
                            
                             
                     </div>  """   
@@ -2335,10 +2234,73 @@ class Project:
     async def html_days_page(self, id:str=None):
         p = await self.get(id=id)
         return f"""<div class="flex flex-col space-y-1.5">
-                            <div class="bg-gray-300 p-5 border rounded">{p.get('name')} Days Work Index</div>
+            <div class="navbar">
+                <div class="navbar-start">
+                        <a class="navbar-item"><span>{p.get('name')} Days Work Index </span></a>
+                    </div>
+                    <div class="navbar-center">
+                        <!--ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: #job-properties">
+                            <li><a href="#" class="navbar-item">Home</a></li>
+                            <li><a href="#" class="navbar-item">Tasks</a></li>
+                            <li><a href="#" class="navbar-item">Crew</a></li>
+                            
+                        
+                        </ul-->
+                        
+                         <button class="uk-button uk-button-primary uk-button-small uk-margin-small-right navbar-item" type="button" uk-toggle="target: #add-day-modal">Add Day Work</button>
+
+                    </div>
+                    <div class="navbar-end">
+                        
+                        <a href="#" class="navbar-item">Daywork index</a>
+                        
+                    </div>
+                </div>
+                <div id="daywork-result" />
+                            
                             <div class="bg-gray-300 p-5 border rounded">{p.get('daywork')}</div>
                     </div> 
-                """
+                    <!-- This is the modal -->
+                    <div id="add-day-modal" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <h2 class="uk-modal-title">Days Work Record</h2>
+                            <form 
+                            hx-post="/add_daywork/{id}"
+                            hx-target="#daywork-result"
+                            hx-trigger="submit"   
+                            class="uk-grid-small" uk-grid
+                            >
+                                <div class="uk-width-1-1">
+                                    <input class="uk-input" type="text" placeholder="Worker's Name" aria-label="Name" name="worker_name">
+                                </div>
+                                <div class="uk-width-1-2@s">
+                                    <input class="uk-input" type="date" placeholder="Date" aria-label="Date" name="date">
+                                </div>
+                                <div class="uk-width-1-4@s">
+                                    <input class="uk-input" type="text" placeholder="25" aria-label="25">
+                                </div>
+                                <div class="uk-width-1-4@s">
+                                    <input class="uk-input" type="text" placeholder="25" aria-label="25">
+                                </div>
+                                <div class="uk-width-1-2@s">
+                                    <input class="uk-input" type="text" placeholder="50" aria-label="50">
+                                </div>
+                                <div class="uk-width-1-2@s">
+                                    <input class="uk-input" type="text" placeholder="50" aria-label="50">
+                                </div>
+                                 <p class="uk-text-right">
+                                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                <button class="uk-button uk-button-primary" type="submit" uk-modal-close>Save</button>
+                            </p>
+                            </form>
+
+
+
+                    
+                        <div> 
+                    </div>
+            </div>
+            """
                         
     
     async def html_workers_page(self, id:str=None, filter:str=None):

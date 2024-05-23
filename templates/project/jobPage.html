@@ -1,0 +1,179 @@
+<div class="flex flex-col space-y-1.5">
+    <div class="navbar">
+        <div class="navbar-start">
+            <a class="navbar-item text-sm"><span>{{ p.name }} / {{ job.title }} </span></a>
+        </div>
+        <div class="navbar-center">
+            <ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: #job-properties">
+                <li><a href="#" class="navbar-item">Home</a></li>
+                <li><a href="#" class="navbar-item">Tasks</a></li>
+                <li><a href="#" class="navbar-item">Crew</a></li>
+                
+            
+            </ul>
+            
+        </div>
+        <div class="navbar-end">
+        <a href="#add-job-task-modal" uk-toggle class="navbar-item">Add Task</a>
+        <a href="#add-crew-member-modal" uk-toggle class="navbar-item">Add Crew</a>
+            
+            
+            <div id="state" class="dropdown">
+            <label class="btn btn-solid-primary my-2" tabindex="0">Set State</label>
+            <div class="dropdown-menu">
+                <a 
+                class="dropdown-item text-sm"
+                href="#"                
+                >Job State</a>
+                <a 
+                class="dropdown-item text-sm"
+                hx-get="/update_project_job_state/{{ job._id }}/active"
+                hx-target="#message"
+                >Active</a>
+                <a 
+                tabindex="-1" 
+                class="dropdown-item text-sm"
+                hx-get="/update_project_job_state/{{ job._id  }}/completed"
+                hx-target="#message"
+                >Completed</a>
+                <a 
+                tabindex="-1" 
+                class="dropdown-item text-sm"
+                hx-get="/update_project_job_state/{{ job._id  }}/paused"
+                hx-target="#message"                            
+                >Paused</a>
+                <a 
+                tabindex="-1" 
+                class="dropdown-item text-sm"
+                hx-get="/update_project_job_state/{{ job._id  }}/resume"
+                hx-target="#message"                            
+                >Resume</a>
+                <a 
+                tabindex="-1" 
+                class="dropdown-item text-sm"
+                hx-get="/update_project_job_state/{{ job._id }}/terminated"
+                hx-target="#message"                           
+                >Terminated</a>
+            </div>
+        </div> 
+        </div>
+    </div>
+   
+    <div id="result"></div>
+    <ul id="job-properties" class="uk-switcher uk-margin">
+        <li>                    
+            <div class="flex flex-row bg-gray-300 p-5 border rounded">
+            
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-header"><span class="uk-badge">{{  job.get('_id') }}</span> {{ job.get('title') }}
+                    </h2>
+                    <p class="text-content2">
+                    {{ job.get('description') }}
+                    projectPhase  {{ job.get('projectPhase') }}
+                    Crew {{ job.get('crew').get('name') }} | Members {{ crew_members }}
+                    </p>
+                    <div class="card-footer">
+                        <button class="btn-secondary btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-header">{{ job.get('title') }}</h2>
+                    <p class="text-content2">{{ job }}</p>
+                    <div class="card-footer">
+                        <button class="btn-secondary btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            </div>                    
+        </li>
+        <li>
+            <div class="bg-gray-300 p-5 border rounded">
+                {% include 'project/jobTasks.html' %}
+                {{ job.get("tasks") }}
+            </div>                     
+        </li>
+        <li><div class="bg-gray-300 p-5 border rounded">{{ job.get("crew") }}</div></li>
+        
+    </ul>
+
+   
+
+    <!-- This is the add task to job modal -->
+    <div id="add-job-task-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Add Job Task</h2>
+            
+
+            <div class="uk-child-width-1-3@s" uk-grid>
+                <div>
+                    <h4>Project Rates Index</h4>
+                    <form>
+                        <table class="uk-table uk-table-divider">
+                            <thead>
+                        <tr>
+                            <th></th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            
+                       
+                    
+                    {% for task_rate in p.get("rates") %}
+                        <tr>
+                            <td><input 
+                                type="checkbox" 
+                                value="{{ task_rate.get('_id') + '-' + job.get('_id') }}" 
+                                name="task" 
+                                hx-post="/add_job_task" 
+                                hx-target="#message" >
+                            </td>
+                            <td>{{ task_rate.get("_id") }}</td>
+                            <td> {{ task_rate.get("title") }}</td>
+                            <td> {{ task_rate.get("description") }}</td>
+                            <td> {{ task_rate.get("category") }}</td>
+
+                        </tr>
+
+                    {% endfor %}
+                        </tbody>
+                    </table>
+                    </form>
+                </div>
+                
+                
+            </div>
+
+
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button">Save</button>
+            </p>
+        </div>
+    </div>
+
+   
+
+    <!-- This is the add crew member modal -->
+    <div id="add-crew-member-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Add Crew Member</h2>
+            <p>{{ p.get("workers") }}</p>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button">Save</button>
+            </p>
+        </div>
+    </div>
+               
+                
+        </div>  """   

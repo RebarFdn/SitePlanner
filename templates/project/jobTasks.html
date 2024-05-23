@@ -1,0 +1,43 @@
+<div class="uk-overflow-auto">
+    <table class="uk-table uk-table-small uk-table-divider">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>                
+                <th>Assigned</th>
+                <th>Assigned To</th>
+                <th>State</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in job.tasks %}
+            <tr>
+                <td>{{ task._id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.assigned }}</td>
+                <td>{{ task.assignedto }}</td>
+                <td>
+                    {% if task.state.active %}
+                        <span class="badge badge-success">Active</span>
+                    {% elif task.state.complete %}
+                        <span class="badge badge-primary">Completed</span>
+                    {% elif task.state.pause %}
+                        <span class="badge badge-warning">Paused</span>
+                    {% elif task.state.terminate %}
+                        <span class="badge badge-error">Terminated</span>
+                    {% else %}
+                        <span>Set State</span>
+                    {% endif %}
+                    
+                </td>
+                
+                
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+</div>

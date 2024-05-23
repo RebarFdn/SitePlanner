@@ -6,6 +6,7 @@ from decoRouter import Router
 from modules.project import Project
 from modules.employee import Employee
 from modules.utils import timestamp, to_dollars
+from config import TEMPLATES
 
 router = Router()
 
@@ -100,8 +101,14 @@ async def get_project_account_purchases(request):
 @router.get('/project_jobs/{id}')
 async def get_project_jobs(request):
     id = request.path_params.get('id')
-    generator = Project().html_jobs_page_generator(id=id)
-    return StreamingResponse(generator, media_type="text/html" )
+    p = await Project().get(id=id)
+    jobs = p.get('tasks')
+    
+    return TEMPLATES.TemplateResponse(
+        '/project/jobsIndex.html', 
+        { "request": request, "p": p, "jobs": jobs }
+        )
+
 
 @router.get('/project_days/{id}')
 async def get_project_days(request):
@@ -126,21 +133,186 @@ async def get_project_rates(request):
 @router.get('/update_project_job_state/{id}/{state}')
 async def update_project_job_state(request):
     id = request.path_params.get('id')
-    state = request.path_params.get('state')
-    jobstate = {
-        "active": f"""<span class="badge badge-success">Active</span>""",
-        "completed": f"""<span class="badge badge-primary">Completed</span>""",
-        "paused": f"""<span class="badge badge-secondary">Paused</span>""",
+    status = request.path_params.get('state')
+    idd = id.split('-')
+    p = await Project().get(id=idd[0])
+    jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
 
-        "terminated": f"""<span class="badge badge-error">Terminated</span>""",
-
-    }
     
-    return HTMLResponse(jobstate.get(state))
+    def set_state(state):
+        if state == None:
+            pass
+        elif state == "active":
+            job['state'] = {'active': True, 'complete': False, 'pause': False, 'terminate': False}
+            job['event']['started'] = timestamp()            
+        elif state == "completed":
+            job['state'] = {'active': False, 'complete': True, 'pause': False, 'terminate': False}
+            job['event']['completed'] = timestamp()
+        elif state == "paused":
+            job['state'] = {'active': False, 'complete': False, 'pause': True, 'terminate': False}
+            job['event']['paused'].append(timestamp())
+        elif state == "resume":
+            job['state'] = {'active': True, 'complete': False, 'pause': False, 'terminate': False}
+            job['event']['restart'].append(timestamp())
+
+        elif state == "terminated":
+            job['state'] = {'active': False, 'complete': False, 'pause': False, 'terminate': True}
+            job['event']['terminated'] = timestamp()
+        else:
+            pass
+
+        result = {
+            "active": f"""<span class="badge badge-success">Active {job['event']}</span>""",
+            "completed": f"""<span class="badge badge-primary">Completed {job['event']}</span>""",
+            "paused": f"""<span class="badge badge-secondary">Paused {job['event']}</span>""",
+            "resume": f"""<span class="badge badge-success">Restarted {job['event']}</span>""",
+
+            "terminated": f"""<span class="badge badge-error">Terminated {job['event']}</span>""",
+
+        }        
+        return result.get(state)
+    job_state = set_state(status)
+    await Project().update(data=p)
+    
+    return HTMLResponse(
+        f"""<div uk-alert>
+                <a href class="uk-alert-close" uk-close></a>
+                <h3>Notice</h3>
+                <p>{job_state} </p>
+            </div>"""
+        )
+
 
 @router.get('/html_job/{id}')
 async def html_job_page(request):
     id = request.path_params.get('id')
-    return HTMLResponse(await Project().html_job_page_generator(id=id))
+    idd = id.split('-')
+    p = await Project().get(id=idd[0])
+    jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    crew_members = len(job.get('crew').get('members'))
+    #generator = Project().html_job_page_generator(id=id)
+    return TEMPLATES.TemplateResponse('/project/jobPage.html', {"request": request, "p": p, "job": job, "crew_members": crew_members}) 
 
 
+@router.post('/add_job/{id}')
+async def add_job(request):
+    id = request.path_params.get('id')
+    job = {"project_id": id}
+    try:
+        async with request.form() as form:    
+            job["title"] = form.get("title")    
+            job["description"] = form.get("description")    
+            job["projectPhase"] = form.get("project_phase")    
+            job["crew"] = {
+                    "name": form.get("crew_name"),
+                    "rating": 0,
+                    "members": [],
+                    "event": {
+                    "created": form.get("date"),
+                    "activated": None,
+                    "terminated": None
+                    },
+                    "state": {
+                    "enabled": True,
+                    "active": False,
+                    "terminated": False
+                    }
+                }
+            job["worker"] = form.get("worker")
+            job["tasks"] = []
+            job["event"] = {
+                    "started": 0,
+                    "completed": 0,
+                    "paused": [],
+                    "restart": [],
+                    "terminated": 0,
+                    "created": form.get("date")
+                }
+            job["state"] =  {
+                    "active": False,
+                    "completed": False,
+                    "paused": False,
+                    "terminated": False
+                }
+            job["fees"] = {
+                    "contractor": form.get("fees_contractor"),
+                    "misc": form.get("fees_misc"),
+                    "insurance": form.get("fees_insurance"),
+                    "overhead": form.get("fees_overhead"),
+                    "unit": "%"
+                }
+            job["cost"] = {
+                    "task": 0,
+                    "contractor": 0,
+                    "misc": 0,
+                    "insurance": 0,
+                    "overhead": 0,
+                    "total": {
+                    "metric": 0,
+                    "imperial": 0
+                    },
+                    "unit": "$"
+                }
+            job["result"] = {
+                    "paid": False,
+                    "payamount": 0,
+                    "paydate": None
+                }
+            job["progress"] =  0
+
+        await Project().addJobToQueue(id=id, data=job)
+            
+          
+        return HTMLResponse(f"""<div>{job}</div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(job)
+        
+
+@router.post('/add_daywork/{id}')
+async def add_daywork(request):
+    id = request.path_params.get('id')
+    payload = {"project_id": id}
+    try:
+        async with request.form() as form:    
+            payload["form_data"] = form         
+            for key in form.items():
+                payload[key] = form.get(key) 
+          
+        return HTMLResponse(f"""<div>{payload}</div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(payload)
+
+
+@router.post('/add_job_task')
+async def add_job_task(request):
+    async with request.form() as form:
+        data = form.get('task')
+    idd = data.split('-')
+    p = await Project().get(id=idd[0])
+    jb = [j for j in p.get('rates') if j.get('_id') == f"{idd[0]}-{idd[1]}" ] 
+    if len(jb) > 0:
+        task = jb[0] 
+    else:
+        task={}
+    await Project().addTaskToJob(id=f"{idd[0]}-{idd[3]}", data=task)
+    return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{task.get('title')} is added to Job {idd[3]}.</p>
+                        </div>""")
+
+    
