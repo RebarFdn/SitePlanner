@@ -152,6 +152,7 @@ async def update_project_job_state(request):
         elif state == "completed":
             job['state'] = {'active': False, 'complete': True, 'pause': False, 'terminate': False}
             job['event']['completed'] = timestamp()
+            job['progress'] = 100
         elif state == "paused":
             job['state'] = {'active': False, 'complete': False, 'pause': True, 'terminate': False}
             job['event']['paused'].append(timestamp())
@@ -191,15 +192,29 @@ async def update_project_job_state(request):
 async def html_job_page(request):
     id = request.path_params.get('id')
     idd = id.split('-')
-    p = await Project().get(id=idd[0])
+    project = Project()
+    p = await project.get(id=idd[0])
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:
         job = jb[0] 
     else:
         job={}
     crew_members = len(job.get('crew').get('members'))
+    project_phases = project.projectPhases.keys()
     #generator = Project().html_job_page_generator(id=id)
-    return TEMPLATES.TemplateResponse('/project/jobPage.html', {"request": request, "p": p, "job": job, "crew_members": crew_members}) 
+    def test_func(a:str=None):
+        return f"tested {a}"
+    
+    return TEMPLATES.TemplateResponse(
+        '/project/jobPage.html', 
+        {
+            "request": request, 
+            "p": p, "job": job, 
+            "crew_members": crew_members,
+            "project_phases": project_phases,
+            "test_func": test_func
+
+        }) 
 
 
 @router.post('/add_job/{id}')
@@ -314,5 +329,40 @@ async def add_job_task(request):
                             <h3>Notice</h3>
                             <p>{task.get('title')} is added to Job {idd[3]}.</p>
                         </div>""")
+
+
+@router.post('/add_job_crew')
+async def add_job_crew(request):
+    async with request.form() as form:
+        data = form.get('crew')
+    idd = data.split('-')
+    p = await Project().get(id=idd[0])
+    jb = [j for j in p.get('rates') if j.get('_id') == f"{idd[0]}-{idd[1]}" ] 
+    if len(jb) > 0:
+        task = jb[0] 
+    else:
+        task={}
+    await Project().addTaskToJob(id=f"{idd[0]}-{idd[3]}", data=task)
+    return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{task.get('title')} is added to Job {idd[3]}.</p>
+                        </div>""")
+
+
+
+@router.post('/update_job_phase/{id}')
+async def update_job_phase(request):
+    id = request.path_params.get('id')
+    async with request.form() as form:
+        phase_resuest = form.get('projectphase')
+    job_phase = await Project().update_project_job_phase(id=id, phase=phase_resuest)
+    return HTMLResponse(f""" <div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{job_phase }.</p>
+                        </div>
+    """)
+
 
     

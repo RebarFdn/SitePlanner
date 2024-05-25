@@ -73,6 +73,22 @@ class Project:
     @property    
     def report_error(self):
         return self.error_log
+    
+    @property
+    def projectPhases(self):
+        return {      
+            'preliminary':'Preliminary',
+            'substructure': 'Substructrue',
+            'superstructure': 'Superstructure',
+            'floors': 'Floors',
+            'roofing': 'Roofing',
+            'installations': 'Installations',
+            'electrical': 'Electrical',
+            'plumbung': 'Plumbing',
+            'finishes': 'Finishes',
+            'landscaping': 'Landscaping',      
+        
+        }
 
     @property
     def data_validation_error(self):
@@ -1071,7 +1087,22 @@ class Project:
                 template[item] = self.data['state'][item]
             self.data['state'] = template
         else: self.data['state'] = template
-            
+    
+    ## PROJECT PHASE MANAGEMENT
+    async def update_project_job_phase(self, id:str=None, phase:str=None):
+        """Updates A Job Phase """        
+        idd = id.split('-')
+        p = await self.get(id=idd[0])
+        jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
+        if len(jb) > 0:
+            job = jb[0] 
+            job['projectPhase'] = phase
+            await self.update(data=p)
+            return phase
+        else:
+            return None
+        
+        
     ## PROJECT REPORTING
     async def addJobReport(self, id:str=None, data:dict=None):
         project = await self.get(id=id)

@@ -62,34 +62,94 @@
     <div id="result"></div>
     <ul id="job-properties" class="uk-switcher uk-margin">
         <li>                    
-            <div class="flex flex-row bg-gray-300 p-5 border rounded">
+            <div class="flex flex-row bg-gray-50 p-5 border rounded">
+                
             
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-header"><span class="uk-badge">{{  job.get('_id') }}</span> {{ job.get('title') }}
-                    </h2>
+            <div class="uk-card uk-card-large ">
+                <div class="uk-card-header">
+                    
+
+                    <div class="uk-child-width-expand@s uk-text-left" uk-grid>
+                        <div>
+                            
+                                <span class="uk-badge">Id. {{  job._id }}</span>
+                                <h3 class="uk-card-title"> {{ job.title }}</h3>
+                                <p> <span class="font-semibold mx-8">Creation Date </span>{{ job.event.created }} </p>
+                                <p> <span class="font-semibold mx-8">Start Date </span>{{ job.event.started }} </p>
+                                <p> <span class="font-semibold mx-8">State </span>{{ job.state }} </p>
+                                <p> <span class="font-semibold mx-8">Test Function </span>{{ test_func('want to change integer to date') }} </p>
+                                
+                                
+                            
+                        </div>
+                        <div>
+                            <div class="flex flex-col text-sm">
+                                <p><span class="font-semibold mx-8">ProjectPhase</span> 
+                                    {% if job.get('projectPhase') %}
+                                     {{ job.projectPhase }}
+                                     {% else %}
+                                     <form>
+                                        <div class="uk-margin">
+                                            <div uk-form-custom="target: > * > span:first-child">
+                                                <select 
+                                                name="projectphase" 
+                                                hx-post="/update_job_phase/{{job._id}}"
+                                                hx-target="#message"
+                                                aria-label="Custom controls"
+                                                >
+                                                    <option value="">Please select...</option>
+                                                    {% for phase in project_phases %}
+                                                        <option value="{{phase}}">{{ phase }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <button class="uk-button uk-button-default" type="submit" tabindex="-1"                                                  
+                                                    
+                                                
+                                                >
+                                                    <span></span>
+                                                    <span uk-icon="icon: chevron-down"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                    </form>
+                                    {% endif %}
+                                </p>
+                                <p> <span class="font-semibold mx-8">Crew </span>{{ job.get('crew').get('name') }} </p>
+                                <p> <span class="font-semibold mx-8">Crew Members</span> <span class="uk-badge font-semibold">{{ crew_members }} </span></p>
+                                <p> <span class="font-semibold mx-8">All Tasks</span> <span class="uk-badge font-semibold">{{ job.tasks | length }} </span></p>
+                                <p class="my-2> <span class="font-semibold mx-8">Progress</span> <progress class="progress progress-secondary" value="{{ job.progress }}" max="100"></progress> <span class="uk-badge font-semibold">{{ job.progress }} % </span></p>
+                        
+                           
+                            </div>
+                        </div>
+                       
+                    </div>
+
+
+                   
+                   
+                   
+                </div>
+                <div class="uk-card-body">
+                    
                     <p class="text-content2">
                     {{ job.get('description') }}
-                    projectPhase  {{ job.get('projectPhase') }}
-                    Crew {{ job.get('crew').get('name') }} | Members {{ crew_members }}
+                    
                     </p>
+                    <ul class="uk-list">
+                    {% for key, value in job.items()%}
+                    <li><span class="text-xs"><strong>{{ key }}</strong> ____________ {{ value }}</span></li>
+                    {% endfor %}
+                    <
                     <div class="card-footer">
                         <button class="btn-secondary btn">Learn More</button>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-header">{{ job.get('title') }}</h2>
-                    <p class="text-content2">{{ job }}</p>
-                    <div class="card-footer">
-                        <button class="btn-secondary btn">Learn More</button>
-                    </div>
-                </div>
-            </div>
-            
-            
+                        
             </div>                    
         </li>
         <li>
