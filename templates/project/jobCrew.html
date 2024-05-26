@@ -1,0 +1,44 @@
+<div class="uk-overflow-auto">
+    <table class="uk-table uk-table-small uk-table-divider">
+        <caption>{{job.crew.name}}</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Oc</th>
+            <th>Occupation</th>
+            <th>Rating</th>
+            <th>Role</th>
+            <th>Jobs</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for crew in job.crew.members %}
+        <tr>
+            <td>{{crew.id}}</td>
+            <td>{{crew.name}}</td>
+            <td>{{crew.oc}}</td>
+            <td>{{crew.occupation}}</td>
+            <td>{{crew.rating}}</td>
+            <td>{{crew.role}}</td>
+            <td>
+
+               
+                <button class="uk-badge uk-button-default" type="button"> {{ crew.get('tasks', []) | length}}</button>
+<div uk-dropdown>
+    <ul class="uk-nav uk-dropdown-nav">
+        <li class="uk-nav-header">{{ crew.oc }} assigned Tasks</li>
+        {% for task in crew.tasks %}
+        
+        <li class="uk-nav-header">{{ task }}</li>
+       {% endfor %}
+       
+    </ul>
+</div>
+            </td>
+        </tr>
+       {% endfor %}
+    </tbody>
+</table>
+</div>

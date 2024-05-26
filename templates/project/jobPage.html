@@ -155,10 +155,13 @@
         <li>
             <div class="bg-gray-300 p-5 border rounded">
                 {% include 'project/jobTasks.html' %}
-                {{ job.get("tasks") }}
+                
             </div>                     
         </li>
-        <li><div class="bg-gray-300 p-5 border rounded">{{ job.get("crew") }}</div></li>
+        <li><div class="bg-gray-300 p-5 border rounded">
+            {% include 'project/jobCrew.html' %}
+           
+        </div></li>
         
     </ul>
 
