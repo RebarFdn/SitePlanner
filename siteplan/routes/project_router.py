@@ -18,8 +18,13 @@ async def get_projects(request):
 @router.get('/project/{id}')
 async def get_project(request):
     id = request.path_params.get('id')
-    p = await Project().html_page(id=id)
-    return HTMLResponse(p)
+    p = await Project().get(id=id)
+    return TEMPLATES.TemplateResponse('/project/projectPage.html', 
+                                      {
+                                          "request": request, 
+                                          "id": id, 
+                                          "p": p
+                                          })
 
 ## Project Acconting
 @router.get('/project_account/{id}')
@@ -293,6 +298,32 @@ async def add_job(request):
     finally:
         del(job)
         
+
+@router.post('/add_worker_to_job_crew')
+async def add_worker_to_job_crew(request):
+    
+    async with request.form() as form:
+        wid = form.get('worker')
+    idds = wid.split("_")
+    idd = idds[0].split("-")
+    p = await Project().get(id=idd[0])
+    jb = [j for j in p.get('tasks') if j.get('_id') == idds[1] ] 
+    worker = [w for w in p.get('workers', []) if w.get('id') == idds[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    
+    job['crew']['members'].append(worker[0])
+    await Project().update(data=p)
+
+
+    return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{worker[0].get('value').get('name')} is added to Job {idds[1]}.</p>
+                        </div>""")
+
 
 @router.post('/add_daywork/{id}')
 async def add_daywork(request):

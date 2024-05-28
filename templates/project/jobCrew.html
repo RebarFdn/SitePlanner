@@ -1,44 +1,54 @@
+<caption>Crew {{job.crew.name}}</caption> Rating {{job.crew.rating}}
 <div class="uk-overflow-auto">
     <table class="uk-table uk-table-small uk-table-divider">
-        <caption>{{job.crew.name}}</caption>
+        
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Oc</th>
-            <th>Occupation</th>
-            <th>Rating</th>
             <th>Role</th>
+            <th>Rating</th>            
             <th>Jobs</th>
 
         </tr>
     </thead>
     <tbody>
-        {% for crew in job.crew.members %}
+        {% if job.crew.members | length > 0%}
+            {% for crew in job.crew.members %}
+            <tr>
+                <td>{{crew.id}}</td>
+                <td>{{crew.value.name}}</td>
+                <td>{{crew.value.oc}}</td>
+                <td>{{crew.value.occupation}}</td>
+                <td>{{crew.value.rating}}</td>            
+                <td>               
+                    <button class="uk-badge uk-button-default" type="button"> {{ crew.get('tasks', []) | length}}</button>
+                    <div uk-dropdown>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-nav-header">{{ crew.oc }} assigned Tasks</li>
+                            {% for task in crew.tasks %}
+                            
+                            <li class="uk-nav-header">{{ task }}</li>
+                            
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
         <tr>
-            <td>{{crew.id}}</td>
-            <td>{{crew.name}}</td>
-            <td>{{crew.oc}}</td>
-            <td>{{crew.occupation}}</td>
-            <td>{{crew.rating}}</td>
-            <td>{{crew.role}}</td>
-            <td>
-
-               
-                <button class="uk-badge uk-button-default" type="button"> {{ crew.get('tasks', []) | length}}</button>
-<div uk-dropdown>
-    <ul class="uk-nav uk-dropdown-nav">
-        <li class="uk-nav-header">{{ crew.oc }} assigned Tasks</li>
-        {% for task in crew.tasks %}
-        
-        <li class="uk-nav-header">{{ task }}</li>
-       {% endfor %}
-       
-    </ul>
-</div>
-            </td>
+            <td></td>
+            <td></td>
+            <td>The Crew has no workers yet!</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
-       {% endfor %}
+        {% endif %}
+        
     </tbody>
 </table>
+
 </div>
