@@ -205,12 +205,16 @@
         <ul>
             {% for e in employees.rows %}
             <li>
-                <input 
+                <div class="flex py-2 px-4 text-sm"> 
+                <input  class="mx-5"
                         type="checkbox" 
-                        value="{{ e.id + '_' + p._id }}" 
+                        value="{{ p._id + '-' + e.id }}" 
                         name="employee" 
                         hx-post="/add_worker_to_project" 
-                        hx-target="#message" >{{ e.value.name }} {{ e.value.occupation }}</li>
+                        hx-target="#message" >
+                        {{ e.value.name }} <span class="uk-badge">{{ e.value.occupation }}</span></div>
+                        
+                    </li>
             {% endfor %}
         </ul>
         </div>

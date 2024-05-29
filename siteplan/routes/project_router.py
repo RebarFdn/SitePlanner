@@ -76,9 +76,14 @@ async def get_project_account_withdrawals(request):
 @router.get('/project_account_paybills/{id}')
 async def get_project_account_paybills(request):
     id = request.path_params.get('id')
-    generator = await Project().html_account_paybills_generator(id=id)
-    #return StreamingResponse(generator, media_type="text/html")
-    return HTMLResponse(f"""<div class="bg-yellow-500 py-5 px-5">{generator}</div>""")
+    p = await Project().get(id=id)
+    
+    return TEMPLATES.TemplateResponse('/project/account/projectPaybills.html',
+                                      
+        {"request": request,
+         "id": id,
+         "p": p
+         })
 
 @router.get('/project_account_salaries/{id}')
 async def get_project_account_salaries(request):
@@ -420,4 +425,23 @@ async def update_job_phase(request):
     """)
 
 
-    
+
+@router.post('/add_worker_to_project')
+async def add_worker_to_project(request):
+    async with request.form() as form:
+        data = form.get('employee')
+    idd = data.split('-')
+    p = await Project().get(id=idd[0])
+    employees = await Employee().all_workers()
+    employee = [e for e in employees.get('rows') if e.get('id') == idd[1]][0]
+    employee['id'] = data
+    p['workers'].append(employee)
+    await Project().update(p)
+    return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{employee.get('value').get('name')} is employed to Job {p.get('name')}.</p>
+                        </div>""")
+
+
+
