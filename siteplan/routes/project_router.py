@@ -125,8 +125,32 @@ async def get_project_days(request):
 async def get_project_workers(request):
     id = request.path_params.get('id')
     filter = request.path_params.get('filter')
-    generator = Project().html_workers_page(id=id, filter=filter)
-    return StreamingResponse(generator, media_type="text/html" )
+    p = await Project().get(id=id)
+    e = await Employee().all_workers()
+    workers = p.get('workers')
+    categories = { worker.get('value').get('occupation') for worker in workers }
+    if filter:
+        if filter == 'all' or filter == 'None':            
+            filtered = workers 
+        else:
+            filtered = [worker for worker in workers if worker.get("value").get("occupation") == filter]
+
+    
+    return  TEMPLATES.TemplateResponse('/project/projectWorkers.html', 
+                                       {
+                                           "request": request,
+                                           "id": id,
+                                           "p": p,
+                                           "employees": e,
+                                           "workers": workers,
+                                           "categories": categories,
+                                           "filter" : filter,
+                                           "filtered": filtered
+
+                                           
+                                        })
+
+
 
 @router.get('/project_rates/{id}')
 async def get_project_rates(request):
