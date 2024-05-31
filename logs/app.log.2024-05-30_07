@@ -1,0 +1,1575 @@
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a264a380>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:32:05 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e908bd5959'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a264a9b0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:35:35 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'7a292fc4bd'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a4817a30>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:35:41 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'6fece9240c'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a267a2f0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:36:20 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8406b8db95'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a4783190>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:36:24 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'39752bfcf2'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a4815450>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:36:26 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e32e13d756'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f1fc0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:39:26 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'79e3945c45'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a4815de0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:39:27 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'30d4d7b97f'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26b2500>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:40:51 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'f869c67731'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f3f10>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:40:53 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'deff127d66'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26e6b60>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:41:11 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fa765ae9ee'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26ec460>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:42:40 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'f42268965c'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f1e40>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:42:42 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8b178bbe19'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a48154b0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:48:25 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'07534a8517'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a264b430>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:48:27 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'2fa957d4a5'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26793c0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:52:20 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8f3d15750b'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a4816920>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:52:22 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'611850d45c'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a264bd00>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:55:07 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'de40951d47'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26e4dc0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 11:55:08 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fb0b52c76e'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f29b0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:11:20 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'465b7f6bd2'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26b2c50>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:11:21 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'5fc34a8b81'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a267b6d0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:12:25 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'a974afc983'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f36d0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:12:26 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8e0b802d3b'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26ee920>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:12:28 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'42d387f42f'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26ecca0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:12:30 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'0e04713715'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a264ae00>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:15:13 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'b387cef036'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a47f3bb0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:15:54 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a83d38b07a'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7894a26eff40>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:15:56 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'9ec6ae99fd'), (b'X-CouchDB-Body-Time', b'0')])
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:22:04 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:22:04 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:22:04 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:22:04 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13331d10f0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13331d10f0>
+05/30/2024 07:22:04 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:22:04 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:22:04 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:22:04 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:22:04 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:22:04 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:22:04 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'6024e8fe5f'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:22:04 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'6024e8fe5f'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:22:04 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:22:04 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:22:04 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:22:04 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:22:04 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:22:04 AM DEBUG:close.started
+close.started
+05/30/2024 07:22:04 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:22:04 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:22:06 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:22:06 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:22:06 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:22:06 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333215150>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333215150>
+05/30/2024 07:22:06 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:22:06 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:22:06 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:22:06 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:22:06 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:22:06 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:22:05 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'dc527c90c3'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:22:05 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'dc527c90c3'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:22:06 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:22:06 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:22:06 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:22:06 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:22:06 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:22:06 AM DEBUG:close.started
+close.started
+05/30/2024 07:22:06 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:22:06 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:24:54 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:24:54 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:24:54 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:24:54 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b4040>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b4040>
+05/30/2024 07:24:54 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:24:54 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:24:54 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:24:54 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:24:54 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:24:54 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:24:53 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'9557f93b49'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:24:53 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'9557f93b49'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:24:54 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:24:54 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:24:54 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:24:54 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:24:54 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:24:54 AM DEBUG:close.started
+close.started
+05/30/2024 07:24:54 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:24:54 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:24:56 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:24:56 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:24:56 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:24:56 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b77f0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b77f0>
+05/30/2024 07:24:56 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:24:56 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:24:56 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:24:56 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:24:56 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:24:56 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:24:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'd45fe69c2a'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:24:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'd45fe69c2a'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:24:56 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:24:56 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:24:56 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:24:56 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:24:56 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:24:56 AM DEBUG:close.started
+close.started
+05/30/2024 07:24:56 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:24:56 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:25:54 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:25:54 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:25:54 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:25:54 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333271720>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333271720>
+05/30/2024 07:25:54 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:25:54 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:25:54 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:25:54 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:25:54 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:25:54 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:25:54 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'df4189f955'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:25:54 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'df4189f955'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:25:54 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:25:54 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:25:54 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:25:54 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:25:54 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:25:54 AM DEBUG:close.started
+close.started
+05/30/2024 07:25:54 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:25:55 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:25:55 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:25:55 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:25:55 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c133327b700>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c133327b700>
+05/30/2024 07:25:55 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:25:55 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:25:55 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:25:55 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:25:55 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:25:55 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:25:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e4221a02d6'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:25:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e4221a02d6'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:25:55 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:25:55 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:25:55 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:25:55 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:25:55 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:25:55 AM DEBUG:close.started
+close.started
+05/30/2024 07:25:55 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:25:55 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:26:00 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:26:00 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:26:00 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:26:00 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c133327aaa0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c133327aaa0>
+05/30/2024 07:26:00 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:26:00 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:26:00 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:26:00 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:26:00 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:26:00 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:26:00 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'753f81b1a0'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:26:00 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'753f81b1a0'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:26:00 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:26:00 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:26:00 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:26:00 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:26:00 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:26:00 AM DEBUG:close.started
+close.started
+05/30/2024 07:26:00 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:26:00 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:26:01 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:26:01 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:26:01 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:26:01 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b5ff0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b5ff0>
+05/30/2024 07:26:01 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:26:01 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:26:01 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:26:01 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:26:01 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:26:01 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:26:01 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fee03a6670'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:26:01 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fee03a6670'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:26:01 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:26:01 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:26:01 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:26:01 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:26:01 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:26:01 AM DEBUG:close.started
+close.started
+05/30/2024 07:26:01 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:26:01 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:29:21 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:29:21 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:29:21 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:29:21 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310da680>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310da680>
+05/30/2024 07:29:21 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:29:21 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:29:21 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:29:21 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:29:21 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:29:21 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:29:21 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'94637aa640'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:29:21 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'94637aa640'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:29:21 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:29:21 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:29:21 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:29:21 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:29:21 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:29:21 AM DEBUG:close.started
+close.started
+05/30/2024 07:29:21 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:29:21 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:29:23 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:29:23 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:29:23 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:29:23 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333279750>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333279750>
+05/30/2024 07:29:23 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:29:24 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:29:24 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:29:24 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:29:24 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:29:24 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:29:23 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'ec97643d1b'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:29:23 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'ec97643d1b'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:29:24 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:29:24 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:29:24 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:29:24 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:29:24 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:29:24 AM DEBUG:close.started
+close.started
+05/30/2024 07:29:24 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:29:24 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:31:11 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:31:11 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:31:11 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:31:11 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fcac0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fcac0>
+05/30/2024 07:31:11 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:11 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:31:11 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:31:11 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:31:11 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:11 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'f67dd1e0b4'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'f67dd1e0b4'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:31:11 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:31:11 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:31:11 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:31:11 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:31:11 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:31:11 AM DEBUG:close.started
+close.started
+05/30/2024 07:31:11 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:31:12 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:31:12 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:31:12 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:31:12 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310dbdf0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310dbdf0>
+05/30/2024 07:31:12 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:12 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:31:12 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:31:12 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:31:12 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:12 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:12 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8e6468c99c'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:12 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8e6468c99c'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:31:12 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:31:12 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:31:12 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:31:12 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:31:12 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:31:12 AM DEBUG:close.started
+close.started
+05/30/2024 07:31:12 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:31:12 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:31:14 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:31:15 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:31:15 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:31:15 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fcd90>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fcd90>
+05/30/2024 07:31:15 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:15 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:31:15 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:31:15 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:31:15 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:15 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:15 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'94d22d9223'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:15 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'94d22d9223'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:31:15 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:31:15 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:31:15 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:31:15 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:31:15 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:31:15 AM DEBUG:close.started
+close.started
+05/30/2024 07:31:15 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:31:15 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:31:17 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:31:17 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:31:17 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:31:17 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b78e0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b78e0>
+05/30/2024 07:31:17 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:17 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:31:17 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:31:17 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:31:17 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:17 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:17 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a20bb61379'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:17 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a20bb61379'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:31:17 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:31:17 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:31:17 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:31:17 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:31:17 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:31:17 AM DEBUG:close.started
+close.started
+05/30/2024 07:31:17 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:31:17 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:31:18 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:31:18 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:31:18 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:31:18 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b4eb0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b4eb0>
+05/30/2024 07:31:18 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:18 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:31:18 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:31:18 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:31:18 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:31:18 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:18 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'726aee4f32'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:31:18 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'726aee4f32'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:31:18 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:31:18 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:31:18 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:31:18 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:31:18 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:31:18 AM DEBUG:close.started
+close.started
+05/30/2024 07:31:18 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:31:18 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:33:37 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:33:37 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:33:37 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:33:37 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333216bf0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333216bf0>
+05/30/2024 07:33:37 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:33:37 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:33:37 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:33:37 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:33:37 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:33:37 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:33:37 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a49762621f'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:33:37 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a49762621f'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:33:37 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:33:37 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:33:37 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:33:37 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:33:37 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:33:37 AM DEBUG:close.started
+close.started
+05/30/2024 07:33:37 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:33:37 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:33:40 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:33:40 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:33:40 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:33:40 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310ff9d0>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310ff9d0>
+05/30/2024 07:33:40 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:33:40 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:33:40 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:33:40 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:33:40 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:33:40 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:33:39 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fcee7d6eb9'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:33:39 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'fcee7d6eb9'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:33:40 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:33:40 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:33:40 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:33:40 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:33:40 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:33:40 AM DEBUG:close.started
+close.started
+05/30/2024 07:33:40 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:33:40 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:08 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:08 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:08 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:08 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310dab00>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310dab00>
+05/30/2024 07:35:08 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:08 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:08 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:08 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:08 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:08 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:07 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'2c62a6bec1'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:07 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'2c62a6bec1'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:08 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:08 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:08 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:08 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:08 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:08 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:08 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:08 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:11 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:11 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:11 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:11 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310d9120>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310d9120>
+05/30/2024 07:35:11 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:11 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:11 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:11 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:11 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:11 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'266e29e52e'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:11 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'266e29e52e'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:11 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:35:11 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:11 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:11 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:11 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:11 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:11 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:12 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:12 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:12 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:12 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fd690>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fd690>
+05/30/2024 07:35:12 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:12 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:12 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:12 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:12 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:12 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:12 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'6ec32cc5db'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:12 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'6ec32cc5db'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:12 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:12 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:12 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:12 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:12 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:12 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:12 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:12 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:13 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:13 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:13 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:13 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310d9930>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310d9930>
+05/30/2024 07:35:13 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:13 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:13 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:13 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:13 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:13 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:13 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'257d0d77b5'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:13 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'257d0d77b5'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:13 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:13 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:13 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:13 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:13 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:13 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:13 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:13 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:15 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:15 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:15 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:15 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333273910>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333273910>
+05/30/2024 07:35:15 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:15 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:15 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:15 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:15 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:15 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:14 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e5e7d487ad'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:14 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'e5e7d487ad'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:15 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:15 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:15 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:15 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:15 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:15 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:15 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:15 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:55 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:55 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:55 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:55 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333278820>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333278820>
+05/30/2024 07:35:55 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:55 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:55 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:55 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:55 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:55 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'1543b6bd98'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:55 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'1543b6bd98'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:55 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:55 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:55 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:55 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:55 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:55 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:55 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:55 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:35:56 AM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:35:56 AM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:35:56 AM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:35:56 AM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333279e40>
+connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333279e40>
+05/30/2024 07:35:56 AM DEBUG:send_request_headers.started request=<Request [b'GET']>
+send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:56 AM DEBUG:send_request_headers.complete
+send_request_headers.complete
+05/30/2024 07:35:56 AM DEBUG:send_request_body.started request=<Request [b'GET']>
+send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:35:56 AM DEBUG:send_request_body.complete
+send_request_body.complete
+05/30/2024 07:35:56 AM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:35:56 AM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:56 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'ca3a78d0ef'), (b'X-CouchDB-Body-Time', b'0')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Thu, 30 May 2024 12:35:56 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'ca3a78d0ef'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:35:56 AM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:35:56 AM DEBUG:receive_response_body.started request=<Request [b'GET']>
+receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:35:56 AM DEBUG:receive_response_body.complete
+receive_response_body.complete
+05/30/2024 07:35:56 AM DEBUG:response_closed.started
+response_closed.started
+05/30/2024 07:35:56 AM DEBUG:response_closed.complete
+response_closed.complete
+05/30/2024 07:35:56 AM DEBUG:close.started
+close.started
+05/30/2024 07:35:56 AM DEBUG:close.complete
+close.complete
+05/30/2024 07:35:56 AM INFO:Request for Project DD13673 Completed sucessfully.
+Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:40:42 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:40:42 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:40:42 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:40:42 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fca30>
+05/30/2024 07:40:42 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:42 PM DEBUG:send_request_headers.complete
+05/30/2024 07:40:42 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:40:42 PM DEBUG:send_request_body.complete
+05/30/2024 07:40:42 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:42 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:40:41 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'114c6319fe'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:40:42 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:40:42 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:40:42 PM DEBUG:receive_response_body.complete
+05/30/2024 07:40:42 PM DEBUG:response_closed.started
+05/30/2024 07:40:42 PM DEBUG:response_closed.complete
+05/30/2024 07:40:42 PM DEBUG:close.started
+05/30/2024 07:40:42 PM DEBUG:close.complete
+05/30/2024 07:40:43 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:40:43 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:40:43 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:40:43 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13332167d0>
+05/30/2024 07:40:43 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:43 PM DEBUG:send_request_headers.complete
+05/30/2024 07:40:43 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:40:43 PM DEBUG:send_request_body.complete
+05/30/2024 07:40:43 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:43 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:40:42 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'2b092057df'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:40:43 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:40:43 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:40:43 PM DEBUG:receive_response_body.complete
+05/30/2024 07:40:43 PM DEBUG:response_closed.started
+05/30/2024 07:40:43 PM DEBUG:response_closed.complete
+05/30/2024 07:40:43 PM DEBUG:close.started
+05/30/2024 07:40:43 PM DEBUG:close.complete
+05/30/2024 07:40:43 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:40:48 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:40:48 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:40:48 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:40:48 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310ffac0>
+05/30/2024 07:40:48 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:48 PM DEBUG:send_request_headers.complete
+05/30/2024 07:40:48 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:40:48 PM DEBUG:send_request_body.complete
+05/30/2024 07:40:48 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:48 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:40:48 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'b91f5d0df6'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:40:48 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:40:48 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:40:48 PM DEBUG:receive_response_body.complete
+05/30/2024 07:40:48 PM DEBUG:response_closed.started
+05/30/2024 07:40:48 PM DEBUG:response_closed.complete
+05/30/2024 07:40:48 PM DEBUG:close.started
+05/30/2024 07:40:48 PM DEBUG:close.complete
+05/30/2024 07:40:48 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:40:49 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:40:49 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:40:49 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:40:49 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310fc2e0>
+05/30/2024 07:40:49 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:49 PM DEBUG:send_request_headers.complete
+05/30/2024 07:40:49 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:40:49 PM DEBUG:send_request_body.complete
+05/30/2024 07:40:49 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:40:49 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:40:49 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'0b4818dd79'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:40:49 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:40:49 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:40:49 PM DEBUG:receive_response_body.complete
+05/30/2024 07:40:49 PM DEBUG:response_closed.started
+05/30/2024 07:40:49 PM DEBUG:response_closed.complete
+05/30/2024 07:40:49 PM DEBUG:close.started
+05/30/2024 07:40:49 PM DEBUG:close.complete
+05/30/2024 07:40:49 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:41:40 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:41:40 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:41:40 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:41:40 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1333273730>
+05/30/2024 07:41:40 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:40 PM DEBUG:send_request_headers.complete
+05/30/2024 07:41:40 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:41:40 PM DEBUG:send_request_body.complete
+05/30/2024 07:41:40 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:40 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:41:39 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'2d83d35d3f'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:41:40 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:41:40 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:41:40 PM DEBUG:receive_response_body.complete
+05/30/2024 07:41:40 PM DEBUG:response_closed.started
+05/30/2024 07:41:40 PM DEBUG:response_closed.complete
+05/30/2024 07:41:40 PM DEBUG:close.started
+05/30/2024 07:41:40 PM DEBUG:close.complete
+05/30/2024 07:41:41 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:41:41 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:41:41 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:41:41 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b4130>
+05/30/2024 07:41:41 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:41 PM DEBUG:send_request_headers.complete
+05/30/2024 07:41:41 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:41:41 PM DEBUG:send_request_body.complete
+05/30/2024 07:41:41 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:41 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:41:40 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8c4e3588ea'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:41:41 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:41:41 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:41:41 PM DEBUG:receive_response_body.complete
+05/30/2024 07:41:41 PM DEBUG:response_closed.started
+05/30/2024 07:41:41 PM DEBUG:response_closed.complete
+05/30/2024 07:41:41 PM DEBUG:close.started
+05/30/2024 07:41:41 PM DEBUG:close.complete
+05/30/2024 07:41:41 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:41:44 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:41:44 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:41:44 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:41:44 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13332701c0>
+05/30/2024 07:41:44 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:44 PM DEBUG:send_request_headers.complete
+05/30/2024 07:41:44 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:41:44 PM DEBUG:send_request_body.complete
+05/30/2024 07:41:44 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:44 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:41:43 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'4c52482948'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:41:44 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:41:44 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:41:44 PM DEBUG:receive_response_body.complete
+05/30/2024 07:41:44 PM DEBUG:response_closed.started
+05/30/2024 07:41:44 PM DEBUG:response_closed.complete
+05/30/2024 07:41:44 PM DEBUG:close.started
+05/30/2024 07:41:44 PM DEBUG:close.complete
+05/30/2024 07:41:44 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:41:46 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:41:46 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:41:46 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:41:46 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b59f0>
+05/30/2024 07:41:46 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:46 PM DEBUG:send_request_headers.complete
+05/30/2024 07:41:46 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:41:46 PM DEBUG:send_request_body.complete
+05/30/2024 07:41:46 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:41:46 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:41:45 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'8b39a98d37'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:41:46 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:41:46 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:41:46 PM DEBUG:receive_response_body.complete
+05/30/2024 07:41:46 PM DEBUG:response_closed.started
+05/30/2024 07:41:46 PM DEBUG:response_closed.complete
+05/30/2024 07:41:46 PM DEBUG:close.started
+05/30/2024 07:41:46 PM DEBUG:close.complete
+05/30/2024 07:41:46 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:42:47 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:42:47 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:42:47 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:42:47 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13311043a0>
+05/30/2024 07:42:47 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:47 PM DEBUG:send_request_headers.complete
+05/30/2024 07:42:47 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:42:47 PM DEBUG:send_request_body.complete
+05/30/2024 07:42:47 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:47 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:42:46 GMT'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'Transfer-Encoding', b'chunked'), (b'X-Couch-Request-ID', b'40a8ff97fd'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:42:47 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/_design/project-index/_view/name-view "HTTP/1.1 200 OK"
+05/30/2024 07:42:47 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:42:47 PM DEBUG:receive_response_body.complete
+05/30/2024 07:42:47 PM DEBUG:response_closed.started
+05/30/2024 07:42:47 PM DEBUG:response_closed.complete
+05/30/2024 07:42:47 PM DEBUG:close.started
+05/30/2024 07:42:47 PM DEBUG:close.complete
+05/30/2024 07:42:48 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:42:48 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:42:48 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:42:48 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1331105c00>
+05/30/2024 07:42:48 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:48 PM DEBUG:send_request_headers.complete
+05/30/2024 07:42:48 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:42:48 PM DEBUG:send_request_body.complete
+05/30/2024 07:42:48 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:48 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:42:48 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'dfd1f12954'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:42:48 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:42:48 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:42:48 PM DEBUG:receive_response_body.complete
+05/30/2024 07:42:48 PM DEBUG:response_closed.started
+05/30/2024 07:42:48 PM DEBUG:response_closed.complete
+05/30/2024 07:42:48 PM DEBUG:close.started
+05/30/2024 07:42:48 PM DEBUG:close.complete
+05/30/2024 07:42:48 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:42:49 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:42:49 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:42:49 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:42:49 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c13310b5270>
+05/30/2024 07:42:49 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:49 PM DEBUG:send_request_headers.complete
+05/30/2024 07:42:49 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:42:49 PM DEBUG:send_request_body.complete
+05/30/2024 07:42:49 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:49 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:42:49 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'4e0a011c60'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:42:49 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:42:49 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:42:49 PM DEBUG:receive_response_body.complete
+05/30/2024 07:42:49 PM DEBUG:response_closed.started
+05/30/2024 07:42:49 PM DEBUG:response_closed.complete
+05/30/2024 07:42:49 PM DEBUG:close.started
+05/30/2024 07:42:49 PM DEBUG:close.complete
+05/30/2024 07:42:49 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:42:50 PM DEBUG:load_ssl_context verify=True cert=None trust_env=True http2=False
+05/30/2024 07:42:50 PM DEBUG:load_verify_locations cafile='/home/ian/SitePlanner/vnv/lib/python3.10/site-packages/certifi/cacert.pem'
+05/30/2024 07:42:50 PM DEBUG:connect_tcp.started host='localhost' port=5984 local_address=None timeout=5.0 socket_options=None
+05/30/2024 07:42:50 PM DEBUG:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7c1331107100>
+05/30/2024 07:42:50 PM DEBUG:send_request_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:50 PM DEBUG:send_request_headers.complete
+05/30/2024 07:42:50 PM DEBUG:send_request_body.started request=<Request [b'GET']>
+05/30/2024 07:42:50 PM DEBUG:send_request_body.complete
+05/30/2024 07:42:50 PM DEBUG:receive_response_headers.started request=<Request [b'GET']>
+05/30/2024 07:42:50 PM DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Cache-Control', b'must-revalidate'), (b'Content-Length', b'48223'), (b'Content-Type', b'application/json'), (b'Date', b'Fri, 31 May 2024 00:42:50 GMT'), (b'ETag', b'"55-1bd2a4b4945acfdfb7f7ba7775bed794"'), (b'Server', b'CouchDB/3.3.3 (Erlang OTP/24)'), (b'X-Couch-Request-ID', b'a2b264fa42'), (b'X-CouchDB-Body-Time', b'0')])
+05/30/2024 07:42:50 PM INFO:HTTP Request: GET http://ian:90927@localhost:5984/site-projects/DD13673 "HTTP/1.1 200 OK"
+05/30/2024 07:42:50 PM DEBUG:receive_response_body.started request=<Request [b'GET']>
+05/30/2024 07:42:50 PM DEBUG:receive_response_body.complete
+05/30/2024 07:42:50 PM DEBUG:response_closed.started
+05/30/2024 07:42:50 PM DEBUG:response_closed.complete
+05/30/2024 07:42:50 PM DEBUG:close.started
+05/30/2024 07:42:50 PM DEBUG:close.complete
+05/30/2024 07:42:50 PM INFO:Request for Project DD13673 Completed sucessfully.
+05/30/2024 07:42:59 PM DEBUG:Calling on_end with no data

@@ -245,7 +245,7 @@ async def html_job_page(request):
             "request": request, 
             "p": p, "job": job, 
             "crew_members": crew_members,
-            "project_phases": project_phases,
+            "project_phases": project_phases,            
             "test_func": test_func
 
         }) 
@@ -442,6 +442,44 @@ async def add_worker_to_project(request):
                             <h3>Notice</h3>
                             <p>{employee.get('value').get('name')} is employed to Job {p.get('name')}.</p>
                         </div>""")
+
+
+@router.post('/new_paybill/{id}')
+async def new_paybill(request):
+    id = request.path_params.get('id')
+    paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
+    try:
+        async with request.form() as form:    
+              
+            for key in form:
+                paybill[key] = form.get(key) 
+          
+        return HTMLResponse(f"""<div>{paybill}</div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(paybill)
+
+
+@router.post('/current_paybill/{id}')
+async def current_paybill(request):
+    id = request.path_params.get('id')
+    
+    try:
+        request.app.state.CURRENT_PAYBILL = id
+        
+          
+        return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{id}.</p>
+                        </div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(id)
 
 
 

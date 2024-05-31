@@ -1,27 +1,123 @@
-<div>{{p.name }} Paybills </div>
+
+
+<nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#">Paybills</a></li>
+            <li>
+                <a href="#">Filter</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="#">Active</a></li>
+                        <li><a href="#">Item</a></li>
+                        <li><a href="#">Item</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#add-paybill" uk-toggle>New Paybill</a></li>
+        </ul>
+
+    </div>
+</nav>
 
 <div class="uk-overflow-auto">
 <table class="uk-table uk-table-small uk-table-divider">
     <thead>
         <tr>
-            <th>Date</th>
             <th>Refference</th>
+            <th>Date</th>            
             <th>Title</th>
             <th>Description</th>
             <th>Total</th>
+            <th>Manage</th>
         </tr>
     </thead>
     <tbody>
         {% for bill in p.account.records.paybills %}
         <tr>
-            <td>{{ bill.date }}</td>
-            <td>{{ bill.ref }}</td>
+            <td>
+                <label><input 
+                    class="uk-radio" 
+                    type="radio" 
+                    name="current-bill" 
+                    value="{{ bill.ref }}"
+                    hx-post="/current_paybill/{{p._id}}_{{bill.ref}}"
+                    hx-target="#message"
+                    
+                    > {{ bill.ref }}</label>
+                
+                
+            </td>
+            <td>
+               
+                {{ bill.date }}
+            </td>
+            
             <td>{{ bill.mainTitle }}</td>
             <td>{{ bill.subTitle }}</td>
             <td>{{ bill.total }}</td>
+            <td>
+               
+            </td>
         </tr>
         {% endfor %}
         
+        
     </tbody>
 </table>
+</div>
+
+
+
+<!-- This is the modal -->
+<div id="add-paybill" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">New Pay Bill for {{ p.name }}</h2>
+
+        
+        <form class="uk-form-stacked"
+        
+        >
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Date</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="date" placeholder="Bill Date" name="date">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Reference</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill-01" name="ref">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Title</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill Title" name="mainTitle">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">SubTitle</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill SubTitle" name="subTitle"
+                    >
+                </div>
+            </div>
+           
+
+        
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <input class="uk-button uk-button-primary uk-modal-close" type="submit"
+                hx-post="/new_paybill/{{p._id}}"
+                hx-target="#message"
+                
+                >
+            </p>
+        
+        </form>
+        
+    </div>
 </div>
