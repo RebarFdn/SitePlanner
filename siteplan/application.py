@@ -64,7 +64,7 @@ async def users(response):
     generator = get_users()
     return StreamingResponse(generator, media_type='text/html')
 
-async def dashboard(request):
+async def dashboard(request):     
     return TEMPLATES.TemplateResponse('/dash.html', {'request': request})
 
 async def uikit(request):
@@ -150,7 +150,7 @@ app.add_middleware(
     ],
     max_age=3600,
 )
-app.state.ADMIN_EMAIL = 'admin@example.org'
+app.ADMIN_EMAIL = 'admin@example.org'
 
 @app.websocket_route('/ws')
 async def websocket_endpoint(websocket):

@@ -42,7 +42,7 @@
                     type="radio" 
                     name="current-bill" 
                     value="{{ bill.ref }}"
-                    hx-post="/current_paybill/{{p._id}}_{{bill.ref}}"
+                    hx-post="/current_paybill/{{bill.ref}}"
                     hx-target="#message"
                     
                     > {{ bill.ref }}</label>
@@ -58,7 +58,12 @@
             <td>{{ bill.subTitle }}</td>
             <td>{{ bill.total }}</td>
             <td>
-               
+                <button 
+                class="uk-button uk-button-danger uk-button-small rounded"
+                hx-post="/delete_paybill/{{bill.ref}}"
+                hx-target="#message"
+                
+                >Delete</button>
             </td>
         </tr>
         {% endfor %}

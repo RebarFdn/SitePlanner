@@ -7,6 +7,8 @@ from modules.project import Project
 from modules.employee import Employee
 from modules.utils import timestamp, to_dollars
 from config import TEMPLATES
+from database import RedisCache
+
 
 router = Router()
 
@@ -227,6 +229,7 @@ async def html_job_page(request):
     id = request.path_params.get('id')
     idd = id.split('-')
     project = Project()
+    current_paybill =  await RedisCache().get(key="CURRENT_PAYBILL")
     p = await project.get(id=idd[0])
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:
@@ -245,7 +248,8 @@ async def html_job_page(request):
             "request": request, 
             "p": p, "job": job, 
             "crew_members": crew_members,
-            "project_phases": project_phases,            
+            "project_phases": project_phases,  
+            "current_paybill": current_paybill,          
             "test_func": test_func
 
         }) 
@@ -446,34 +450,94 @@ async def add_worker_to_project(request):
 
 @router.post('/new_paybill/{id}')
 async def new_paybill(request):
+    bill_refs = set()
     id = request.path_params.get('id')
+    project = await Project().get(id=id)
     paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
+    for bill in project.get('account').get('records').get('paybills') :
+        bill_refs.add(bill.get('ref'))
+   
+
     try:
         async with request.form() as form:    
               
             for key in form:
                 paybill[key] = form.get(key) 
-          
-        return HTMLResponse(f"""<div>{paybill}</div>""")
+        paybill['ref'] = f"{id}-{paybill['ref']}"
+        if paybill.get('ref') in bill_refs:
+             return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>That Paybill already exists! .</p>
+                        </div>""")
+        else:
+            project['account']['records']['paybills'].append(paybill)    
+            await Project().update(data=project)
+
+            return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{paybill}</p>
+                        </div>""")
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
 
     finally:
         del(paybill)
 
+@router.get('/paybill/{id}')
+async def get_paybill(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+    project = await Project().get(id=idd[0])
+
+    try:
+        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ]
+        return TEMPLATES.TemplateResponse(
+            '/project/account/projectPaybill.html',
+            {"request": request, "bill": bill[0] })
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(bill)
+            
 
 @router.post('/current_paybill/{id}')
 async def current_paybill(request):
     id = request.path_params.get('id')
     
     try:
-        request.app.state.CURRENT_PAYBILL = id
+        await RedisCache().set(key="CURRENT_PAYBILL", val=id)
         
           
         return HTMLResponse(f"""<div uk-alert>
                             <a href class="uk-alert-close" uk-close></a>
                             <h3>Notice</h3>
-                            <p>{id}.</p>
+                            <p>Current Paybill is {id}.</p>
+                        </div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(id)
+
+
+@router.post('/delete_paybill/{id}')
+async def delete_paybill(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+    project = await Project().get(id=idd[0])
+
+    try:
+        for bill in project.get('account').get('records').get('paybills'):
+            if bill.get('ref') == id:
+                project['account']['records']['paybills'].remove(bill)
+        await Project().update(data=project)
+        return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>Bill with Ref {id} deleted from Records.</p>
                         </div>""")
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)

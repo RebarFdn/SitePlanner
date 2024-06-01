@@ -5,6 +5,8 @@
 #couchdb cookie value = 299C5A4368900F0F038E528974770DC4
 #Dependencies
 import httpx
+import asyncio
+import aioredis
 
 from modules.utils import timestamp
 
@@ -191,6 +193,40 @@ class RecouchManager():
     def __exit__(self, exc_type, exec_value, exec_traceback):
         self.handler.exit()
 
+
+class RedisCache():
+    def __init__(self, db=None):
+        self.db = db
+        self.redis = aioredis.from_url("redis://localhost", encoding="utf-8", decode_responses=True) 
+
+
+    async def set(self, key:str=None, val=None):
+        try:
+            if key and val:
+                await self.redis.set(key, val, ex=60*60)
+            else:
+                pass
+        except Exception as e:
+            return str(e)
+        finally:
+            await self.redis.close()
+
+
+    async def get(self, key:str=None):
+        try:
+            if key:
+                value = await self.redis.get(key)
+                return value
+        except Exception as e:
+            return str(e)
+        finally:
+            await self.redis.close()
+
+
+    async def test(self):        
+        await self.set("CURRENT_PAYBILL", "DDXXX-Bill-13")
+        value = await self.get("CURRENT_PAYBILL")
+        return value
 
 
 recouch = Recouch(local_db=None)
