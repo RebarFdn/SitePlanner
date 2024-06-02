@@ -332,6 +332,25 @@ async def add_job(request):
         del(job)
         
 
+
+@router.get('/edit_jobtask/{id}')
+async def edit_jobtask(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ] 
+    return TEMPLATES.TemplateResponse('/project/jobTask.html',
+        {"request": request, "task": task[0], "standard": p.get('syandard')})
+
+
+
 @router.post('/add_worker_to_job_crew')
 async def add_worker_to_job_crew(request):
     

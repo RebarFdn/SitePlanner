@@ -1,6 +1,7 @@
 <p class="text-sm">Current Paybill {{ request.app.state.CURRENT_PAYBILL}}</p>
 <div class="uk-overflow-auto">
     <table class="uk-table uk-table-small uk-table-divider">
+        <caption>{{job._id}}</caption>
         <thead>
             <tr>
                 <th>Id</th>
@@ -9,6 +10,7 @@
                 <th>Assigned</th>
                 <th>Assigned To</th>
                 <th>State</th>
+                <th>Manage</th>
                 
             </tr>
         </thead>
@@ -22,17 +24,72 @@
                 <td>{{ task.assignedto }}</td>
                 <td>
                     {% if task.state.active %}
-                        <span class="badge badge-success">Active</span>
+                        
+                        <div class="uk-inline">
+                          <span class="badge badge-success" type="button">Active</span>
+                            <div class="bg-red-400 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                                <ul>
+                                    <li><span class="text-xs">{{ task._id }}</span></li>
+                                    <li><a href="#" id="href">Complete</a> </li>
+                                    <li><a href="#" id="href">Pause</a> </li>
+                                    <li><a href="#" id="href">Terminate</a> </li>
+                                </ul>
+                                
+                            </div>
+                        </div>
                     {% elif task.state.complete %}
                         <span class="badge badge-primary">Completed</span>
                     {% elif task.state.pause %}
-                        <span class="badge badge-warning">Paused</span>
+                        
+                        <div class="uk-inline">
+                            <span class="badge badge-warning" type="button">Paused</span>
+                              <div class="bg-red-400 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                                  <ul>
+                                      <li><span class="text-xs">{{ task._id }}</span></li>
+                                      <li><a href="#" id="href">Resume</a> </li>                                     
+                                      <li><a href="#" id="href">Terminate</a> </li>
+                                  </ul>
+                                  
+                              </div>
+                          </div>
                     {% elif task.state.terminate %}
                         <span class="badge badge-error">Terminated</span>
                     {% else %}
-                        <span>Set State</span>
+                       
+                        <div class="uk-inline">
+                            <span class="badge badge-primary" type="button">Set State</span>
+                              <div class="bg-red-400 text-white rounded-md" uk-dropdown="mode: click">
+                                  <ul>
+                                      <li><span class="text-xs">{{ task._id }}</span></li>
+                                      <li><a href="#" id="href">Active</a> </li>
+                                      <li><a href="#" id="href">Complete</a> </li>
+                                      <li><a href="#" id="href">Pause</a> </li>
+                                      <li><a href="#" id="href">Terminate</a> </li>
+                                  </ul>
+                                  
+                              </div>
+                          </div>
                     {% endif %}
                     
+                </td>
+                <td>
+                    <div class="uk-inline">
+                        <button class="uk-button uk-button-primary uk-button-small rounded-md" type="button">Manage</button>
+                        <div class="bg-red-500 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                            <ul>
+                                <li><span class="text-xs">{{ task._id }}</span></li>
+                                <li><a href="#" id="href">Add to bill</a> </li>
+                                <li><a 
+                                    href="#" 
+                                    hx-get="/edit_jobtask/{{job._id}}_{{task._id}}"
+                                    hx-target="#job-tasks"
+                                    
+                                    >Edit</a> </li>
+                                <li><a href="#" id="href">Delete</a> </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
                 </td>
                 
                 
