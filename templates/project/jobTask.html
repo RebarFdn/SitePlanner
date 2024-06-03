@@ -1,2 +1,89 @@
-<span class="uk-badge">{{ standard }}</span>
-<div>{{ task }}</div>
+
+<div class="navbar">
+	<div class="navbar-start">
+		
+        <a 
+            class="navbar-item"
+            href="#" 
+            hx-get="/jobtasks/{{job_id}}"
+            hx-target="#job-tasks">
+
+        <span class="uk-badge">
+            <span uk-icon="icon: chevron-double-left; ratio: 1.5">
+            </span>Back to Tasks
+        </span>
+    </a>
+	</div>
+	<div class="navbar-end">
+		
+        <span class="badge badge-secondary navbar-item">Project Standard: {{ standard }}</span>
+	</div>
+</div>
+
+
+<hr class="uk-divider">
+<section class="bg-white p-5 rounded-md shadow-md ">
+    <div class="uk-child-width-expand@s uk-text-left" uk-grid>
+        <div>
+            <h3> Job Id: {{job_id}}</h3>
+            <h3> Task Id: {{task._id}}</h3>
+            <h3> Title: {{task.title}}</h3>
+            <h4> Description: {{task.description}}</h4>
+            <div>
+                <p> State: {{ task.state }}</p>
+            </div>
+            <h4> Assignment: {{task.assignedto}}</h4>
+
+        </div>
+
+        <div>
+            <p> Category {{ task.category }}</p>
+            <p> Project Phase {{ task.phase }}</p>
+           <p> Progress <span id="task-progress">{{ task.progress }}</span>%
+            <form><input 
+                            type="range" 
+                            class="range range-secondary" 
+                            name="task_progress"
+                            min="0"
+                            max="100"
+                            step="5"
+                            value="{{ task.progress }}"
+                            hx-post="/update_task_progress/{{job_id}}_{{task._id}}"
+                            hx-target="#task-progress"
+                            hx-trigger="change"
+                            />
+                        </form>
+            </p>
+           <div>
+                <p> Event: {{ task.event }}</p>
+            </div>
+            <h4> Payment: {{task.paid}}</h4>
+        </div>
+    </div>
+  
+   <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">Metric Properties</h3>
+            {% for key, value in task.metric.items() %}
+            <p><strong>{{ key | capitalize }}</strong> {{value}}</p>
+            {% endfor %}
+            <p><strong>Output</strong> {{task.output.metric}}</p>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">Imperial Properties</h3>
+            
+            {% for key, value in task.imperial.items() %}
+            <p><strong>{{ key | capitalize  }}</strong> {{value}}</p>
+            {% endfor %}
+            <p><strong>Output</strong> {{task.output.imperial}}</p>
+            </div>
+    </div>
+    
+</div>
+<p> Remarks: {{ task.comments }}</p>
+</section>
+
+<p class="text-xs font-fine">Database Revision No: {{ task._rev}} | Created: {{ task.timestamp }} </p>

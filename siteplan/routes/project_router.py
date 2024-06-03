@@ -17,6 +17,7 @@ async def get_projects(request):
     generator = Project().projects_index_generator()
     return StreamingResponse(generator, media_type="text/html")
 
+
 @router.get('/project/{id}')
 async def get_project(request):
     id = request.path_params.get('id')
@@ -87,6 +88,7 @@ async def get_project_account_paybills(request):
          "p": p
          })
 
+
 @router.get('/project_account_salaries/{id}')
 async def get_project_account_salaries(request):
     id = request.path_params.get('id')
@@ -94,12 +96,14 @@ async def get_project_account_salaries(request):
     #return StreamingResponse(generator, media_type="text/html")
     return HTMLResponse(f"""<div class="bg-yellow-500 py-5 px-5">{generator}</div>""")
 
+
 @router.get('/project_account_expences/{id}')
 async def get_project_account_expences(request):
     id = request.path_params.get('id')
     generator = await Project().html_account_expences_generator(id=id)
     #return StreamingResponse(generator, media_type="text/html")
     return HTMLResponse(f"""<div class="bg-yellow-500 py-5 px-5">{generator}</div>""")
+
 
 @router.get('/project_account_purchases/{id}')
 async def get_project_account_purchases(request):
@@ -127,6 +131,7 @@ async def get_project_days(request):
     id = request.path_params.get('id')
     p = await Project().html_days_page(id=id)
     return HTMLResponse(p)
+
 
 @router.get('/project_workers/{id}/{filter}')
 async def get_project_workers(request):
@@ -332,6 +337,22 @@ async def add_job(request):
         del(job)
         
 
+@router.get('/jobtasks/{id}')
+async def get_jobtasks(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+   
+    p = await Project().get(id=idd[0])
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == id] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    
+    return TEMPLATES.TemplateResponse('/project/jobTasks.html',
+        {"request": request, "job": job, "standard": p.get('standard')})
+
 
 @router.get('/edit_jobtask/{id}')
 async def edit_jobtask(request):
@@ -347,9 +368,29 @@ async def edit_jobtask(request):
         job={}
     task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ] 
     return TEMPLATES.TemplateResponse('/project/jobTask.html',
-        {"request": request, "task": task[0], "standard": p.get('syandard')})
+        {"request": request, "task": task[0], "standard": p.get('standard'), "job_id": job.get('_id')})
 
 
+@router.post('/update_task_progress/{id}')
+async def update_task_progress(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ] 
+    try:
+        async with request.form as form:
+            progress = form.get('task_progress')
+
+        return HTMLResponse(f""" {progress}""")
+    except Exception as e:
+        pass
 
 @router.post('/add_worker_to_job_crew')
 async def add_worker_to_job_crew(request):
