@@ -1,7 +1,3 @@
-echo 'preparing launch sequence  Please Wait ...'
+echo "Starting Site Servers"
 source vnv/bin/activate
-
-echo
-echo 'Virtual environment activated ...'
-echo 'Starting SitePlan services...'
 nodemon siteplan/application.py

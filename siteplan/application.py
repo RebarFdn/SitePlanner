@@ -13,7 +13,7 @@ from starlette.websockets import WebSocket
 import asyncio
 from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
 from modules.zen import zen_now
-
+from database import RedisCache
 from routes.auth_router import router as auth_routes, loadusers
 from routes.project_router import router as p_router
 from routes.team_router import router as team_router
@@ -150,7 +150,8 @@ app.add_middleware(
     ],
     max_age=3600,
 )
-app.ADMIN_EMAIL = 'admin@example.org'
+
+app.state.ADMIN_EMAIL = 'admin@siteplaner.org'
 
 @app.websocket_route('/ws')
 async def websocket_endpoint(websocket):
@@ -167,7 +168,8 @@ async def websocket_endpoint(websocket):
         await websocket.close()
 
 
-def run_http():
+def run_http():   
+
     from uvicorn import run
     run(
         app,

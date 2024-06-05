@@ -6,7 +6,10 @@
         </div>
         <div class="navbar-center"></div>
         <div class="navbar-end">
-        <button class="uk-button uk-button-primary uk-button-small uk-margin-small-right navbar-task" type="button" uk-toggle="target: #new-job-modal">Add Job</button>
+        <button 
+        class="uk-button uk-button-primary uk-button-small uk-margin-small-right navbar-task" 
+        type="button" 
+        uk-toggle="target: #new-job-modal">Add Job</button>
 
         </div>
     </div>
@@ -20,7 +23,7 @@
                     <th>Description</th>
                     <th>Project Phase</th>
                     <th>Crew</th>
-                    <th>Jobs</th>
+                    <th>Tasks</th>
                     <th>State</th>
                     <th>Progress</th>
                    
@@ -68,7 +71,7 @@
 <h2 class="uk-modal-title">New Job Task</h2>
 <div> 
 <form 
-        hx-post="/add_job/{{ id }}"
+        hx-post="/add_job/{{ p._id }}"
         hx-target="#add-job-result"
         hx-trigger="submit"   
         class="uk-grid-small" uk-grid

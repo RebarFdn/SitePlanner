@@ -327,8 +327,6 @@ async def add_job(request):
             job["progress"] =  0
 
         await Project().addJobToQueue(id=id, data=job)
-            
-          
         return HTMLResponse(f"""<div>{job}</div>""")
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
@@ -336,7 +334,7 @@ async def add_job(request):
     finally:
         del(job)
         
-
+# JOB TASKS
 @router.get('/jobtasks/{id}')
 async def get_jobtasks(request):
     id = request.path_params.get('id')
@@ -367,8 +365,119 @@ async def edit_jobtask(request):
     else:
         job={}
     task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ] 
+    contact = request.app.state
+    display = {
+        "metric": True,
+        "imperial": True
+    }
     return TEMPLATES.TemplateResponse('/project/jobTask.html',
-        {"request": request, "task": task[0], "standard": p.get('standard'), "job_id": job.get('_id')})
+        {
+            "request": request, 
+            "display": display ,
+            "task": task[0], 
+            "standard": p.get('standard'), 
+            "job_id": job.get('_id'), 
+            "crew": job.get('crew').get('members'),
+            "contact": contact})
+
+
+@router.post('/assign_task/{id}')
+async def assign_task(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    try:
+        async with request.form() as form:
+            crew_member = form.get('crew_member')
+        if task.get('assigned'):
+            if crew_member in task.get('assignedto'):
+                return HTMLResponse("<p>That crew mamber is already on this task.</p>")
+            else:
+                task['assignedto'].append(crew_member)
+                await Project().update(data=p)
+                return HTMLResponse(f""" {crew_member} has been assigned to this task.""")
+        else:
+            task['assignedto'] = [crew_member]
+            task['assigned'] = True
+            await Project().update(data=p)
+            return HTMLResponse(f""" {crew_member}  has been assigned to this task.""")
+    except Exception as e:
+        pass
+
+
+@router.get('/task_properties/{id}/{flag}')
+async def get_task_properties(request):
+    id = request.path_params.get('id')
+    flag = request.path_params.get('flag')
+   
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    return TEMPLATES.TemplateResponse('/project/task/metricProperties.html', {"request": request, "job_id": idd[0], "task": task,"to_dollars": to_dollars})
+
+
+
+@router.get('/edit_task_properties/{id}/{flag}')
+async def edit_metric_properties(request):
+    id = request.path_params.get('id')
+    flag = request.path_params.get('flag')
+   
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    if flag == 'metric':
+        return TEMPLATES.TemplateResponse('/project/task/editMetric.html', {"request": request, "job_id": idd[0],"task": task})
+    else:
+        return HTMLResponse("")
+
+
+@router.put('/update_task_properties/{id}/{flag}')
+async def update_metric_properties(request):
+    id = request.path_params.get('id')
+    flag = request.path_params.get('flag')
+   
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    async with request.form() as form:
+        total = float(form.get('quantity')) * float(form.get('price'))
+        task['metric']['unit'] = form.get('unit')
+        task['metric']['quantity'] = form.get('quantity')
+        task['metric']['price'] = form.get('price')
+        task['metric']['total'] = total
+    await Project().update(data=p)
+
+    return TEMPLATES.TemplateResponse("/project/task/updatedMetric.html", {"request": request, "id": id, "form": form, "total":total})
+
 
 
 @router.post('/update_task_progress/{id}')
@@ -383,11 +492,19 @@ async def update_task_progress(request):
         job = jb[0] 
     else:
         job={}
-    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ] 
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0] 
     try:
-        async with request.form as form:
-            progress = form.get('task_progress')
-
+        async with request.form() as form:
+            progress = int(form .get('task_progress'))
+        if progress == 100:
+            task['state'] = {'active': False, 'complete': True, 'pause': False, 'terminate': False}
+            task['event']['completed'] = timestamp()
+            task['progress'] = progress
+            # Log this update
+        else:
+            task['progress'] = progress
+            #log this event
+        await Project().update(data=p)
         return HTMLResponse(f""" {progress}""")
     except Exception as e:
         pass
