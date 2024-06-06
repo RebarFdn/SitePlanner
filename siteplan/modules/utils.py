@@ -18,9 +18,14 @@ def timestamp(date:str=None):
     else:
         return  int((datetime.datetime.now().timestamp() * 1000))
 
-def converTime(time):    
-    timestamp = datetime.datetime.fromtimestamp(int(time))
-    return timestamp.strftime('%Y-%m-%d %H:%M:%S')
+def converTime(timestamp:int=None):    
+    date = datetime.datetime.fromtimestamp(int(timestamp))
+    return date.strftime('%Y-%m-%d %H:%M:%S')
+
+def convert_timestamp(timestamp:int=None):    
+    date = datetime.datetime.fromtimestamp(int(timestamp))
+    return date.strftime('%Y-%m-%d %H:%M:%S')
+
     
 #----------------------------- ID Generation Service ----------------------------------
 
@@ -346,8 +351,6 @@ def to_dollars(amount:float=None):
     else:
         return 0
     
-
-
 
 
 # test

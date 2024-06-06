@@ -23,8 +23,6 @@ from routes.estimator_router import router as estimate_router
 
 
 
-
-
 async def get_users():
     users = loadusers()
     

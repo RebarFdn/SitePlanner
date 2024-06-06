@@ -5,6 +5,11 @@ from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
 from starlette.templating import Jinja2Templates
 
+
+
+from modules.utils import convert_timestamp, to_dollars
+
+
 # Directory Paths
 BASE_PATH = Path(__file__).parent.parent
 HOME_PATH = Path(__file__).parent
@@ -41,3 +46,7 @@ LOG_PATH = Path.joinpath(BASE_PATH, 'logs')
 SYSTEM_LOG_PATH = Path.joinpath(LOG_PATH, 'system.log')
 SERVER_LOG_PATH = Path.joinpath(LOG_PATH, 'server.log')
 APP_LOG_PATH = Path.joinpath(LOG_PATH, 'app.log')
+
+env = TEMPLATES.env
+env.filters['to_dollars'] = to_dollars
+env.filters['convert_timestamp'] = convert_timestamp

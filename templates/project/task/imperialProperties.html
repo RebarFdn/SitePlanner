@@ -3,8 +3,8 @@
         <h3 class="uk-card-title">Imperial Properties</h3>
         <div><label>Unit</label>: {{ task.imperial.unit}}</div>
         <div><label>Quantity</label>:  {{ task.imperial.quantity | float  }}</div>
-        <div><label>Price</label>:  ${{  task.imperial.price | float  }}</div>
-        <div><label class="font-semibold">Total</label>:  ${{ task.imperial.quantity | float * task.imperial.price | float }}</div>
+        <div><label>Price</label>:  {{  task.imperial.price | to_dollars  }}</div>
+        <div><label class="font-semibold">Total</label>:  {{ task.imperial.quantity | float * task.imperial.price | float }}</div>
         <button hx-get="/edit_task_properties/{{job_id}}_{{task._id}}/imperial" class="btn btn-primary">
         Click To Edit
         </button>

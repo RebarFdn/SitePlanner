@@ -167,8 +167,16 @@ async def get_project_workers(request):
 @router.get('/project_rates/{id}')
 async def get_project_rates(request):
     id = request.path_params.get('id')
-    generator = Project().html_rates_page_generator(id=id)
-    return StreamingResponse(generator, media_type="text/html" )
+    from modules.rate import Rate        
+    industry_rates = await Rate().all_rates()
+    p = await Project().get(id=id)
+    
+    return TEMPLATES.TemplateResponse('/project/rates/projectRates.html', 
+        {
+            "request": request,
+            "p": p,
+            "industry_rates": industry_rates
+        } )
 
 
 @router.post("/add_industry_rate/{id}")
@@ -454,6 +462,7 @@ async def get_task_properties(request):
     else:
         job={}
     task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    task['metric']['total'] = float(task.get('metric').get('quantity')) * float(task.get('metric').get('price'))
     return TEMPLATES.TemplateResponse('/project/task/metricProperties.html', {
         "request": request, "job_id": idd[0], "task": task,"to_dollars": to_dollars})
 
