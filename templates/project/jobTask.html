@@ -30,7 +30,55 @@
             <h3> Title: {{task.title}}</h3>
             <h4> Description: {{task.description}}</h4>
             <div>
-                <p> State: {{ task.state }}</p>
+                <p> State:</p>
+                {% if task.state.active %}
+                        
+                        <div class="uk-inline">
+                          <span class="badge badge-success" type="button">Active</span>
+                            <div class="bg-red-400 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                                <ul>
+                                    <li><span class="text-xs">{{ task._id }}</span></li>
+                                    <li><a href="#" id="href">Complete</a> </li>
+                                    <li><a href="#" id="href">Pause</a> </li>
+                                    <li><a href="#" id="href">Terminate</a> </li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    {% elif task.state.complete %}
+                        <span class="badge badge-primary">Completed</span>
+                    {% elif task.state.pause %}
+                        
+                        <div class="uk-inline">
+                            <span class="badge badge-warning" type="button">Paused</span>
+                              <div class="bg-red-400 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                                  <ul>
+                                      <li><span class="text-xs">{{ task._id }}</span></li>
+                                      <li><a href="#" id="href">Resume</a> </li>                                     
+                                      <li><a href="#" id="href">Terminate</a> </li>
+                                  </ul>
+                                  
+                              </div>
+                          </div>
+                    {% elif task.state.terminate %}
+                        <span class="badge badge-error">Terminated</span>
+                    {% else %}
+                       
+                        <div class="uk-inline">
+                            <span class="badge badge-primary" type="button">Set State</span>
+                              <div class="bg-red-400 text-white rounded-md" uk-dropdown="mode: click">
+                                  <ul>
+                                      <li><span class="text-xs">{{ task._id }}</span></li>
+                                      <li><a href="#" id="href">Active</a> </li>
+                                      <li><a href="#" id="href">Complete</a> </li>
+                                      <li><a href="#" id="href">Pause</a> </li>
+                                      <li><a href="#" id="href">Terminate</a> </li>
+                                  </ul>
+                                  
+                              </div>
+                          </div>
+                    {% endif %}
+                    
             </div>
             {% if task.assigned %}
             <h4> Assignment: {{task.assignedto}}</h4>

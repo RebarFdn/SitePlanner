@@ -2474,36 +2474,120 @@ class Project:
         return p.get('admin', {})
     
     async def html_rates_page_generator(self, id:str=None):
-        p = await self.get(id=id)
-        yield f"""<div class="bg-gray-300 p-5 border rounded">{p.get('name')} Rates Index</div> """
-        yield f""" <div class="flex flex-col">
-                <div class="m-1.5 overflow-x-auto">
-                    <div class="p-1.5 min-w-full h-screen inline-block align-middle overflow-y-auto">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead>
-                            <tr>
-                            <th scope="col" class="px-2 py-2 text-start text-xs font-medium text-gray-500 uppercase">Title</th>
-                            <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Description</th>
-                            <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Metric</th>
-                            <th scope="col" class="px-4 py-2 text-end text-xs font-medium text-gray-500 uppercase">Imperial</th>
-                            <th></th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                """
-        for rate in p.get('rates', []):
-            yield f"""<tr class="hover:bg-gray-100 dark:hover:bg-gray-700">              
-              <td class="px-2 py-2 whitespace-wrap text-sm font-medium text-gray-800 dark:text-gray-200 w-32">{rate.get('title')}</td>
-              <td class="px-4 py-2 whitespace-wrap text-sm text-gray-800 dark:text-gray-200">{rate.get('description')}</td>
-              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{self.as_currency(float(rate.get('metric').get('price')))} /{rate.get('metric').get('unit')}</td>
-              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{self.as_currency(float(rate.get('imperial').get('price')))} /{rate.get('imperial').get('unit')}</td>
-              <td class="px-4 py-2 whitespace-nowrap text-end text-sm font-medium">
-                <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
-              </td>
-            </tr>"""
+        try:
+            from modules.rate import Rate
+        
+            industry_rates = await Rate().all_rates()
+            p = await self.get(id=id)
+            yield f"""
+                <div class="navbar">
+                    <div class="navbar-start">
+                        <a class="navbar-item">{p.get('name')} Rates Index</a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item">Filter</a>
+                         <a class="navbar-item">About</a>
+                        <label class="btn btn-primary" for="modal-2">Add Industry Rate</label>
+                      
+                    </div>
+                </div>
+            """
+            yield f""" <div class="flex flex-col">
+                    <div class="m-1.5 overflow-x-auto">
+                        <div class="p-1.5 min-w-full h-screen inline-block align-middle overflow-y-auto">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead>
+                                <tr>
+                                 <th scope="col" class="px-2 py-2 text-start text-xs font-medium text-gray-500 uppercase">Id</th>
+                                <th scope="col" class="px-2 py-2 text-start text-xs font-medium text-gray-500 uppercase">Title</th>
+                                <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Description</th>
+                                <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Category</th>
+                                <th scope="col" class="px-4 py-2 text-start text-xs font-medium text-gray-500 uppercase">Metric</th>
+                                <th scope="col" class="px-4 py-2 text-end text-xs font-medium text-gray-500 uppercase">Imperial</th>
+                                <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                    """
+            for rate in p.get('rates', []):
+                yield f"""<tr class="hover:bg-gray-100 dark:hover:bg-gray-700">      
+                <td class="px-2 py-2 whitespace-wrap text-xs font-medium text-gray-800 dark:text-gray-200 w-32">{rate.get('_id')}</td>
+                       
+                <td class="px-2 py-2 whitespace-wrap text-sm font-medium text-gray-800 dark:text-gray-200 w-32">{rate.get('title')}</td>
+                <td class="px-4 py-2 whitespace-wrap text-sm text-gray-800 dark:text-gray-200">{rate.get('description')}</td>
+                <td class="px-4 py-2 whitespace-wrap text-sm text-gray-800 dark:text-gray-200">{rate.get('category')}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{self.as_currency(float(rate.get('metric').get('price')))} /{rate.get('metric').get('unit')}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{self.as_currency(float(rate.get('imperial').get('price')))} /{rate.get('imperial').get('unit')}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-end text-sm font-medium">
+                    <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
+                </td>
+                </tr>"""
 
-        yield f"""</tbody></table></div></div></div></div>"""
+            yield f"""</tbody></table></div></div></div></div>
+
+                
+
+                <input class="modal-state" id="modal-2" type="checkbox" />
+                <div class="modal w-screen">
+                    <label class="modal-overlay" for="modal-2"></label>
+                    <div class="modal-content flex flex-col gap-5 max-w-3xl">
+                        <label for="modal-2" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+                        <h2 class="text-xl">Industry Rates Index</h2>
+                        <section>
+                        <div>Filter</div>
+                        <div class="bg-gray-300 text-gray-900 p-1 rounded-md">
+                            <p class="text-xs">Add Industry Rate to Project</p>
+                            <form prevent-default>
+                             <table class="uk-table uk-table-divider">
+                            <thead>
+                        <tr>
+                            <th></th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                        </tr>
+                        </thead>
+                        <tbody>"""
+                            
+                       
+            for rate in industry_rates:         
+                yield f""" <tr>
+                            <td>
+                             
+                            <input 
+                                type="radio" 
+                                class="radio radio-bordered-primary"
+                                value="{rate.get('_id')}" 
+                                name="rate" 
+                                hx-post="/add_industry_rate/{p.get('_id')}" 
+                                hx-target="#message" 
+                              
+                                >
+                            </td>
+                            <td>{ rate.get("_id") }</td>
+                            <td> { rate.get("title") }</td>
+                            <td> { rate.get("description") }</td>
+                            <td> { rate.get("category") }</td>
+
+                        </tr>"""
+            yield f"""                  
+                        </tbody>
+                    </table>
+                                
+            </form></div>
+                        </section>
+                        <!--div class="flex gap-3">
+                            <button class="btn btn-error btn-block">Delete</button>
+                            <button class="btn btn-block">Cancel</button>
+                        </div-->
+                    </div>
+                </div>
+            
+            """
+        except Exception as e:
+            yield f"<div> {str(e)}</div>"
 
     async def html_inventory_generator(self, id:str=None):
         

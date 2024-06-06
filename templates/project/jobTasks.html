@@ -75,16 +75,16 @@
                 <td>
                     <div class="uk-inline">
                         <button class="uk-button uk-button-primary uk-button-small rounded-md" type="button">Manage</button>
-                        <div class="bg-red-500 text-white rounded-md hover:bg-red-400" uk-dropdown="mode: click">
+                        <div class="bg-red-300 text-gray-900 rounded-md hover:bg-red-400" uk-dropdown="mode: click">
                             <ul>
-                                <li><span class="text-xs">{{ task._id }}</span></li>
-                                <li><a href="#" id="href">Add to bill</a> </li>
+                                <li><span class="text-xs">{{ task._id }}</span></li>                                
                                 <li><a 
                                     href="#" 
                                     hx-get="/edit_jobtask/{{job._id}}_{{task._id}}"
                                     hx-target="#job-tasks"
                                     
                                     >Edit</a> </li>
+                                    <li><a href="#" id="href">Add to bill</a> </li>
                                 <li><a href="#" id="href">Delete</a> </li>
                             </ul>
                             

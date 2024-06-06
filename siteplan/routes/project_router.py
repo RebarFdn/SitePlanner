@@ -171,6 +171,32 @@ async def get_project_rates(request):
     return StreamingResponse(generator, media_type="text/html" )
 
 
+@router.post("/add_industry_rate/{id}")
+async def add_industry_rate(request):
+    from modules.rate import Rate
+
+    id = request.path_params.get('id')
+    p = await Project().get(id=id)
+    
+    try:
+        async with request.form() as form:
+            rate_id = form.get('rate')
+        if rate_id:
+            rate = await Rate().get(id=rate_id)
+            return HTMLResponse(f"<div>{rate.get('category')} Task Rate {rate.get('title')} has been added to Project {p.get('name')}</div>")
+        else:
+            return HTMLResponse("<div>Id Not available </div>")
+    except Exception as e:
+        return f"<div>{str(e)}</div>"
+    finally:
+        del(p)
+        #if rate:
+        #    del(rate)
+    
+    
+        
+  
+
 @router.get('/update_project_job_state/{id}/{state}')
 async def update_project_job_state(request):
     id = request.path_params.get('id')
@@ -428,7 +454,8 @@ async def get_task_properties(request):
     else:
         job={}
     task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
-    return TEMPLATES.TemplateResponse('/project/task/metricProperties.html', {"request": request, "job_id": idd[0], "task": task,"to_dollars": to_dollars})
+    return TEMPLATES.TemplateResponse('/project/task/metricProperties.html', {
+        "request": request, "job_id": idd[0], "task": task,"to_dollars": to_dollars})
 
 
 
@@ -721,6 +748,24 @@ async def delete_paybill(request):
 
     finally:
         del(id)
+
+@router.post('/update_project_standard/{id}')
+async def update_project_standard(request):
+    id = request.path_params.get('id')    
+    p = await Project().get(id=id)
+    try:
+        async with request.form() as form:
+            standard = form.get('standard')
+        if standard == None:
+            p['standard'] = "imperial"
+            await Project().update(data=p)
+            return HTMLResponse("Imperial")
+        else:
+            p['standard'] = "metric"
+            await Project().update(data=p)
+            return HTMLResponse("Metric")
+    except:
+        pass
 
 
 
