@@ -4,6 +4,7 @@ from decoRouter import Router
 from modules.rate import Rate
 from modules.supplier import Supplier
 from modules.equipment import Equipment
+from config import TEMPLATES
 
 
 
@@ -13,13 +14,31 @@ router = Router()
 # Employee Related routes  
 
 @router.get('/rates_html_table/')
-async def html_table(request):
+async def rates_html_table(request):
     return StreamingResponse(Rate().html_table_generator(), media_type="text/html")
 
-@router.get('/rates_html_table/{filter}')
-async def html_table_filtered(request):
-    filter_request = request.path_params.get('filter')
-    return StreamingResponse(Rate().html_table_generator(filter=filter_request), media_type="text/html")
+@router.get('/industry_rates/{filter}')
+async def industry_rates(request):
+    store_room = request.app.state.STORE_ROOM
+    filter = request.path_params.get('filter')
+    rates = await Rate().all_rates()
+    categories = {rate.get('category') for rate in rates }
+    if filter:
+        store_room['filter'] = filter
+        if filter == 'all' or filter == 'None':            
+            filtered = rates
+        else:
+            filtered = [rate for rate in rates if rate.get("category") == filter]
+    return TEMPLATES.TemplateResponse('/rate/industryRates.html', {
+        "request": request,
+        "filter": filter,
+        "rates": rates,
+        "categories": categories,
+        "filtered": filtered,
+        "store_room":  store_room
+
+    }
+                                      )
 
 
 @router.get('/rates_html_index/')

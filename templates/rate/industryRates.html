@@ -1,0 +1,133 @@
+{% if filter %}
+<div class="flex flex-row bg-gray-300 py-3 px-4 items-inline text-center rounded">
+    <span class="cursor-pointer" uk-toggle="target: #new-rate-modal"uk-icon="plus"></span>
+        {% if filter == 'all' %}
+        <p class="mx-5">Industry Rates Index</p>   
+        {% else %}   
+        <p class="mx-5">Industrial {{ filter | capitalize }} Rates Index</p> 
+        {% endif %}            
+        <span class="bg-gray-50 py-1 px-2 border rounded-full">{{ filtered | length }}<span>   
+          <a href><span uk-drop-parent-icon></span></a>
+        <div uk-dropdown="pos: bottom-center">
+        <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-nav-header">Filter Rates</li>
+            <li><a 
+                        href="#"
+                        hx-get="/industry_rates/all"
+                        hx-target="#dash-content-pane"
+                        hx-trigger="click"                                 
+                        >All Categories</a>
+                </li>           
+
+                {% for item in categories %}
+                    <li>
+                        <a 
+                            href="#"
+                            hx-get="/industry_rates/{{ item }}"
+                            hx-target="#dash-content-pane"
+                            hx-trigger="click"                                 
+                        >{{ item }}</a>
+                    </li>
+                {% endfor %}
+           
+            
+            </ul>
+        </div>
+    </div>
+<table class="uk-table uk-table-small uk-table-hover uk-table-divider text-teal-800">
+    <thead>
+        <tr class="uk-text-primary">
+            <th>Id</th>
+            <th>Category</th>
+            <th>Title</th>
+            
+            <th>Metric Unit</th>
+            <th>Metric Rate</th>
+            <th>Imperial Unit</th>
+            <th>Imperial Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for rate in filtered %}
+    <tr
+                hx-get="/rate/{{rate.get('_id') }}"
+                hx-target="#dash-content-pane"
+                hx-trigger="click"
+                >
+            <td> {{ rate.get('_id') }}</td>
+            <td> {{ rate.get('category') }}</td>
+            <td> {{ rate.get('title') }}</td>                   
+            <td> {{ rate.get('metric').get('unit') }}</td>
+            <td class="text-blue-700"> {{ rate.metric.price | to_dollars }}</td>
+            <td> {{ rate.get('imperial').get('unit') }}</td>
+            <td class="text-blue-700">  {{ rate.imperial.price | to_dollars }}</td>
+        </tr>  
+     {% endfor %}           
+        
+</tbody></table>
+
+ {% else %}
+
+<div class="flex flex-row bg-gray-300 py-3 px-4 items-inline text-center rounded">
+    <span class="cursor-pointer" uk-toggle="target: #new-rate-modal"uk-icon="plus"></span>
+        <p class="mx-5">Industry Rates Index</>                
+        <span class="bg-gray-50 py-1 px-2 border rounded-full"> {{ rates | length }}<span>   
+          <a href><span uk-drop-parent-icon></span></a>
+        <div uk-dropdown="pos: bottom-center">
+        <ul class="uk-nav uk-dropdown-nav">
+         <li class="uk-nav-header">Filter Rates</li>
+         <li><a 
+                    href="#"
+                    hx-get="/industry_rates/all"
+                    hx-target="#dash-content-pane"
+                    hx-trigger="click"                                 
+                    >All Categories</a>
+            </li>
+    {% for item in categories %}
+        <li>
+            <a 
+                href="#"
+                hx-get="/industry_rates/{{ item }}"
+                hx-target="#dash-content-pane"
+                hx-trigger="click"                                 
+            > {{ item }}</a></li>
+    {% endfor %}
+           
+            
+    </ul></div>                  
+            
+        </div>
+
+    <table class="uk-table uk-table-small uk-table-hover uk-table-divider text-teal-800">
+    <thead>
+        <tr class="uk-text-primary">
+            <th>Id</th>
+            <th>Category</th>
+            <th>Title</th>
+            
+            <th>Metric Unit</th>
+            <th>Metric Rate</th>
+            <th>Imperial Unit</th>
+            <th>Imperial Rate</th>
+        </tr>
+    </thead>
+    <tbody> 
+    {% for rate in rates %}
+    <tr
+                hx-get="/rate/{{ rate.get('_id') }}"
+                hx-target="#dash-content-pane"
+                hx-trigger="click"
+                >
+            <td> {{ rate.get('_id') }}</td>
+            <td> {{ rate.get('category') }}</td>
+            <td> {{ rate.get('title') }}</td>                   
+            <td> {{ rate.get('metric').get('unit') }}</td>
+            <td class="text-blue-700"> {{ rate.get('metric').get('price') }}</td>
+            <td> {{ rate.get('imperial').get('unit') }}</td>
+            <td class="text-blue-700">  {{ rate.get('imperial').get('price') }}</td>
+        </tr>  
+    {% endfor %}           
+        
+    </tbody></table>
+{% endif %}  
+<p class="text-xs">{{ store_room }}</p>

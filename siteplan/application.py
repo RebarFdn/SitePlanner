@@ -150,6 +150,7 @@ app.add_middleware(
 )
 
 app.state.ADMIN_EMAIL = 'admin@siteplaner.org'
+app.state.STORE_ROOM = {"admin": "Ian Moncrieffe"}
 
 @app.websocket_route('/ws')
 async def websocket_endpoint(websocket):
