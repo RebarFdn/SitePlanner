@@ -54,5 +54,5 @@ async def get_filtered_rates_html_index(request):
 @router.get('/rate/{id}')
 async def get_rate(request):
     id = request.path_params.get('id')
-    html = await Rate().get_html_rate(id=id)
-    return HTMLResponse( html )
+    rate = await Rate().get(id=id)
+    return TEMPLATES.TemplateResponse('/rate/industryRate.html', {"request": request, "rate": rate, "task": rate} )

@@ -1,37 +1,50 @@
 {% if filter %}
-<div class="flex flex-row bg-gray-300 py-3 px-4 items-inline text-center rounded">
-    <span class="cursor-pointer" uk-toggle="target: #new-rate-modal"uk-icon="plus"></span>
-        {% if filter == 'all' %}
-        <p class="mx-5">Industry Rates Index</p>   
-        {% else %}   
-        <p class="mx-5">Industrial {{ filter | capitalize }} Rates Index</p> 
-        {% endif %}            
-        <span class="bg-gray-50 py-1 px-2 border rounded-full">{{ filtered | length }}<span>   
-          <a href><span uk-drop-parent-icon></span></a>
-        <div uk-dropdown="pos: bottom-center">
-        <ul class="uk-nav uk-dropdown-nav">
-            <li class="uk-nav-header">Filter Rates</li>
-            <li><a 
-                        href="#"
-                        hx-get="/industry_rates/all"
-                        hx-target="#dash-content-pane"
-                        hx-trigger="click"                                 
-                        >All Categories</a>
-                </li>           
 
-                {% for item in categories %}
-                    <li>
-                        <a 
+    <div class="navbar">
+        <div class="navbar-start">
+            <a class="navbar-item">
+                 {% if filter == 'all' %}
+                <p class="mx-5">Industry Rates Index</p>   
+                {% else %}   
+                <p class="mx-5">Industrial {{ filter | capitalize }} Rates Index</p> 
+                {% endif %}            
+            </a>
+            <a class="navbar-item">
+                <span class="bg-gray-50 py-1 px-2 border rounded-full">{{ filtered | length }}<a>
+
+            </a>
+        </div>
+        <div class="navbar-end">
+            
+            <a class="navbar-item" href>Filter Rates <span uk-drop-parent-icon></span></a>
+            <div uk-dropdown="pos: bottom-center">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">Filter Rates</li>
+                <li><a 
                             href="#"
-                            hx-get="/industry_rates/{{ item }}"
+                            hx-get="/industry_rates/all"
                             hx-target="#dash-content-pane"
                             hx-trigger="click"                                 
-                        >{{ item }}</a>
-                    </li>
-                {% endfor %}
+                            >All Categories</a>
+                    </li>           
+    
+                    {% for item in categories %}
+                        <li>
+                            <a 
+                                href="#"
+                                hx-get="/industry_rates/{{ item }}"
+                                hx-target="#dash-content-pane"
+                                hx-trigger="click"                                 
+                            >{{ item }}</a>
+                        </li>
+                    {% endfor %}
+               
+                
+                </ul>
+            </div>
+            <a class="navbar-item">About</a>
+            <a class="navbar-item" href="#new-rate-modal" uk-toggle>New</a>
            
-            
-            </ul>
         </div>
     </div>
 <table class="uk-table uk-table-small uk-table-hover uk-table-divider text-teal-800">
@@ -131,3 +144,15 @@
     </tbody></table>
 {% endif %}  
 <p class="text-xs">{{ store_room }}</p>
+
+<!-- This is the new-rate-modal -->
+<div id="new-rate-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">New Industrial Rate</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </p>
+    </div>
+</div>
