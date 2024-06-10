@@ -149,8 +149,54 @@
 <div id="new-rate-modal" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <h2 class="uk-modal-title">New Industrial Rate</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p class="uk-text-right">
+        <form>
+
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-large" type="text" placeholder="Large" aria-label="Large">
+            </div>
+        
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-medium" type="text" placeholder="Medium" aria-label="Medium">
+            </div>
+        
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-small" type="text" placeholder="Small" aria-label="Small">
+            </div>
+        
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-xsmall" type="text" placeholder="X-Small" aria-label="X-Small">
+            </div>
+        
+        </form>
+
+
+        <form id="newrate"
+        :actions="true">
+          <input type="text" label="Title" name="title" validation="required"/>
+          <input type="text" label="Description" name="description" validation="required"/>
+          <input type="text" label="Category" name="category" validation="required"/>
+          <n-row>
+            <n-col :span="12">         
+              <n-space justify="left">
+                <p>metric</p>
+              <input type="text" label="Unit" name="metric_unit" />
+              <input type="number" step="0.1" label="Price" name="metric_price" />
+              <input type="number" step="0.1" label="Output" name="output_metric" />
+              
+              </n-space>
+            </n-col>
+            <n-col :span="12">
+              <n-space justify="left">
+                <p>imperial</p>
+              <input type="text" label="Unit" name="imperial_unit" />
+              <input type="number" step="0.1" label="Price" name="imperial_price" />
+              <input type="number" step="0.1" label="Output" name="output_imperial" validation="required"/>
+              
+              </n-space>
+            </n-col>
+          </n-row>
+         
+          </form> <p class="uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
             <button class="uk-button uk-button-primary" type="button">Save</button>
         </p>

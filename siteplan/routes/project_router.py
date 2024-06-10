@@ -5,7 +5,7 @@ from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, St
 from decoRouter import Router
 from modules.project import Project
 from modules.employee import Employee
-from modules.utils import timestamp, to_dollars
+from modules.utils import timestamp, to_dollars, convert_timestamp
 from config import TEMPLATES
 from database import RedisCache
 
@@ -33,8 +33,13 @@ async def get_project(request):
 @router.get('/project_account/{id}')
 async def get_project_account(request):
     id = request.path_params.get('id')
-    p = await Project().html_account_page(id=id)
-    return HTMLResponse(p)
+    p = await Project().get(id=id)
+    return TEMPLATES.TemplateResponse('/project/account/accountPage.html', {
+        "request": request,
+        "id": id,
+        "name": p.get('name'),
+        "account": p.get('account')
+        })
 
 @router.get('/project_account_deposits/{id}')
 async def get_project_account_deposits(request):
@@ -67,6 +72,71 @@ async def project_account_deposit(request):
                                 <p>{str(e)}</p>
                             </div>
                             """)
+
+
+@router.get("/edit_account_deposit/{id}")
+async def edit_account_deposit(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    did = idd[1].split('-')
+    p = await Project().get(id=idd[0])
+    account = p.get('account')
+    deposit = [dep for dep in account.get('transactions').get('deposit') if dep.get('id') == did[0]][0]
+
+    return TEMPLATES.TemplateResponse("/project/account/editDeposit.html", {
+        "request": request, 
+        "d": deposit,
+        "id": idd[0]
+
+        })
+
+
+@router.put('/update_account_deposit/{id}')
+async def update_account_deposit(request):
+    id = request.path_params.get('id')
+    p = await Project().get(id=id)
+    account = p.get('account')    
+    dep = {}
+    async with request.form() as form:       
+        deposit = [item for item in account.get('transactions').get('deposit') if item.get('id') == form.get('id')][0]
+    deposit['ref'] = form.get('ref')
+    deposit['amount'] = form.get('amount')
+    deposit['payee'] = form.get('payee')
+    if len(form.get('date')) > 1:
+         deposit['date'] = timestamp(form.get('date'))
+    else: pass
+    await Project().update(data=p)
+
+    
+
+    return HTMLResponse( f"""
+        <div class="uk-alert-success" uk-alert>
+            <a href class="uk-alert-close" uk-close></a>
+            <p>Account Deposit { deposit.get('ref')} Updated!</p>
+            <table  class="uk-table uk-table-small">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Ref</th>
+                        <th>Amount</th>
+                        <th>Payee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{deposit.get('id')}</td>
+                        <td>{deposit.get('date')}</td>
+                        <td>{deposit.get('ref')}</td>
+                        <td>{to_dollars(deposit.get('amount'))}</td>
+                        <td>{deposit.get('payee')}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    """)
+
 
 
 @router.get('/project_account_withdrawals/{id}')
@@ -487,6 +557,7 @@ async def edit_metric_properties(request):
         return TEMPLATES.TemplateResponse('/project/task/editMetric.html', {"request": request, "job_id": idd[0],"task": task})
     else:
         return HTMLResponse("")
+
 
 
 @router.put('/update_task_properties/{id}/{flag}')
