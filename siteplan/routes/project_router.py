@@ -506,7 +506,7 @@ async def assign_task(request):
                 return HTMLResponse("<p>That crew mamber is already on this task.</p>")
             else:
                 task['assignedto'].append(crew_member)
-                await Project().update(data=p)
+                #await Project().update(data=p)
                 return HTMLResponse(f""" {crew_member} has been assigned to this task.""")
         else:
             task['assignedto'] = [crew_member]
@@ -632,6 +632,12 @@ async def add_worker_to_job_crew(request):
         job={}
     
     job['crew']['members'].append(worker[0])
+    e = await Employee().get_worker(id=idds[0].split('-')[1])
+    if idds[1] in e.get('jobs'):
+        pass
+    else:
+        e['jobs'].append(idds[1])
+        await Employee().update( data=e )
     await Project().update(data=p)
 
 
@@ -639,6 +645,7 @@ async def add_worker_to_job_crew(request):
                             <a href class="uk-alert-close" uk-close></a>
                             <h3>Notice</h3>
                             <p>{worker[0].get('value').get('name')} is added to Job {idds[1]}.</p>
+                            <p class="text-xs">{e}</p>
                         </div>""")
 
 
@@ -724,11 +731,18 @@ async def add_worker_to_project(request):
     employee = [e for e in employees.get('rows') if e.get('id') == idd[1]][0]
     employee['id'] = data
     p['workers'].append(employee)
+    e = await Employee().get_worker(id=idd[1])
+    if idd[0] in e.get('jobs'):
+        pass
+    else:
+        e['jobs'].append(idd[0])
+        await Employee().update(data=e)
     await Project().update(p)
     return HTMLResponse(f"""<div uk-alert>
                             <a href class="uk-alert-close" uk-close></a>
                             <h3>Notice</h3>
                             <p>{employee.get('value').get('name')} is employed to Job {p.get('name')}.</p>
+                            
                         </div>""")
 
 
