@@ -492,27 +492,27 @@ async def assign_task(request):
     pid = idd[0].split('-')[0]
     p = await Project().get(id=pid)
     
-    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
-    if len(jb) > 0:
-        job = jb[0] 
-    else:
-        job={}
-    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    #jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    #if len(jb) > 0:
+    #    job = jb[0] 
+    #else:
+    #    job={}
+    #task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
     try:
         async with request.form() as form:
             crew_member = form.get('crew_member')
-        if task.get('assigned'):
-            if crew_member in task.get('assignedto'):
-                return HTMLResponse("<p>That crew mamber is already on this task.</p>")
-            else:
-                task['assignedto'].append(crew_member)
+        #if task.get('assigned'):
+        #    if crew_member in task.get('assignedto'):
+        #        return HTMLResponse("<p>That crew mamber is already on this task.</p>")
+        #    else:
+        #        task['assignedto'].append(crew_member)
                 #await Project().update(data=p)
-                return HTMLResponse(f""" {crew_member} has been assigned to this task.""")
-        else:
-            task['assignedto'] = [crew_member]
-            task['assigned'] = True
-            await Project().update(data=p)
-            return HTMLResponse(f""" {crew_member}  has been assigned to this task.""")
+        #        return HTMLResponse(f"""xxx {crew_member} has been assigned to this task.""")
+        #else:
+        #    task['assignedto'] = [crew_member]
+        #    task['assigned'] = True
+        #    await Project().update(data=p)
+        return HTMLResponse(f""" {crew_member}  has been assigned to this task.{p.get('name')}""")
     except Exception as e:
         pass
 
