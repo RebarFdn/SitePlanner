@@ -492,29 +492,119 @@ async def assign_task(request):
     pid = idd[0].split('-')[0]
     p = await Project().get(id=pid)
     
-    #jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
-    #if len(jb) > 0:
-    #    job = jb[0] 
-    #else:
-    #    job={}
-    #task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
     try:
         async with request.form() as form:
             crew_member = form.get('crew_member')
-        #if task.get('assigned'):
-        #    if crew_member in task.get('assignedto'):
-        #        return HTMLResponse("<p>That crew mamber is already on this task.</p>")
-        #    else:
-        #        task['assignedto'].append(crew_member)
-                #await Project().update(data=p)
-        #        return HTMLResponse(f"""xxx {crew_member} has been assigned to this task.""")
-        #else:
-        #    task['assignedto'] = [crew_member]
-        #    task['assigned'] = True
-        #    await Project().update(data=p)
-        return HTMLResponse(f""" {crew_member}  has been assigned to this task.{p.get('name')}""")
+        crew_member = crew_member.split(" ")[0]
+        eid = crew_member.split('-')[1]
+        #eid = eid.split(" ")[0]
+        employee = await Employee().get_worker(id=eid)
+        
+        if task.get('assigned'):
+            if type(task.get('assignedto')) == str:
+                task['assignedto'] = []
+            else:
+                pass
+            if eid in task.get('assignedto'):
+                return HTMLResponse(f""" 
+                    <div class="uk-alert-warning" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm">That crew mamber is already on this task.</p>
+                    </div>
+                    """)
+            else:
+                task['assignedto'].append(eid)
+                if idd[1] in employee.get('tasks'):
+                    pass
+                else:
+                    employee['tasks'].append(idd[1])
+                if employee.get('jobs'):
+                    if idd[0] in employee.get('jobs'):
+                        pass
+                    else:
+                        employee['jobs'].append(idd[0])
+                else:
+                    employee['jobs'] = [idd[0]]
+
+
+                await Project().update(data=p)
+                await Employee().update(data=employee)
+                return HTMLResponse(f"""
+                    <div class="uk-alert-success" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm">{employee.get('oc')} has been assigned to task {idd[1]}.</p>
+                    </div>
+                        
+                        """)
+        else:
+            task['assignedto'] = [eid]
+            task['assigned'] = True
+            if idd[1] in employee.get('tasks'):
+                    pass
+            else:
+                employee['tasks'].append(idd[1])
+            if employee.get('jobs'):
+                if idd[0] in employee.get('jobs'):
+                    pass
+                else:
+                    employee['jobs'].append(idd[0])
+            else:
+                employee['jobs'] = [idd[0]]
+
+            await Project().update(data=p)
+            await Employee().update(data=employee)
+        return HTMLResponse(f"""
+                    <div class="uk-alert-success" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm"> {employee.get('oc')}  has been assigned to task {idd[1]}.</p>
+                    </div>""")
     except Exception as e:
-        pass
+        return HTMLResponse(f"""<div class="uk-alert-danger" uk-alert>
+            <a href class="uk-alert-close" uk-close></a>
+            <p>{str(e)}</p>
+            </div> """
+        )
+    
+
+@router.post('/clear_task_assignment/{id}')
+async def clear_task_assignment(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    try:
+        task['assignedto'] = job.get('crew').get('name')
+        await Project().update(data=p)
+
+        return HTMLResponse(f""" <div class="bg-teal-300 py-1 px-2">{job.get('crew').get('name')}</div> """)
+    except Exception as e:
+        return HTMLResponse(f"""<div class="uk-alert-danger" uk-alert>
+                <a href class="uk-alert-close" uk-close></a>
+                <p>{str(e)}</p>
+            </div> """
+        )
+    finally: # Clean up.
+        del(task)
+        del(job)
+        del(jb)
+        del(p)
+        del(pid)
+        del(idd)
+        del(id)
+
 
 
 @router.get('/task_properties/{id}/{flag}')

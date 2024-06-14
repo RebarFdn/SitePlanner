@@ -16,7 +16,13 @@ async def team(request):
 @router.get('/team/{id}')
 async def team_member(request):    
     return HTMLResponse(await Employee().html_worker(id=request.path_params.get('id')))
-    
+
+@router.get('/team_json/{id}')
+async def team_json(request):  
+  return JSONResponse( await Employee().get_worker(id=request.path_params.get('id')))
+
+
+
 @router.post('/newworker')
 async def new_worker(request):
     payload = {}

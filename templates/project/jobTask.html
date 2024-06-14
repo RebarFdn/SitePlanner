@@ -81,10 +81,11 @@
                     
             </div>
             {% if task.assigned %}
-            <h4> Assignment: {{task.assignedto}}</h4>
+            <h4 id="task-assignment"> Assignment: {{task.assignedto}}</h4>
             <div class="bg-gray-400 text-gray-900 p-1">
                 <p class="text-xs">Add Worker</p>
                 <form>
+                    <div class="flex flex-row">
                     <select 
                     class="select" 
                     name="crew_member" 
@@ -92,13 +93,21 @@
                     hx-target="#message"
                     
                     >
-                    <option>Select Crew to Add </option>
+                    <option>Add Crew </option>
                     {% for member in crew  %}   
                                      
                             <option> {{ member.id }} {{ member.value.oc}}</option>
                         
                     {% endfor %}
                     </select>
+                    
+                    <button 
+                    class="btn btn-error mx-2"
+                    hx-post="/clear_task_assignment/{{job_id}}_{{task._id}}"
+                    hx-confirm="Are you sure you wish to delete all crew members from this task?"
+                    hx-target="#task-assignment"
+                    >Clear Crew</button>
+                    </div>
                 </form>
             </div>
             {% else %}
