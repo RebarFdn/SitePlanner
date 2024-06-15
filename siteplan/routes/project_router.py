@@ -41,6 +41,7 @@ async def get_project_account(request):
         "account": p.get('account')
         })
 
+# PROCESS DEPOSITS
 @router.get('/project_account_deposits/{id}')
 async def get_project_account_deposits(request):
     id = request.path_params.get('id')
@@ -137,8 +138,7 @@ async def update_account_deposit(request):
         </div>
     """)
 
-
-
+# PROCESS WITHDRAWALS
 @router.get('/project_account_withdrawals/{id}')
 async def get_project_account_withdrawals(request):
     id = request.path_params.get('id')
@@ -146,6 +146,31 @@ async def get_project_account_withdrawals(request):
     return StreamingResponse(generator, media_type="text/html")
 
 
+@router.post('/account_withdrawal/{id}')
+async def project_account_withdrawal(request):
+    return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm">Process Not Implemented Yet!.</p>
+                    </div>""")
+
+
+@router.get("/edit_account_withdrawal/{id}")
+async def edit_account_withdrawal(request):
+    return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm">Process Not Implemented Yet!.</p>
+                    </div>""")
+
+
+@router.put('/update_account_withdrawal/{id}')
+async def update_account_withdrawal(request):
+    return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p class="text-sm">Process Not Implemented Yet!.</p>
+                    </div>""")
+
+
+# PROCESS PAYBILLS
 @router.get('/project_account_paybills/{id}')
 async def get_project_account_paybills(request):
     id = request.path_params.get('id')
@@ -159,6 +184,106 @@ async def get_project_account_paybills(request):
          })
 
 
+@router.post('/new_paybill/{id}')
+async def new_paybill(request):
+    bill_refs = set()
+    id = request.path_params.get('id')
+    project = await Project().get(id=id)
+    paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
+    for bill in project.get('account').get('records').get('paybills') :
+        bill_refs.add(bill.get('ref'))
+   
+
+    try:
+        async with request.form() as form:    
+              
+            for key in form:
+                paybill[key] = form.get(key) 
+        paybill['ref'] = f"{id}-{paybill['ref']}"
+        if paybill.get('ref') in bill_refs:
+             return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>That Paybill already exists! .</p>
+                        </div>""")
+        else:
+            project['account']['records']['paybills'].append(paybill)    
+            await Project().update(data=project)
+
+            return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>{paybill}</p>
+                        </div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(paybill)
+
+
+@router.get('/paybill/{id}')
+async def get_paybill(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+    project = await Project().get(id=idd[0])
+
+    try:
+        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ]
+        return TEMPLATES.TemplateResponse(
+            '/project/account/projectPaybill.html',
+            {"request": request, "bill": bill[0] })
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(bill)
+            
+
+@router.post('/current_paybill/{id}')
+async def current_paybill(request):
+    id = request.path_params.get('id')
+    
+    try:
+        await RedisCache().set(key="CURRENT_PAYBILL", val=id)
+        
+          
+        return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>Current Paybill is {id}.</p>
+                        </div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(id)
+
+
+@router.post('/delete_paybill/{id}')
+async def delete_paybill(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+    project = await Project().get(id=idd[0])
+
+    try:
+        for bill in project.get('account').get('records').get('paybills'):
+            if bill.get('ref') == id:
+                project['account']['records']['paybills'].remove(bill)
+        await Project().update(data=project)
+        return HTMLResponse(f"""<div uk-alert>
+                            <a href class="uk-alert-close" uk-close></a>
+                            <h3>Notice</h3>
+                            <p>Bill with Ref {id} deleted from Records.</p>
+                        </div>""")
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(id)
+
+
+# PROCESS SALARIES
 @router.get('/project_account_salaries/{id}')
 async def get_project_account_salaries(request):
     id = request.path_params.get('id')
@@ -167,6 +292,7 @@ async def get_project_account_salaries(request):
     return HTMLResponse(f"""<div class="bg-yellow-500 py-5 px-5">{generator}</div>""")
 
 
+# PROCESS EXPENCES & purchases
 @router.get('/project_account_expences/{id}')
 async def get_project_account_expences(request):
     id = request.path_params.get('id')
@@ -233,7 +359,7 @@ async def get_project_workers(request):
                                         })
 
 
-
+# PROCESS RATES
 @router.get('/project_rates/{id}')
 async def get_project_rates(request):
     id = request.path_params.get('id')
@@ -271,9 +397,7 @@ async def add_industry_rate(request):
         #if rate:
         #    del(rate)
     
-    
-        
-  
+
 
 @router.get('/update_project_job_state/{id}/{state}')
 async def update_project_job_state(request):
@@ -339,7 +463,11 @@ async def html_job_page(request):
     idd = id.split('-')
     project = Project()
     current_paybill =  await RedisCache().get(key="CURRENT_PAYBILL")
+    categories = set()
+    
     p = await project.get(id=idd[0])
+    for task_rate in p.get("rates"):
+        categories.add(task_rate.get('category'))
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:
         job = jb[0] 
@@ -359,7 +487,8 @@ async def html_job_page(request):
             "crew_members": crew_members,
             "project_phases": project_phases,  
             "current_paybill": current_paybill,          
-            "test_func": test_func
+            "test_func": test_func,
+            "categories": list(categories)
 
         }) 
 
@@ -570,7 +699,25 @@ async def assign_task(request):
             <p>{str(e)}</p>
             </div> """
         )
+
+@router.post("/filter_job_rate/{id}") 
+async def filter_job_rate(request):
+    id = request.path_params.get('id')
+    idd = id.split('-')
+        
+    p = await Project().get(id=idd[0])  
+    async with request.form() as form:
+        category = form.get('task_category')
+    if category == 'all':
+        rates = p.get('rates')
+    else:
+        rates = [ rate for rate in p.get('rates') if rate.get('category') == category]
     
+    return TEMPLATES.TemplateResponse('/project/task/filteredJobRates.html', {
+        "request": request,
+        "rates": rates,
+        "job_id": id
+    }) 
 
 @router.post('/clear_task_assignment/{id}')
 async def clear_task_assignment(request):
@@ -835,103 +982,6 @@ async def add_worker_to_project(request):
                             
                         </div>""")
 
-
-@router.post('/new_paybill/{id}')
-async def new_paybill(request):
-    bill_refs = set()
-    id = request.path_params.get('id')
-    project = await Project().get(id=id)
-    paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
-    for bill in project.get('account').get('records').get('paybills') :
-        bill_refs.add(bill.get('ref'))
-   
-
-    try:
-        async with request.form() as form:    
-              
-            for key in form:
-                paybill[key] = form.get(key) 
-        paybill['ref'] = f"{id}-{paybill['ref']}"
-        if paybill.get('ref') in bill_refs:
-             return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>That Paybill already exists! .</p>
-                        </div>""")
-        else:
-            project['account']['records']['paybills'].append(paybill)    
-            await Project().update(data=project)
-
-            return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>{paybill}</p>
-                        </div>""")
-    except Exception as e:
-        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
-
-    finally:
-        del(paybill)
-
-@router.get('/paybill/{id}')
-async def get_paybill(request):
-    id = request.path_params.get('id')
-    idd = id.split('-')
-    project = await Project().get(id=idd[0])
-
-    try:
-        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ]
-        return TEMPLATES.TemplateResponse(
-            '/project/account/projectPaybill.html',
-            {"request": request, "bill": bill[0] })
-    except Exception as e:
-        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
-
-    finally:
-        del(bill)
-            
-
-@router.post('/current_paybill/{id}')
-async def current_paybill(request):
-    id = request.path_params.get('id')
-    
-    try:
-        await RedisCache().set(key="CURRENT_PAYBILL", val=id)
-        
-          
-        return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>Current Paybill is {id}.</p>
-                        </div>""")
-    except Exception as e:
-        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
-
-    finally:
-        del(id)
-
-
-@router.post('/delete_paybill/{id}')
-async def delete_paybill(request):
-    id = request.path_params.get('id')
-    idd = id.split('-')
-    project = await Project().get(id=idd[0])
-
-    try:
-        for bill in project.get('account').get('records').get('paybills'):
-            if bill.get('ref') == id:
-                project['account']['records']['paybills'].remove(bill)
-        await Project().update(data=project)
-        return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>Bill with Ref {id} deleted from Records.</p>
-                        </div>""")
-    except Exception as e:
-        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
-
-    finally:
-        del(id)
 
 @router.post('/update_project_standard/{id}')
 async def update_project_standard(request):

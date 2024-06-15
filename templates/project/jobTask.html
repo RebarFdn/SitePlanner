@@ -161,13 +161,13 @@
         <div>
             {% include '/project/task/metricProperties.html' %}
         
-        <p><strong>Output</strong> {{task.output.metric}}</p>
+        <p><strong>Output</strong> {{task.output.metric}}/{{task.metric.unit}} per Day</p>
         </div>
     
         <div>
         
             {% include '/project/task/imperialProperties.html' %}
-                <p><strong>Output</strong> {{task.output.imperial}}</p>
+                <p><strong>Output</strong> {{task.output.imperial}}/{{task.imperial.unit}} per Day</p>
                 
         
         </div>
