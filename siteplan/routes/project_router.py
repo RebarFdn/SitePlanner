@@ -374,7 +374,7 @@ async def get_project_rates(request):
             "industry_rates": industry_rates
         } )
 
-
+"""
 @router.post("/add_industry_rate/{id}")
 async def add_industry_rate(request):
     from modules.rate import Rate
@@ -396,6 +396,7 @@ async def add_industry_rate(request):
         del(p)
         #if rate:
         #    del(rate)
+"""
     
 
 
@@ -464,10 +465,17 @@ async def html_job_page(request):
     project = Project()
     current_paybill =  await RedisCache().get(key="CURRENT_PAYBILL")
     categories = set()
+    roles = set()
     
     p = await project.get(id=idd[0])
-    for task_rate in p.get("rates"):
+
+    for task_rate in p.get("rates"): # Loads job categories
         categories.add(task_rate.get('category'))
+
+    for worker in p.get("workers"): # Loads job roles
+        roles.add(worker.get('value').get('occupation'))
+    print(roles)
+
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:
         job = jb[0] 
@@ -483,12 +491,19 @@ async def html_job_page(request):
         '/project/jobPage.html', 
         {
             "request": request, 
-            "p": p, "job": job, 
+            "p": {
+                "name": p.get('name'),
+                "rates": p.get('rates'),
+                "workers": p.get('workers')
+
+            }, 
+            "job": job, 
             "crew_members": crew_members,
             "project_phases": project_phases,  
             "current_paybill": current_paybill,          
             "test_func": test_func,
-            "categories": list(categories)
+            "categories": list(categories),
+            "job_roles": list(roles)
 
         }) 
 
@@ -583,6 +598,25 @@ async def get_jobtasks(request):
     
     return TEMPLATES.TemplateResponse('/project/jobTasks.html',
         {"request": request, "job": job, "standard": p.get('standard')})
+
+
+@router.delete('/jobtask/{id}')
+async def delete_jobtask(request):
+    id = request.path_params.get('id')
+    idd = id.split('_')
+    pid = idd[0].split('-')[0]
+    p = await Project().get(id=pid)
+    
+    jb = [j for j in p.get('tasks') if j.get('_id') == idd[0] ] 
+    if len(jb) > 0:
+        job = jb[0] 
+    else:
+        job={}
+    task = [t for t in job.get('tasks') if t.get('_id') == idd[1] ][0]
+    job['tasks'].remove(task)
+    await Project().update(data=p)
+    return HTMLResponse(f"<div>{ task.get('title')} was Removed from Job {job.get('title')}</div>")
+    
 
 
 @router.get('/edit_jobtask/{id}')

@@ -174,9 +174,9 @@
     <!-- This is the add task to job modal -->
     <div id="add-job-task-modal" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
-            <h2 class="uk-modal-title">Add Job Task</h2>
+            <h2 class="uk-modal-title">Add to Jobs Queue</h2>
             <div class="flex flex-row">
-                <span class="mx-5">Project Rates Index</span>
+                <span class="mx-5">Project Tasks Index</span>
                 <select 
                 class="mx-5 rounded-md"
                 name="task_category" 
@@ -184,7 +184,7 @@
                 hx-target="#job-rates"
                 aria-label="Custom controls"
                 >
-                    <option value="">Filter Rates</option>
+                    <option value="">Filter Tasks</option>
                     <option value="{{'all'}}">All</option>
                     {% for cat in categories %}
                         <option value="{{cat}}">{{ cat }}</option>
@@ -251,11 +251,28 @@
 
     <!-- This is the add crew member modal -->
     <div id="add-crew-member-modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-            <h2 class="uk-modal-title">Add Crew Member</h2>
-            Job {{ job._id }}
+        <div class="uk-modal-dialog uk-modal-body">           
+            
+            <div class="flex flex-row">
+                <span class="mx-5">Add Crew Member to Job {{ job._id }}</span>
+                <select 
+                class="mx-5 rounded-md"
+                name="crew_occupation" 
+                hx-post="/filter_crew_occupation/{{job._id}}"
+                hx-target="#job-workers"
+                aria-label="Custom controls"
+                >
+                    <option value="">Filter Role</option>
+                    <option value="{{'all'}}">All</option>
+                    {% for roll in job_roles %}
+                        <option value="{{roll}}">{{ roll }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
             
             <form>
+                <div id="job-workers">
                 <table class="uk-table uk-table-divider">
                     <thead>
                 <tr>
@@ -291,6 +308,7 @@
             {% endfor %}
                 </tbody>
             </table>
+            </div>
             </form>
             <p class="uk-text-right">
                 <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>

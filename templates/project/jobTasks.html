@@ -85,7 +85,13 @@
                                     
                                     >Edit</a> </li>
                                     <li><a href="#" id="href">Add to bill</a> </li>
-                                <li><a href="#" id="href">Delete</a> </li>
+                                <li><a 
+                                    href="#" 
+                                    id="href"
+                                    hx-delete="/jobtask/{{job._id}}_{{task._id}}"
+                                    hx-confirm="Are you shure you want to remove {{task.title}} from Job {{job.title}}"
+                                    hx-target="#message"                                    
+                                    >Delete</a> </li>
                             </ul>
                             
                         </div>

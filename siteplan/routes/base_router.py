@@ -53,6 +53,80 @@ async def get_filtered_rates_html_index(request):
 
 @router.get('/rate/{id}')
 async def get_rate(request):
+    from modules.project import Project
+    projects = await Project().all()
     id = request.path_params.get('id')
     rate = await Rate().get(id=id)
-    return TEMPLATES.TemplateResponse('/rate/industryRate.html', {"request": request, "rate": rate, "task": rate} )
+    try:
+        return TEMPLATES.TemplateResponse('/rate/industryRate.html', {
+            "request": request, 
+            "rate": rate, 
+            "task": rate,
+            "projects": projects.get('rows')
+            } )
+    except Exception as e:
+        return HTMLResponse(f"""
+            <div class="uk-alert-danger" uk-alert>
+                <a href class="uk-alert-close" uk-close></a>
+                <p>{ str(e) }</p>
+            </div>""")
+    finally:
+        del(rate)
+        del(id)
+        del(projects)
+        del(Project)
+
+    
+
+@router.post('/add_industry_rate/{id}')
+async def add_industry_rate(request):
+    from modules.project import Project
+    id = request.path_params.get('id')
+    idds = set()
+    #rate = await Rate().get(id=id)
+    async with request.form() as form:
+        rate_id = form.get('rate')
+    project = await Project().get(id=id)
+    #rate['_id'] = f"{project_id}-{id}"
+    async def bet():
+        try:
+            for item in project.get('rates'):
+                idds.add(item.get('_id'))
+            if rate.get('_id') in list(idds):
+                return HTMLResponse(f"""
+                    <div class="uk-alert-warning" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p>{ rate.get('title') } is already added to {project.get('name')}</p>
+                    </div>""")
+            else:
+                project['rates'].append(rate)
+                await Project().update(data=project)
+                return HTMLResponse(f"""
+                    <div class="uk-alert-success" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p>{ rate.get('title') } has been added to {project.get('name')}</p>
+                    </div>""")
+
+        except Exception as e:
+            try:
+                return HTMLResponse(f"""
+                    <div class="uk-alert-danger" uk-alert>
+                        <a href class="uk-alert-close" uk-close></a>
+                        <p>{ str(e) }</p>
+                    </div>""")
+            finally:
+                del(e)
+        finally:
+            del(rate)
+            del(id)
+            del(idds)
+            del(project)
+            del(Project)
+            del(form)
+            del(project_id)
+            del(item)
+    return HTMLResponse(f"""<p>{id} - - {rate_id} </p>""")
+            
+
+
+
