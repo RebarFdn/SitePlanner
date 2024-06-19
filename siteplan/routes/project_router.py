@@ -370,34 +370,15 @@ async def get_project_rates(request):
     return TEMPLATES.TemplateResponse('/project/rates/projectRates.html', 
         {
             "request": request,
-            "p": p,
+            "p": {
+                "_id": p.get('_id'),
+                "name": p.get('name'),
+                "rates": p.get('rates', [])
+            },
             "industry_rates": industry_rates
         } )
 
-"""
-@router.post("/add_industry_rate/{id}")
-async def add_industry_rate(request):
-    from modules.rate import Rate
 
-    id = request.path_params.get('id')
-    p = await Project().get(id=id)
-    
-    try:
-        async with request.form() as form:
-            rate_id = form.get('rate')
-        if rate_id:
-            rate = await Rate().get(id=rate_id)
-            return HTMLResponse(f"<div>{rate.get('category')} Task Rate {rate.get('title')} has been added to Project {p.get('name')}</div>")
-        else:
-            return HTMLResponse("<div>Id Not available </div>")
-    except Exception as e:
-        return f"<div>{str(e)}</div>"
-    finally:
-        del(p)
-        #if rate:
-        #    del(rate)
-"""
-    
 
 
 @router.get('/update_project_job_state/{id}/{state}')

@@ -83,13 +83,15 @@ async def add_industry_rate(request):
     from modules.project import Project
     id = request.path_params.get('id')
     idds = set()
-    #rate = await Rate().get(id=id)
+    
     async with request.form() as form:
-        rate_id = form.get('rate')
+        rate_id = form.get('rate').strip()
+    
     project = await Project().get(id=id)
-    #rate['_id'] = f"{project_id}-{id}"
-    async def bet():
-        try:
+    rate = await Rate().get(id=rate_id)
+    rate['_id'] = f"{id}-{rate_id}"
+    
+    try:
             for item in project.get('rates'):
                 idds.add(item.get('_id'))
             if rate.get('_id') in list(idds):
@@ -107,7 +109,7 @@ async def add_industry_rate(request):
                         <p>{ rate.get('title') } has been added to {project.get('name')}</p>
                     </div>""")
 
-        except Exception as e:
+    except Exception as e:
             try:
                 return HTMLResponse(f"""
                     <div class="uk-alert-danger" uk-alert>
@@ -116,16 +118,16 @@ async def add_industry_rate(request):
                     </div>""")
             finally:
                 del(e)
-        finally:
+    finally:
             del(rate)
             del(id)
             del(idds)
             del(project)
             del(Project)
             del(form)
-            del(project_id)
+            del(rate_id)
             del(item)
-    return HTMLResponse(f"""<p>{id} - - {rate_id} </p>""")
+    
             
 
 
