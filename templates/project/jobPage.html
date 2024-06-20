@@ -27,33 +27,34 @@
                 href="#"                
                 >Job State</a>
                 <a 
+                tabindex="-1" 
                 class="dropdown-item text-sm"
                 hx-get="/update_project_job_state/{{ job._id }}/active"
-                hx-target="#message"
+                hx-target="#project_properties"
                 >Active</a>
                 <a 
                 tabindex="-1" 
                 class="dropdown-item text-sm"
                 hx-get="/update_project_job_state/{{ job._id  }}/completed"
-                hx-target="#message"
+                hx-target="#project_properties"
                 >Completed</a>
                 <a 
                 tabindex="-1" 
                 class="dropdown-item text-sm"
                 hx-get="/update_project_job_state/{{ job._id  }}/paused"
-                hx-target="#message"                            
+                hx-target="#project_properties"                            
                 >Paused</a>
                 <a 
                 tabindex="-1" 
                 class="dropdown-item text-sm"
                 hx-get="/update_project_job_state/{{ job._id  }}/resume"
-                hx-target="#message"                            
+                hx-target="#project_properties"                            
                 >Resume</a>
                 <a 
                 tabindex="-1" 
                 class="dropdown-item text-sm"
                 hx-get="/update_project_job_state/{{ job._id }}/terminated"
-                hx-target="#message"                           
+                hx-target="#project_properties"                           
                 >Terminated</a>
             </div>
         </div> 
@@ -78,7 +79,7 @@
                                 <p> <span class="font-semibold mx-8">Creation Date </span>{{ job.event.created }} </p>
                                 <p> <span class="font-semibold mx-8">Start Date </span>{{ job.event.started }} </p>
                                 <p> <span class="font-semibold mx-8">State </span>{{ job.state }} </p>
-                                <p> <span class="font-semibold mx-8">Test Function </span>{{ test_func('want to change integer to date') }} </p>
+                                <!--p> <span class="font-semibold mx-8">Test Function </span>{{ test_func('want to change integer to date') }} </p-->
                                 
                                 
                             
@@ -120,7 +121,7 @@
                                 <p> <span class="font-semibold mx-8">Crew </span>{{ job.get('crew').get('name') }} </p>
                                 <p> <span class="font-semibold mx-8">Crew Members</span> <span class="uk-badge font-semibold">{{ crew_members }} </span></p>
                                 <p> <span class="font-semibold mx-8">All Tasks</span> <span class="uk-badge font-semibold">{{ job.tasks | length }} </span></p>
-                                <p class="my-2> <span class="font-semibold mx-8">Progress</span> <progress class="progress progress-secondary" value="{{ job.progress }}" max="100"></progress> <span class="uk-badge font-semibold">{{ job.progress }} % </span></p>
+                                <p class="my-2"> <span class="font-semibold mx-8">Progress</span> <progress class="progress progress-secondary" value="{{ job.progress }}" max="100"></progress> <span class="uk-badge font-semibold">{{ job.progress }} % </span></p>
                         
                            
                             </div>

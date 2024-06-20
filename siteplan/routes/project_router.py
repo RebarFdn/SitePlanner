@@ -386,14 +386,26 @@ async def update_project_job_state(request):
     id = request.path_params.get('id')
     status = request.path_params.get('state')
     idd = id.split('-')
+    current_paybill =  await RedisCache().get(key="CURRENT_PAYBILL")
+    categories = set()
+    roles = set()
     p = await Project().get(id=idd[0])
+
+    for task_rate in p.get("rates"): # Loads job categories
+        categories.add(task_rate.get('category'))
+
+    for worker in p.get("workers"): # Loads job roles
+        roles.add(worker.get('value').get('occupation'))
+
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:
         job = jb[0] 
     else:
         job={}
 
-    
+    crew_members = len(job.get('crew').get('members'))
+    project_phases = Project().projectPhases.keys()
+
     def set_state(state):
         if state == None:
             pass
@@ -429,14 +441,45 @@ async def update_project_job_state(request):
         return result.get(state)
     job_state = set_state(status)
     await Project().update(data=p)
+    def test_func(a:str=None):
+        return f"tested {a}"
+    data = {
+            "request": request, 
+            "p": {
+                "name": p.get('name'),
+                "rates": p.get('rates'),
+                "workers": p.get('workers')
+
+            }, 
+            "job": job, 
+            "crew_members": crew_members,
+            "project_phases": project_phases,  
+            "current_paybill": current_paybill,          
+            "test_func": test_func,
+            "categories": list(categories),
+            "job_roles": list(roles)
+
+        }
     
-    return HTMLResponse(
-        f"""<div uk-alert>
-                <a href class="uk-alert-close" uk-close></a>
-                <h3>Notice</h3>
-                <p>{job_state} </p>
-            </div>"""
-        )
+    return TEMPLATES.TemplateResponse(
+        '/project/jobPage.html', 
+        {
+            "request": request, 
+            "p": {
+                "name": p.get('name'),
+                "rates": p.get('rates'),
+                "workers": p.get('workers')
+
+            }, 
+            "job": job, 
+            "crew_members": crew_members,
+            "project_phases": project_phases,  
+            "current_paybill": current_paybill,          
+            "test_func": test_func,
+            "categories": list(categories),
+            "job_roles": list(roles)
+
+        }) 
 
 
 @router.get('/html_job/{id}')
@@ -455,7 +498,7 @@ async def html_job_page(request):
 
     for worker in p.get("workers"): # Loads job roles
         roles.add(worker.get('value').get('occupation'))
-    print(roles)
+    
 
     jb = [j for j in p.get('tasks') if j.get('_id') == id ] 
     if len(jb) > 0:

@@ -16,7 +16,7 @@
 	</div>
 	<div class="navbar-end">
 		
-        <span class="badge badge-secondary navbar-item">Project Standard: {{ standard }}</span>
+        <span class="badge badge-secondary navbar-item"><strong>Project Standard:</strong>{{ standard }}</span>
 	</div>
 </div>
 
@@ -25,12 +25,12 @@
 <section class="bg-white p-5 rounded-md shadow-md ">
     <div class="uk-child-width-expand@s uk-text-left" uk-grid>
         <div>
-            <h3> Job Id: {{job_id}}</h3>
-            <h3> Task Id: {{task._id}}</h3>
-            <h3> Title: {{task.title}}</h3>
-            <h4> Description: {{task.description}}</h4>
+            <h3><strong>Job Id:</strong> {{job_id}}</h3>
+            <h3><strong>Task Id:</strong> {{task._id}}</h3>
+            <h3><strong> Title:</strong> {{task.title}}</h3>
+            <h4><strong>Description:</strong> {{task.description}}</h4>
             <div>
-                <p> State:</p>
+                <p><strong> State:</strong></p>
                 {% if task.state.active %}
                         
                         <div class="uk-inline">
@@ -81,7 +81,7 @@
                     
             </div>
             {% if task.assigned %}
-            <h4 id="task-assignment"> Assignment: {{task.assignedto}}</h4>
+            <h4 id="task-assignment"><strong>Assignment:</strong> {{task.assignedto}}</h4>
             <div class="bg-gray-400 text-gray-900 p-1">
                 <p class="text-xs">Add Worker</p>
                 <form>
@@ -133,9 +133,9 @@
         </div>
 
         <div>
-            <p> Category {{ task.category }}</p>
-            <p> Project Phase {{ task.phase }}</p>
-           <p> Progress <span id="task-progress">{{ task.progress }}</span>%
+            <p><strong>Category:</strong> {{ task.category }}</p>
+            <p><strong> Project Phase:</strong> {{ task.phase }}</p>
+           <p><strong>Progress:</strong> <span id="task-progress">{{ task.progress }}</span>%
             <form><input 
                             type="range" 
                             class="range range-secondary" 
@@ -151,9 +151,9 @@
                         </form>
             </p>
            <div>
-                <p> Event: {{ task.event }}</p>
+                <p><strong>Event:</strong> {{ task.event }}</p>
             </div>
-            <h4> Payment: {{task.paid}}</h4>
+            <h4><strong>Payment:</strong> {{task.paid}}</h4>
         </div>
     </div>
   
@@ -161,19 +161,19 @@
         <div>
             {% include '/project/task/metricProperties.html' %}
         
-        <p><strong>Output</strong> {{task.output.metric}}/{{task.metric.unit}} per Day</p>
+        <p><strong>Output:</strong> {{task.output.metric}}/{{task.metric.unit}} per Day</p>
         </div>
     
         <div>
         
             {% include '/project/task/imperialProperties.html' %}
-                <p><strong>Output</strong> {{task.output.imperial}}/{{task.imperial.unit}} per Day</p>
+                <p><strong>Output:</strong> {{task.output.imperial}}/{{task.imperial.unit}} per Day</p>
                 
         
         </div>
     
 </div>
-<p> Remarks: {{ task.comments }}</p>
+<p><strong>Remarks:</strong> {{ task.comments }}</p>
 </section>
 
 <p class="text-xs font-fine">Database Revision No: {{ task._rev}} | Created: {{ task.timestamp }} </p>
