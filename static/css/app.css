@@ -1263,6 +1263,15 @@ html {
   outline-color: rgb(var(--secondary));
 }
 
+.btn-success {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--success)/var(--tw-bg-opacity));
+}
+
+.btn-success:focus-visible {
+  outline-color: rgb(var(--success));
+}
+
 .btn-error {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--error)/var(--tw-bg-opacity));
@@ -1270,6 +1279,15 @@ html {
 
 .btn-error:focus-visible {
   outline-color: rgb(var(--error));
+}
+
+.btn-warning {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--warning)/var(--tw-bg-opacity));
+}
+
+.btn-warning:focus-visible {
+  outline-color: rgb(var(--warning));
 }
 
 .btn-sm {

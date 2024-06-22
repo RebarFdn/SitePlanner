@@ -178,10 +178,20 @@ async def get_project_account_paybills(request):
     
     return TEMPLATES.TemplateResponse('/project/account/projectPaybills.html',
                                       
-        {"request": request,
-         "id": id,
-         "p": p
-         })
+        {
+            "request": request,
+            "id": id,
+            "p": {
+                "_id": p.get('_id'),
+                "name": p.get("name"),
+                "account": {
+                    "records": {
+                        "paybills": p.get("account").get('records').get('paybills')
+                    }
+                 
+                }
+            }
+        })
 
 
 @router.post('/new_paybill/{id}')
@@ -229,15 +239,16 @@ async def get_paybill(request):
     project = await Project().get(id=idd[0])
 
     try:
-        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ]
+        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id][0]
         return TEMPLATES.TemplateResponse(
             '/project/account/projectPaybill.html',
-            {"request": request, "bill": bill[0] })
+            {"request": request, "bill": bill, "items_count": len(bill.get('items')) })
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
 
     finally:
-        del(bill)
+        #del(bill)
+        print('done')
             
 
 @router.post('/current_paybill/{id}')

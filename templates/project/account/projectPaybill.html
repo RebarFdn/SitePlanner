@@ -1,6 +1,119 @@
  <div>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            
+            <label><input 
+                class="uk-radio" 
+                type="radio" 
+                name="current-bill" 
+                value="{{ bill.ref }}"
+                hx-post="/current_paybill/{{bill.ref}}"
+                hx-target="#message"
+                
+                > Make Bill Current</label>
+        </div>
+        <div class="uk-navbar-center">
+    
+            <ul class="uk-navbar-nav">
+                
+                
+                <li><a href="#add-item" uk-toggle>Add Item</a></li>
+            </ul>
+    
+        </div>
+    </nav>
         <div class="uk-card uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">{{bill.mainTitle}}</h3>
-            <p class="text-sm">{{bill}}</p>
+           
+            <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <div>
+                            <h3 class="uk-card-title">Project Paybill {{bill.ref}}</h3>
+                            <h3 class="uk-card-title">Date {{bill.date}}</h3>
+                            <h3 class="uk-card-title">{{bill.mainTitle}}</h3>
+                            <p class="text-sm">{{bill.subTitle}}</p>
+                          
+                        </div>
+                        
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <div>
+                            <h3 class="uk-card-title">Bill Total {{bill.total}}</h3>
+                            <h3 class="uk-card-title">Bill Items Total {{bill.itemsTotal}}</h3>
+                        </div>
+                        <button 
+                            id="showButton"
+                            hx-get="/uikit-modal.html" 
+                            hx-target="#modals-here" 
+                            class="uk-button uk-button-primary" 
+                            _="on htmx:afterOnLoad wait 10ms then add .uk-open to #modal">Open Modal</button>
+
+                        <div id="modals-here"></div>
+                                            </div>
+                </div>
+                
+            </div>
+            <section id="paybill-items">
+               
+                    {% for item in bill.get('items') %}
+                        <p class="text-sm">{{ item }}</p>
+                    {% endfor %}
+                
+    
+               </section>
         </div>
     </div>
+
+    <!-- This is the modal -->
+<div id="add-item" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Add Item to {{bill.ref}}</h2>
+
+        
+        <form class="uk-form-stacked"
+        
+        >
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Date</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="date" placeholder="Bill Date" name="date">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Reference</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill-01" name="ref">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Title</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill Title" name="mainTitle">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">SubTitle</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill SubTitle" name="subTitle"
+                    >
+                </div>
+            </div>
+           
+
+        
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <input class="uk-button uk-button-primary uk-modal-close" type="submit"
+                hx-post="/add_paybill_item/{{bill.ref}}"
+                hx-target="#message"
+                
+                >
+            </p>
+        
+        </form>
+        
+    </div>
+</div>
