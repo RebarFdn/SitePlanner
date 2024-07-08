@@ -7,7 +7,7 @@ import json
 
 #from pympler import asizeof
 from modules.utils import timestamp
-from database import Recouch
+from database import Recouch, RedisCache
 from modules.employee import Employee
 from schemas.schema_api import project_schema as schema, validate
 from config import DOCUMENT_PATH, IMAGES_PATH
@@ -1707,15 +1707,20 @@ class Project:
     # HTML Responces
     
     async def projects_index_generator(self):
-        p = await self.all()
+        session = await RedisCache().get(key="SESSION_USER")
+        session_user = json.loads(session)
+        username = session_user.get("user", {}).get("username")        
+        p = await self.all()        
+        projects = [project for project in p.get('rows', []) if project.get('value').get("meta_data", {}).get("created_by") == username]
         yield '<div>'
         yield f"""<p class="bg-gray-400 px-2 py-2 text-left rounded">
                 Projects Index
-                <span class="bg-gray-50 ml-10 py-1 px-2 border rounded-full">{len(p.get('rows', []))}<span>
+                <span class="bg-gray-50 ml-10 py-1 px-2 border rounded-full">{len(projects)}<span>
                 </p>""" 
         yield '<ul class="mx-2 h-96 overflow-y-auto">'
         
-        for project in p.get('rows', []):
+        for project in projects:
+
             yield f"""<li>
             <div 
             class="flex flex-col text-sm bg-gray-300 py-2 px-3 my-2 border rounded cursor-pointer hover:bg-gray-100"
@@ -1733,6 +1738,7 @@ class Project:
             </div>
             </li> """
         yield '</ul>'
+        
 
     async def html_page(self, id:str=None):
         p = await self.get(id=id)

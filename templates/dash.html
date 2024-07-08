@@ -20,16 +20,16 @@
                         
                         <ul class="uk-switcher uk-margin">
                             <li>
-                                <span>International Construction News</span>
-                                <a href="#" uk-switcher-item="2">Switch to item 3</a>
-                                <div class="h-96 p-5 overflow-y-auto bg-gray-800 text-gray-50">
+                                <span class="text-sm text-center ml-5">International Construction News</span>
+                                <a href="#" uk-switcher-item="2"></a>
+                                <div class="h-96 p-5 overflow-y-auto bg-gray-50 text-xs text-gray-500">
                                     {% include 'news/rss/news-international.xml' %}
                                 </div>
                             </li>
                             <li>
                                 <span>Engineering Materials News</span>
                                 
-                                <div class="h-96 p-5 overflow-y-auto bg-gray-800 text-gray-50">
+                                <div class="h-96 p-5 overflow-y-auto bg-gray-50 text-xs text-gray-500">
                                     {% include 'news/rss/news-engineering.xml' %}
                                 </div>
                             </li>
@@ -72,45 +72,102 @@
             </div>
             <div class="mainc flex flex-col p-3 mt-2">
 
-                <div id="dash-content-pane" class="bg-gray-200">
+                <div id="dash-content-pane" class="bg-gray-50">
                     <div class="mx-5 p-2">
-                        <h1 class="p-2 text-center">Resources</h1>
-                        <table class="uk-table uk-table-divider">
-                            <thead>
-                                <tr>
-                                    <th>Utility</th>
-                                    <th>Description</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="https://www.starlette.io/" target="_blank"><img width="100px" src="https://www.starlette.io/img/starlette.png" alt=""></a></td>
-                                    <td>Asgi Http Application Kit</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><a href="https://getuikit.com/" target="_blank">Uikit</a></td>
-                                    <td>User interface</td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.ripple-ui.com/" target="_blank">Ripple Ui</a></td>
-                                    <td>User interface</td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td><a href="https://tailwindcss.com/" target="_blank">Tailwindcss</a></td>
-                                    <td>User interface</td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td><a href="https://htmx.org/" target="_blank"><img width="100px" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtuBGxzjdmU-YyeNJd1y-yvZ9Om7bkFk2S9EaqWqff9_j-dERP" alt=""></a></td>
-                                    <td>Networking</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="uk-flex">
+                            <div class="uk-card uk-margin-left">
+                                <span class="text-xs text-left text-yellow-500 font-bold">Recent Projects</span>
+                                <ul class="text-sm">
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Edit Bill-13</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Add New Employee</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <div class="uk-card uk-margin-left">
+                                <span class="text-xs text-left text-yellow-500 font-bold">Latest Activity</span>
+                                <ul class="text-sm">
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Edit Bill-13</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Add New Employee</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <div class="uk-card uk-margin-left">
+                                <span class="text-xs text-left text-yellow-500 font-bold">Goals</span>
+                                <ul class="text-sm">
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Edit Bill-13</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-body">Add New Employee</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                            </div>
 
+                            <div class="uk-card text-sm rounded-md">
+                                <h5 class="p-2 text-center">Resources</h5>
+                                <table class="uk-table uk-table-divider">
+                                    <thead>
+                                        <tr>
+                                            <th>Utility</th>
+                                            <th>Description</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="https://www.starlette.io/" target="_blank"><img width="100px" src="https://www.starlette.io/img/starlette.png" alt=""></a></td>
+                                            <td>Asgi Http Application Kit</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://getuikit.com/" target="_blank">Uikit</a></td>
+                                            <td>User interface</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://www.ripple-ui.com/" target="_blank">Ripple Ui</a></td>
+                                            <td>User interface</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://tailwindcss.com/" target="_blank">Tailwindcss</a></td>
+                                            <td>User interface</td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://htmx.org/" target="_blank"><img width="100px" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtuBGxzjdmU-YyeNJd1y-yvZ9Om7bkFk2S9EaqWqff9_j-dERP" alt=""></a></td>
+                                            <td>Networking</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+        
+                            
+                            </div>                         
+                            
+                        </div>
+                        
+                        
 
                     </div>
                 </div>

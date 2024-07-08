@@ -1,3 +1,5 @@
+import asyncio
+import json
 from starlette.applications import Starlette
 from starlette.routing import Route, Mount, WebSocketRoute
 from starlette.staticfiles import StaticFiles
@@ -10,7 +12,7 @@ from starlette.websockets import WebSocket
 from starlette_htmx.middleware import HtmxMiddleware, HtmxDetails
 from starlette.websockets import WebSocket
 
-import asyncio
+
 from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
 from modules.zen import zen_now
 from database import RedisCache
@@ -51,7 +53,12 @@ async def get_user(request):
         )
 
 async def home(request):
-    return TEMPLATES.TemplateResponse('/intro/intro.html', {'request': request})
+    session = await RedisCache().get(key="SESSION_USER") 
+      
+    if session:
+        return RedirectResponse(url='/dash', status_code=303)
+    else:
+        return TEMPLATES.TemplateResponse('/intro/intro.html', {'request': request})
 
 async def loading(request):      
     return HTMLResponse(f""" <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
@@ -62,8 +69,17 @@ async def users(response):
     generator = get_users()
     return StreamingResponse(generator, media_type='text/html')
 
-async def dashboard(request):     
-    return TEMPLATES.TemplateResponse('/dash.html', {'request': request})
+async def dashboard(request):  
+    session = await RedisCache().get(key="SESSION_USER") 
+     
+    if session:
+
+        return TEMPLATES.TemplateResponse('/dash.html', {
+            'request': request,
+            'session': json.loads(session)
+            })
+    else:
+        return RedirectResponse(url='/', status_code=303)
 
 async def uikit(request):
     return TEMPLATES.TemplateResponse('/test.html', {'request': request})

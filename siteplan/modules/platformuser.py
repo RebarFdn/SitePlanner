@@ -62,8 +62,8 @@ class User:
             return  p.get('value')
         r = None
         try:
-            r = await self.conn.get(_directive="_design/users-index/_view/name-view") 
-            return list(map( processIndex,  r.get('rows')))            
+            r = await self.all() 
+            return list(map( processIndex,  r))            
         except Exception as e:
             {'error': str(e)}
         finally: del(r)
@@ -82,14 +82,22 @@ class User:
     #@profile
     async def save(self): 
         uss = await self.all()
-        check_list = [i.get('value').get('email') for i in uss]
+        if uss:
+            check_list = [i.get('value').get('email') for i in uss]
         
-        if self.data.get('email') in check_list:
-            return {"status": 409, "message": "Conflict"} 
+            if self.data.get('email') in check_list:
+                return {"status": 409, "message": "Conflict"} 
+            else:
+                try:
+                    await self.conn.post( json=self.data)
+                
+                    return {"status": 202, "message": "Accepted"}
+                except Exception as e:                
+                    return {"status": 500, "message": "Internal Server Error"}
         else:
             try:
                 await self.conn.post( json=self.data)
-               
+                
                 return {"status": 202, "message": "Accepted"}
             except Exception as e:                
                 return {"status": 500, "message": "Internal Server Error"}

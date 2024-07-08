@@ -25,8 +25,18 @@ class Session:
     def __init__(self, data:dict=None) -> None:
         self.conn = Recouch(local_db=self.meta_data.get('database').get('name'))         
         self.meta_data["created"] = timestamp()
+
        
-     
+    async def post(self, data:dict=None):
+        r = None
+        try:
+            r = await self.conn.post( json=self.data )  
+            return r  
+        except Exception as e:
+            return {'error': str(e)}
+        finally: del(r)
+
+
     #@profile
     async def get(self, id:str="session"):
         r = None

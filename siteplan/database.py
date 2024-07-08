@@ -223,6 +223,17 @@ class RedisCache():
             await self.redis.close()
 
 
+    async def delete(self, key:str=None):
+        try:
+            if key:
+                value = await self.redis.delete(key)
+                return value
+        except Exception as e:
+            return str(e)
+        finally:
+            await self.redis.close()
+
+
     async def test(self):        
         await self.set("CURRENT_PAYBILL", "DDXXX-Bill-13")
         value = await self.get("CURRENT_PAYBILL")
