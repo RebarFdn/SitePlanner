@@ -1,6 +1,7 @@
 
 #from aiohttp import web
 from starlette.responses import JSONResponse, PlainTextResponse
+from starlette_login.decorator import login_required
 from decoRouter import Router
 
 
@@ -24,6 +25,7 @@ async def generateId(request):
 
 # Create
 @main.post('/rate')
+@login_required
 async def saveRate( request ):
     try:
         payload = await request.json()              
@@ -33,6 +35,7 @@ async def saveRate( request ):
 
 # Update
 @main.put('/rate')
+@login_required
 async def updateRate( request ):
     try:
         payload = await request.json()             
@@ -118,8 +121,10 @@ async def getRates( request ):
     try: return JSONResponse( await Rate().all_rates())
     except Exception as e: return JSONResponse({"error": str(e)})
 
+
 # Delete
 @main.delete('/rate/{id}')
+@login_required
 async def deleteRate( request ):
     """description: These end-points retreives a single Industry Job Rates \
     produced by The Master Builders Association of Jamaica by default requires \
@@ -151,11 +156,13 @@ async def backup(request): return JSONResponse({"status": "Pending", "request": 
   
 # CREATE
 @main.post('/project')
+@login_required
 async def new_project( request ):
   '''Create new projects '''
   data = await request.json()
   
-  p = Project(data=data) 
+  p = Project(data=data)    
+  p.meta_data["created_by"] = request.user.username
   return JSONResponse(await p.save())
 
 # READ
@@ -191,6 +198,7 @@ async def project( request ):
 
 # UPDATE
 @main.put('/project')
+@login_required
 async def update_project( request ):
   '''Updates existing project '''
   data = await request.json()
@@ -200,6 +208,7 @@ async def update_project( request ):
 
 # DELETE
 @main.delete('/project/{id}')
+@login_required
 async def deleteProject( request ):
   id = request.path_params.get('id')
   p = Project() 
@@ -208,6 +217,7 @@ async def deleteProject( request ):
 ## PROJECT ACCOUNTING
 #Account Transaction
 @main.post('/transaction/{id}')
+@login_required
 async def account_transaction( request ):
   '''Handles Project account transactions.'''
   id = request.path_params.get('id')
@@ -219,6 +229,7 @@ async def account_transaction( request ):
 
 # Project PayBill
 @main.post('/paybill/{id}')
+@login_required
 async def projectPaybill(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -233,6 +244,7 @@ async def projectPaybill(request):
 
 # Project Purchases
 @main.get('/purchases/{id}')
+@login_required
 async def projectPurchases(request):
   id = request.path_params.get('id')
   p = Project()
@@ -244,6 +256,7 @@ async def projectPurchases(request):
 
 # Project Expence
 @main.post('/expence/{id}')
+@login_required
 async def addProjectExpence(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -268,6 +281,7 @@ async def getProjectExpence(request):
 
 # PROJECT WORKERS
 @main.post('/addworkers/{id}')
+@login_required
 async def addProjectWorkers( request ):
   ''' Adds a list of workers to the projects workers index'''
   id = request.path_params.get('id')
@@ -278,6 +292,7 @@ async def addProjectWorkers( request ):
 
 ## PROJECT JOBS
 @main.post('/addjobtask/{id}')
+@login_required
 async def addTaskToJob(request):
   ''' Adds a task to an existing project job'''
   id = request.path_params.get('id')  
@@ -288,6 +303,7 @@ async def addTaskToJob(request):
 
 
 @main.post('/addJob/{id}')
+@login_required
 async def addJobToQueue(request ):
   '''Creates a new job on the project tasks '''
   id = request.path_params.get('id')
@@ -296,6 +312,7 @@ async def addJobToQueue(request ):
   return JSONResponse(await p.addJobToQueue(id=id, data=data))
 
 @main.post('/jobreport/{id}')
+@login_required
 async def addJobReport(request ):
   '''Creates a new job report on the project reports '''
   id = request.path_params.get('id')
@@ -311,6 +328,7 @@ async def getJobReports(request ):
   return JSONResponse(await p.getJobReports(id=id))
 
 @main.post('/addinvoice/{id}')
+@login_required
 async def addProjectInvoice(request):
     id = request.path_params.get('id')
     invoice_data = await request.json()
@@ -324,6 +342,7 @@ async def addProjectInvoice(request):
         return JSONResponse( result )
 
 @main.get('/processJobCost/{id}')
+@login_required
 async def processJobCost(request ):
   '''Returs processed job costs'''
   id = request.path_params.get('id')
@@ -332,6 +351,7 @@ async def processJobCost(request ):
 
 
 @main.post('/dayworkRecord/{id}')
+@login_required
 async def addDayworkReport(request ):
   '''Creates a new daywor report on the project reports '''
   id = request.path_params.get('id')
@@ -349,6 +369,7 @@ async def getProjectCrews(request):
 
 # Add crew member
 @main.post('/addCrewMember/{id}')
+@login_required
 async def addCrewMembers(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -361,6 +382,7 @@ async def addCrewMembers(request):
 
 # Add crew members from a list
 @main.post('/addCrewMembers/{id}')
+@login_required
 async def addCrewMembers(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -372,6 +394,7 @@ async def addCrewMembers(request):
 
 # Assign Task to worker
 @main.post('/assigntask/{id}')
+@login_required
 async def assignTaskToCrewMember(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -381,6 +404,7 @@ async def assignTaskToCrewMember(request):
   return JSONResponse(result)
 
 @main.post('/taskprogress/{id}')
+@login_required
 async def administerTaskProgress(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -390,6 +414,7 @@ async def administerTaskProgress(request):
 
 
 @main.post('/updateJobTasks/{id}')
+@login_required
 async def updateJobTasks(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -399,6 +424,7 @@ async def updateJobTasks(request):
 
 
 @main.post('/updateJobTask/{id}')
+@login_required
 async def updateJobTask(request):
   id = request.path_params.get('id')
   data = await request.json()
@@ -465,6 +491,7 @@ async def getRemoteProject(id:str=None):
     del(r)
 
 @main.get('/sync_remote/{id}')
+@login_required
 async def sync_remote(request):
   ''' Sync local and remote data 
     return local data if remote is absent 
@@ -482,6 +509,7 @@ async def sync_remote(request):
   return JSONResponse(data)
 
 @main.get('/netscan')
+@login_required
 async def network_scanner(request):
   query_port = '6757'
   target = '192.168.0.0/24' #input("Enter target: ")import nmap3
@@ -499,6 +527,7 @@ async def process_project_inventory(request):
 
 
 @main.post('/create_new_paybill/{id}')
+@login_required
 async def create_new_paybill(request):
   id = request.path_params.get('id') 
   data = await request.json()
@@ -507,6 +536,7 @@ async def create_new_paybill(request):
 
 
 @main.post('/add_bill_item/{id}')
+@login_required
 async def add_bill_item(request):
   id = request.path_params.get('id') 
   data = await request.json()

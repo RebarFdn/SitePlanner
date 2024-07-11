@@ -1,5 +1,6 @@
 # Base Router 
 from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, StreamingResponse
+from starlette_login.decorator import login_required
 from decoRouter import Router
 from modules.rate import Rate
 from modules.supplier import Supplier
@@ -79,6 +80,7 @@ async def get_rate(request):
     
 
 @router.post('/add_industry_rate/{id}')
+@login_required
 async def add_industry_rate(request):
     from modules.project import Project
     id = request.path_params.get('id')

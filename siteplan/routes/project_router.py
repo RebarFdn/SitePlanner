@@ -2,6 +2,7 @@
 # This route handles all project related requests 
 
 from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, StreamingResponse
+from starlette_login.decorator import login_required
 from decoRouter import Router
 from modules.project import Project
 from modules.employee import Employee
@@ -9,16 +10,24 @@ from modules.utils import timestamp, to_dollars, convert_timestamp
 from config import TEMPLATES
 from database import RedisCache
 
-
 router = Router()
 
+
 @router.GET('/projects')
-async def get_projects(request):
-    generator = Project().projects_index_generator()
-    return StreamingResponse(generator, media_type="text/html")
+@login_required
+async def get_projects(request):    
+    username =  request.user.username        
+    p = await Project().all()        
+    projects = [project for project in p.get('rows', []) if project.get('value').get("meta_data", {}).get("created_by") == username]
+    return TEMPLATES.TemplateResponse('/project/projectsIndex.html',{
+        'request': request,
+        'projects': projects
+    })
+
 
 
 @router.get('/project/{id}')
+@login_required
 async def get_project(request):
     id = request.path_params.get('id')
     p = await Project().get(id=id)
@@ -29,8 +38,10 @@ async def get_project(request):
                                           "p": p
                                           })
 
+
 ## Project Acconting
 @router.get('/project_account/{id}')
+@login_required
 async def get_project_account(request):
     id = request.path_params.get('id')
     p = await Project().get(id=id)
@@ -41,14 +52,18 @@ async def get_project_account(request):
         "account": p.get('account')
         })
 
+
 # PROCESS DEPOSITS
 @router.get('/project_account_deposits/{id}')
+@login_required
 async def get_project_account_deposits(request):
     id = request.path_params.get('id')
     generator =  Project().html_account_deposits_generator(id=id)
     return StreamingResponse(generator, media_type="text/html")
 
+
 @router.post('/account_deposit/{id}')
+@login_required
 async def project_account_deposit(request):
     id = request.path_params.get('id')    
     payload = {}
@@ -75,7 +90,9 @@ async def project_account_deposit(request):
                             """)
 
 
+
 @router.get("/edit_account_deposit/{id}")
+@login_required
 async def edit_account_deposit(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -92,7 +109,9 @@ async def edit_account_deposit(request):
         })
 
 
+
 @router.put('/update_account_deposit/{id}')
+@login_required
 async def update_account_deposit(request):
     id = request.path_params.get('id')
     p = await Project().get(id=id)
@@ -107,9 +126,6 @@ async def update_account_deposit(request):
          deposit['date'] = timestamp(form.get('date'))
     else: pass
     await Project().update(data=p)
-
-    
-
     return HTMLResponse( f"""
         <div class="uk-alert-success" uk-alert>
             <a href class="uk-alert-close" uk-close></a>
@@ -138,8 +154,10 @@ async def update_account_deposit(request):
         </div>
     """)
 
+
 # PROCESS WITHDRAWALS
 @router.get('/project_account_withdrawals/{id}')
+@login_required
 async def get_project_account_withdrawals(request):
     id = request.path_params.get('id')
     generator =  Project().html_account_withdrawal_generator(id=id)
@@ -147,6 +165,7 @@ async def get_project_account_withdrawals(request):
 
 
 @router.post('/account_withdrawal/{id}')
+@login_required
 async def project_account_withdrawal(request):
     return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
                         <a href class="uk-alert-close" uk-close></a>
@@ -155,6 +174,7 @@ async def project_account_withdrawal(request):
 
 
 @router.get("/edit_account_withdrawal/{id}")
+@login_required
 async def edit_account_withdrawal(request):
     return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
                         <a href class="uk-alert-close" uk-close></a>
@@ -163,6 +183,7 @@ async def edit_account_withdrawal(request):
 
 
 @router.put('/update_account_withdrawal/{id}')
+@login_required
 async def update_account_withdrawal(request):
     return HTMLResponse("""<div class="uk-alert-warning" uk-alert>
                         <a href class="uk-alert-close" uk-close></a>
@@ -172,6 +193,7 @@ async def update_account_withdrawal(request):
 
 # PROCESS PAYBILLS
 @router.get('/project_account_paybills/{id}')
+@login_required
 async def get_project_account_paybills(request):
     id = request.path_params.get('id')
     p = await Project().get(id=id)
@@ -194,7 +216,9 @@ async def get_project_account_paybills(request):
         })
 
 
+
 @router.post('/new_paybill/{id}')
+@login_required
 async def new_paybill(request):
     bill_refs = set()
     id = request.path_params.get('id')
@@ -202,10 +226,9 @@ async def new_paybill(request):
     paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
     for bill in project.get('account').get('records').get('paybills') :
         bill_refs.add(bill.get('ref'))
-   
 
     try:
-        async with request.form() as form:    
+        async with request.form() as form:   
               
             for key in form:
                 paybill[key] = form.get(key) 
@@ -233,6 +256,7 @@ async def new_paybill(request):
 
 
 @router.get('/paybill/{id}')
+@login_required
 async def get_paybill(request):
     id = request.path_params.get('id')
     idd = id.split('-')
@@ -252,12 +276,11 @@ async def get_paybill(request):
             
 
 @router.post('/current_paybill/{id}')
+@login_required
 async def current_paybill(request):
-    id = request.path_params.get('id')
-    
+    id = request.path_params.get('id')    
     try:
-        await RedisCache().set(key="CURRENT_PAYBILL", val=id)
-        
+        await RedisCache().set(key="CURRENT_PAYBILL", val=id)       
           
         return HTMLResponse(f"""<div uk-alert>
                             <a href class="uk-alert-close" uk-close></a>
@@ -272,11 +295,11 @@ async def current_paybill(request):
 
 
 @router.post('/delete_paybill/{id}')
+@login_required
 async def delete_paybill(request):
     id = request.path_params.get('id')
     idd = id.split('-')
     project = await Project().get(id=idd[0])
-
     try:
         for bill in project.get('account').get('records').get('paybills'):
             if bill.get('ref') == id:
@@ -296,6 +319,7 @@ async def delete_paybill(request):
 
 # PROCESS SALARIES
 @router.get('/project_account_salaries/{id}')
+@login_required
 async def get_project_account_salaries(request):
     id = request.path_params.get('id')
     generator = await Project().html_account_salaries_generator(id=id)
@@ -305,6 +329,7 @@ async def get_project_account_salaries(request):
 
 # PROCESS EXPENCES & purchases
 @router.get('/project_account_expences/{id}')
+@login_required
 async def get_project_account_expences(request):
     id = request.path_params.get('id')
     generator = await Project().html_account_expences_generator(id=id)
@@ -313,6 +338,7 @@ async def get_project_account_expences(request):
 
 
 @router.get('/project_account_purchases/{id}')
+@login_required
 async def get_project_account_purchases(request):
     id = request.path_params.get('id')
     generator = await Project().html_account_purchases_generator(id=id)
@@ -322,6 +348,7 @@ async def get_project_account_purchases(request):
 
 ## Project Jobs
 @router.get('/project_jobs/{id}')
+@login_required
 async def get_project_jobs(request):
     id = request.path_params.get('id')
     p = await Project().get(id=id)
@@ -393,6 +420,7 @@ async def get_project_rates(request):
 
 
 @router.get('/update_project_job_state/{id}/{state}')
+@login_required
 async def update_project_job_state(request):
     id = request.path_params.get('id')
     status = request.path_params.get('state')
@@ -544,6 +572,7 @@ async def html_job_page(request):
 
 
 @router.post('/add_job/{id}')
+@login_required
 async def add_job(request):
     id = request.path_params.get('id')
     job = {"project_id": id}
@@ -616,7 +645,8 @@ async def add_job(request):
 
     finally:
         del(job)
-        
+
+
 # JOB TASKS
 @router.get('/jobtasks/{id}')
 async def get_jobtasks(request):
@@ -635,7 +665,9 @@ async def get_jobtasks(request):
         {"request": request, "job": job, "standard": p.get('standard')})
 
 
+
 @router.delete('/jobtask/{id}')
+@login_required
 async def delete_jobtask(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -655,6 +687,7 @@ async def delete_jobtask(request):
 
 
 @router.get('/edit_jobtask/{id}')
+@login_required
 async def edit_jobtask(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -684,6 +717,7 @@ async def edit_jobtask(request):
 
 
 @router.post('/assign_task/{id}')
+@login_required
 async def assign_task(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -769,6 +803,7 @@ async def assign_task(request):
             </div> """
         )
 
+
 @router.post("/filter_job_rate/{id}") 
 async def filter_job_rate(request):
     id = request.path_params.get('id')
@@ -788,7 +823,9 @@ async def filter_job_rate(request):
         "job_id": id
     }) 
 
+
 @router.post('/clear_task_assignment/{id}')
+@login_required
 async def clear_task_assignment(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -826,8 +863,7 @@ async def clear_task_assignment(request):
 @router.get('/task_properties/{id}/{flag}')
 async def get_task_properties(request):
     id = request.path_params.get('id')
-    flag = request.path_params.get('flag')
-   
+    flag = request.path_params.get('flag')   
     idd = id.split('_')
     pid = idd[0].split('-')[0]
     p = await Project().get(id=pid)
@@ -845,6 +881,7 @@ async def get_task_properties(request):
 
 
 @router.get('/edit_task_properties/{id}/{flag}')
+@login_required
 async def edit_metric_properties(request):
     id = request.path_params.get('id')
     flag = request.path_params.get('flag')
@@ -867,6 +904,7 @@ async def edit_metric_properties(request):
 
 
 @router.put('/update_task_properties/{id}/{flag}')
+@login_required
 async def update_metric_properties(request):
     id = request.path_params.get('id')
     flag = request.path_params.get('flag')
@@ -894,6 +932,7 @@ async def update_metric_properties(request):
 
 
 @router.post('/update_task_progress/{id}')
+@login_required
 async def update_task_progress(request):
     id = request.path_params.get('id')
     idd = id.split('_')
@@ -922,9 +961,10 @@ async def update_task_progress(request):
     except Exception as e:
         pass
 
+
 @router.post('/add_worker_to_job_crew')
-async def add_worker_to_job_crew(request):
-    
+@login_required
+async def add_worker_to_job_crew(request):    
     async with request.form() as form:
         wid = form.get('worker')
     idds = wid.split("_")
@@ -955,7 +995,9 @@ async def add_worker_to_job_crew(request):
                         </div>""")
 
 
+
 @router.post('/add_daywork/{id}')
+@login_required
 async def add_daywork(request):
     id = request.path_params.get('id')
     payload = {"project_id": id}
@@ -974,6 +1016,7 @@ async def add_daywork(request):
 
 
 @router.post('/add_job_task')
+@login_required
 async def add_job_task(request):
     async with request.form() as form:
         data = form.get('task')
@@ -993,6 +1036,7 @@ async def add_job_task(request):
 
 
 @router.post('/add_job_crew')
+@login_required
 async def add_job_crew(request):
     async with request.form() as form:
         data = form.get('crew')
@@ -1013,6 +1057,7 @@ async def add_job_crew(request):
 
 
 @router.post('/update_job_phase/{id}')
+@login_required
 async def update_job_phase(request):
     id = request.path_params.get('id')
     async with request.form() as form:
@@ -1028,6 +1073,7 @@ async def update_job_phase(request):
 
 
 @router.post('/add_worker_to_project')
+@login_required
 async def add_worker_to_project(request):
     async with request.form() as form:
         data = form.get('employee')
@@ -1053,6 +1099,7 @@ async def add_worker_to_project(request):
 
 
 @router.post('/update_project_standard/{id}')
+@login_required
 async def update_project_standard(request):
     id = request.path_params.get('id')    
     p = await Project().get(id=id)

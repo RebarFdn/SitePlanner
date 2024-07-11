@@ -4,6 +4,7 @@ from modules.utils import timestamp
 from modules.project import Project
 from database import Recouch
 from starlette.responses import JSONResponse, HTMLResponse, StreamingResponse
+from starlette_login.decorator import login_required
 from modules.utils import to_dollars
 
 class Supplier:    
@@ -339,6 +340,7 @@ supplier_router = Router()
 
 
 @supplier_router.post('/supplier')
+@login_required
 async def createSupplier(request ):    
     '''Create a new Supplier .POST '''    
     data = await request.json() 
@@ -423,6 +425,7 @@ async def invoiceIdIndex(request):
 
 
 @supplier_router.post('/checkinvoice')
+@login_required
 async def checkInvoice(request):
     '''Validate and invoice'''
     tocheck = await request.json()

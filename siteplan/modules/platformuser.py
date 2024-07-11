@@ -1,8 +1,12 @@
 #modeler.py
 #import aiohttp
-
+import typing, asyncio
+from dataclasses import dataclass
+from starlette.requests import Request
+from starlette_login.mixins import UserMixin
 from starlette.responses import JSONResponse
 from decoRouter import Router
+
 try:
     from modules.utils import timestamp
 except ImportError:
@@ -14,9 +18,80 @@ from database import Recouch
 
 #fp=open('mem_pflr.log', 'w+')
 
+@dataclass
+class PlatformUser(UserMixin):  
+    identifier: str
+    username: str
+    password_hash: str
+    password: str = 'password'
 
-class User:    
-    uernames:list=[]
+    #@profile    
+    async def make_password(self, raw_text:str=None):
+        from werkzeug.security import generate_password_hash
+        try: return  generate_password_hash(raw_text, method='pbkdf2:sha256', salt_length=8)
+        except: return None
+        finally: del generate_password_hash
+    
+    #@profile
+    async def check_password(self, password_hash, password):
+        from werkzeug.security import check_password_hash
+        try: return check_password_hash( password_hash, password)
+        except Exception: return False
+        finally: del(check_password_hash)
+
+
+    @property
+    def is_authenticated(self) -> bool:
+        return True
+
+    @property
+    def display_name(self) -> str:
+        return self.username
+
+    @property
+    def identity(self) -> str:
+        return self.identifier
+
+
+class UserList:
+    def __init__(self):
+        self.user_list = []
+
+    def dict_username(self) -> dict:
+        d = {}
+        for user in self.user_list:
+            d[user.username] = user
+        return d
+
+    def dict_id(self) -> dict:
+        d = {}
+        for user in self.user_list:
+            d[user.identity] = user
+        return d
+
+    def add(self, user: PlatformUser) -> bool:
+        if user.identity in self.dict_id():
+            return False
+        self.user_list.append(user)
+        return True
+
+    def get_by_username(self, username: str) -> typing.Optional[PlatformUser]:
+        return self.dict_username().get(username)
+
+    def get_by_id(self, identifier: int) -> typing.Optional[PlatformUser]:
+        return self.dict_id().get(identifier)
+
+    def user_loader(self, request: Request, user_id: int):
+        return self.get_by_id(user_id)
+
+
+
+class User():  
+    identifier: int
+    username: str
+    password: str = 'password'
+
+    uernames: list=[]
     meta_data:dict = {
         "created": 0, 
         "database": {"name":"site-users", "partitioned": False},
@@ -209,6 +284,23 @@ class User:
                 
         return hashlib.md5(json.dumps(uad).encode('utf-8')).hexdigest()
             
+
+async def loadusers( usr:dict = None):
+
+    data = await User().nameIndex()
+    if data:
+        if usr:
+            data.append(usr)
+
+        return data
+    else:
+        return []
+    
+users = asyncio.run(loadusers())
+
+user_list = UserList()
+for user in users:
+    user_list.add(PlatformUser(identifier=user.get('_id'), username=user.get('username'), password_hash=user.get('password_hash')))
 
 
 # User Router

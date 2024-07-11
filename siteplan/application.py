@@ -4,6 +4,7 @@ from starlette.applications import Starlette
 from starlette.routing import Route, Mount, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.middleware import Middleware
+from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.endpoints import WebSocketEndpoint, HTTPEndpoint
 from starlette.responses import JSONResponse, HTMLResponse, StreamingResponse, RedirectResponse
@@ -11,6 +12,11 @@ from starlette.background import BackgroundTasks
 from starlette.websockets import WebSocket
 from starlette_htmx.middleware import HtmxMiddleware, HtmxDetails
 from starlette.websockets import WebSocket
+
+from starlette_login.backends import SessionAuthBackend
+from starlette_login.login_manager import LoginManager
+from starlette_login.decorator import login_required
+from starlette_login.middleware import AuthenticationMiddleware
 
 
 from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
@@ -22,12 +28,15 @@ from routes.team_router import router as team_router
 from routes.base_router import router as base_router
 from modules.supplier import supplier_router 
 from routes.estimator_router import router as estimate_router
+from modules.platformuser import user_list
+
+login_manager = LoginManager(redirect_to='login', secret_key=SECRET_KEY)
+login_manager.set_user_loader(user_list.user_loader)
 
 
 
 async def get_users():
-    users = loadusers()
-    
+    users = loadusers()    
     yield '<ul class="mx-10 p-2">'
     for user in users:
         yield f"""<li><div class="ml-3">
@@ -43,6 +52,8 @@ async def get_users():
         await asyncio.sleep(0.015)
     yield '</ul>'
 
+
+@login_required
 async def get_user(request):
     name = request.path_params.get('name')
     store = loadusers({"name": "Haley", "age": 29 })
@@ -52,34 +63,40 @@ async def get_user(request):
         >Age { search.get("age") }</p>"""
         )
 
-async def home(request):
-    session = await RedisCache().get(key="SESSION_USER") 
-      
-    if session:
+
+async def home(request):    
+    if request.user.is_authenticated:
+        #content = f'You are logged in as {request.user.username}'
         return RedirectResponse(url='/dash', status_code=303)
     else:
-        return TEMPLATES.TemplateResponse('/intro/intro.html', {'request': request})
+        content = 'You are not logged in'
+        return TEMPLATES.TemplateResponse('/intro/intro.html', {
+            'request': request,
+            'content': content
+            })
+    
+
 
 async def loading(request):      
     return HTMLResponse(f""" <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
     <span class="sr-only">Loading...</span>
   </div>""")
 
-async def users(response):
+@login_required
+async def users(request):
     generator = get_users()
     return StreamingResponse(generator, media_type='text/html')
 
-async def dashboard(request):  
-    session = await RedisCache().get(key="SESSION_USER") 
-     
-    if session:
 
-        return TEMPLATES.TemplateResponse('/dash.html', {
+@login_required
+async def dashboard(request):    
+    return TEMPLATES.TemplateResponse('/dash.html', {
             'request': request,
-            'session': json.loads(session)
+            'session': request.user #json.loads(session)
             })
-    else:
-        return RedirectResponse(url='/', status_code=303)
+    
+    
+
 
 async def uikit(request):
     return TEMPLATES.TemplateResponse('/test.html', {'request': request})
@@ -92,6 +109,7 @@ async def zenNow(request):
 
         """)
 
+@login_required
 async def get_logs(request):
     context = {"title": "FastAPI Streaming Log Viewer over WebSockets", "log_file": SERVER_LOG_PATH,}
     return TEMPLATES.TemplateResponse("logs.html", {"request": request, "context": context})       
@@ -120,8 +138,7 @@ routes =[
     Route('/users', endpoint=users), 
     Route('/logs', endpoint=get_logs),  
     Route('/user/{name}', endpoint=get_user),  
-    Route('/zen', endpoint=zenNow),  
-
+    Route('/zen', endpoint=zenNow), 
     Mount('/static', StaticFiles(directory='static'))
 ]
 
@@ -144,7 +161,16 @@ def shutdownApp():
 
 app = Starlette(
     debug=DEBUG, 
-    middleware=[Middleware(HtmxMiddleware)],
+    middleware=[
+        Middleware(HtmxMiddleware),
+        Middleware(SessionMiddleware, secret_key='secret'),
+        Middleware(
+            AuthenticationMiddleware,
+            backend=SessionAuthBackend(login_manager),
+            login_manager=login_manager,
+            allow_websocket=False,
+        )
+        ],
     routes=routes,
     on_startup= startApp(),
     on_shutdown= shutdownApp()
@@ -164,7 +190,7 @@ app.add_middleware(
     ],
     max_age=3600,
 )
-
+app.state.login_manager = login_manager
 app.state.ADMIN_EMAIL = 'admin@siteplaner.org'
 app.state.STORE_ROOM = {"admin": "Ian Moncrieffe"}
 

@@ -79,10 +79,10 @@
                         >Estimator</a></li>
                     
                     <li>
-                        <a href="#"><img class="uk-preserve-width uk-border-circle" src="/static/imgs/users/{{session.user.username}}.png" width="40" height="40" alt=""></a>
+                        <a href="#"><img class="uk-preserve-width uk-border-circle" src="/static/imgs/users/{{request.user.username}}.png" width="40" height="40" alt=""></a>
                         <div class="uk-navbar-dropdown uk-border-rounded" >
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active User {{session.user.username}}</a></li>
+                                <li class="uk-active"><a href="#">Active User {{request.user.username}}</a></li>
                                 <li><a href="#">Settings</a></li>
                                 <li><a href="/logout">Logout</a></li>
                                
@@ -90,7 +90,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">Hi {{session.user.username}}</a></li>
+                    <li><a href="#">Hi {{request.user.username}}</a></li>
                    
                 </ul>
 

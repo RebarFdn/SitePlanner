@@ -1,5 +1,6 @@
 # Team Router 
 from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, StreamingResponse
+from starlette_login.decorator import login_required
 from decoRouter import Router
 from modules.project import Project
 from modules.employee import Employee
@@ -24,6 +25,7 @@ async def team_json(request):
 
 
 @router.post('/newworker')
+@login_required
 async def new_worker(request):
     payload = {}
     try:

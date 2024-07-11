@@ -178,3 +178,24 @@
     </div>
    
 {% endblock content %}
+
+
+{% block extra_script %}
+
+<script>
+    function ready() {
+        lastUser = localStorage.getItem('SESSION_USER')
+        if(lastUser){
+            alert(JSON.stringify(lastUser))
+        }else {
+            alert('You Should LOgin')
+            
+        }
+    }
+
+    
+
+</script>
+
+{% endblock extra_script %}
+   
