@@ -24,6 +24,7 @@ class PlatformUser(UserMixin):
     username: str
     password_hash: str
     password: str = 'password'
+    is_admin: bool = False
 
     #@profile    
     async def make_password(self, raw_text:str=None):
@@ -300,7 +301,7 @@ users = asyncio.run(loadusers())
 
 user_list = UserList()
 for user in users:
-    user_list.add(PlatformUser(identifier=user.get('_id'), username=user.get('username'), password_hash=user.get('password_hash')))
+    user_list.add(PlatformUser(identifier=user.get('_id'), username=user.get('username'), is_admin=user.get('is_admin'), password_hash=user.get('password_hash')))
 
 
 # User Router
@@ -312,6 +313,7 @@ async def register_new_user( request ):
     """
     """
     data = await request.json()   
+    data['is_admin'] = False
     
     u = User(data=data)      
     await u.hash_user_password()  

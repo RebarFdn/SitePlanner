@@ -1,25 +1,24 @@
 import asyncio
 import json
 from starlette.applications import Starlette
-from starlette.routing import Route, Mount, WebSocketRoute
+from starlette.routing import Route, Mount
 from starlette.staticfiles import StaticFiles
 from starlette.middleware import Middleware
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware.cors import CORSMiddleware
-from starlette.endpoints import WebSocketEndpoint, HTTPEndpoint
-from starlette.responses import JSONResponse, HTMLResponse, StreamingResponse, RedirectResponse
-from starlette.background import BackgroundTasks
-from starlette.websockets import WebSocket
-from starlette_htmx.middleware import HtmxMiddleware, HtmxDetails
-from starlette.websockets import WebSocket
-
+from starlette.responses import HTMLResponse, StreamingResponse, RedirectResponse
+from starlette_htmx.middleware import HtmxMiddleware
 from starlette_login.backends import SessionAuthBackend
 from starlette_login.login_manager import LoginManager
 from starlette_login.decorator import login_required
 from starlette_login.middleware import AuthenticationMiddleware
+from apitally.starlette import ApitallyMiddleware
 
 
-from config import (DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH )
+from config import (
+    DEBUG, SECRET_KEY, ALLOWED_HOSTS, HOST, PORT, TEMPLATES,LOG_PATH ,
+    SYSTEM_LOG_PATH ,SERVER_LOG_PATH, APP_LOG_PATH, APITALLY_CLIENT_TOKEN
+    )
 from modules.zen import zen_now
 from database import RedisCache
 from routes.auth_router import router as auth_routes, loadusers
@@ -29,6 +28,7 @@ from routes.base_router import router as base_router
 from modules.supplier import supplier_router 
 from routes.estimator_router import router as estimate_router
 from modules.platformuser import user_list
+from modules.decorator import admin_only
 
 login_manager = LoginManager(redirect_to='login', secret_key=SECRET_KEY)
 login_manager.set_user_loader(user_list.user_loader)
@@ -128,10 +128,14 @@ async def log_reader(n=5):
         return log_lines
     
   
-
+@login_required
+@admin_only
+async def adminPage(request):
+    return TEMPLATES.TemplateResponse('/adminPage.html', {'request': request})
     
 routes =[
     Route('/', endpoint=home), 
+    Route('/admin', adminPage, name='admin'),
     Route('/uikit', endpoint=uikit), 
     Route('/dash', endpoint=dashboard),    
     Route('/loading', endpoint=loading),  
@@ -163,13 +167,18 @@ app = Starlette(
     debug=DEBUG, 
     middleware=[
         Middleware(HtmxMiddleware),
-        Middleware(SessionMiddleware, secret_key='secret'),
+        Middleware(SessionMiddleware, secret_key=SECRET_KEY),
         Middleware(
             AuthenticationMiddleware,
             backend=SessionAuthBackend(login_manager),
             login_manager=login_manager,
             allow_websocket=False,
-        )
+        ),
+        Middleware(
+            ApitallyMiddleware,
+            client_id=APITALLY_CLIENT_TOKEN,
+            env="dev" # "prod"
+    )
         ],
     routes=routes,
     on_startup= startApp(),

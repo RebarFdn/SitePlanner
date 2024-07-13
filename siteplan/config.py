@@ -31,6 +31,7 @@ DATABASE_URL = 'http://localhost:5984/'
 SECRET_KEY = __config('SECRET_KEY',  cast=Secret)
 DB_ADMIN  = __config('DB_ACCESS',  cast=Secret)
 ADMIN_ACCESS  = __config('DB_SECRET',  cast=Secret)
+APITALLY_CLIENT_TOKEN = __config('APITALLY_CLIENT_TOKEN')
 
 
 # Network
