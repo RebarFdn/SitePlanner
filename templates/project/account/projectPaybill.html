@@ -44,11 +44,10 @@
                             <h3 class="uk-card-title">Bill Items Total {{bill.itemsTotal}}</h3>
                         </div>
                         <button 
-                            id="showButton"
-                            hx-get="/uikit-modal.html" 
-                            hx-target="#modals-here" 
-                            class="uk-button uk-button-primary" 
-                            _="on htmx:afterOnLoad wait 10ms then add .uk-open to #modal">Open Modal</button>
+                        class="uk-button uk-button-primary uk-margin-small-right rounded" 
+                        type="button" 
+                        uk-toggle="target: #add-item-modal">Add Item</button>
+
 
                         <div id="modals-here"></div>
                                             </div>
@@ -117,3 +116,22 @@
         
     </div>
 </div>
+
+
+<!-- This is the modal -->
+<div id="add-item-modal" uk-modal hx-get="/unpaid_tasks/{{bill.ref}}" hx-target="#bill-items" hx-trigger="mouseenter">
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Headline</h2>
+        <p id="bill-items">Data Unavailable!</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </p>
+    </div>
+</div>
+
+<script>
+    function doalert(){
+        console.log('Modal alert')
+    }
+</script>

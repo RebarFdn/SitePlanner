@@ -294,6 +294,21 @@ async def current_paybill(request):
         del(id)
 
 
+@router.get('/unpaid_tasks/{id}')
+async def unpaid_tasks(request):
+    from modules.accumulator import ProjectDataAccumulator    
+    id = request.path_params.get('id')
+    idd = id.split('-')
+    accumulator = ProjectDataAccumulator(project_id=idd[0])
+    unpaid_tasks = await accumulator.unpaid_tasks()
+    return TEMPLATES.TemplateResponse("/project/account/unpaidTasks.html", {
+        "request": request,
+        "unpaid_tasks": unpaid_tasks
+    })
+    
+
+
+
 @router.post('/delete_paybill/{id}')
 @login_required
 async def delete_paybill(request):

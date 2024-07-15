@@ -29,9 +29,13 @@ from modules.supplier import supplier_router
 from routes.estimator_router import router as estimate_router
 from modules.platformuser import user_list
 from modules.decorator import admin_only
+#from modules.aiAssistant import AiAssistant
+
+
 
 login_manager = LoginManager(redirect_to='login', secret_key=SECRET_KEY)
 login_manager.set_user_loader(user_list.user_loader)
+
 
 
 
@@ -132,10 +136,15 @@ async def log_reader(n=5):
 @admin_only
 async def adminPage(request):
     return TEMPLATES.TemplateResponse('/adminPage.html', {'request': request})
-    
+
+async def ai_assistant(request):
+   # assistant = AiAssistant().send_message(role='user', content='where is the deepest part of the earth ?')
+    return HTMLResponse(f"""<div>Sorry Our Ai Assistant is currently undergoing maintenance. Please try the service later.</div""")
+
 routes =[
     Route('/', endpoint=home), 
     Route('/admin', adminPage, name='admin'),
+    Route('/ai_assistant', endpoint=ai_assistant, name='ai_assistant'),
     Route('/uikit', endpoint=uikit), 
     Route('/dash', endpoint=dashboard),    
     Route('/loading', endpoint=loading),  
