@@ -20,15 +20,17 @@ class ProjectDataAccumulator:
                     pass
                 else:
                     for item in job.get('tasks'):
+                        
                         if type(item.get('paid')) == dict:
-                            if item.get('paid').get('value') < 100:
+                            if item.get('paid').get('value') < 100 and item.get('progress') > 0:
                                 item['job_id']=job.get('_id')
                                 unpaid.append(item)
                             else:
                                 pass
                         else:
-                            item['job_id']=job.get('_id')
-                            unpaid.append(item)
+                            if item.get('progress') > 0:
+                                item['job_id']=job.get('_id')
+                                unpaid.append(item)
             return unpaid
         else:
             return []

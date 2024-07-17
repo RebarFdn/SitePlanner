@@ -1,6 +1,7 @@
 ## Project router
 # This route handles all project related requests 
 
+import json
 from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, StreamingResponse
 from starlette_login.decorator import login_required
 from decoRouter import Router
@@ -216,6 +217,38 @@ async def get_project_account_paybills(request):
         })
 
 
+@router.get('/paybill_total/{id}')
+async def paybill_total(request):   
+    id = request.path_params.get('id')
+
+    project = await Project().get(id=id.split('-')[0])
+    items_total = 0
+    
+    for bill in project.get('account').get('records').get('paybills') :
+        if bill.get('ref') == id:
+            for item in bill.get('items'):
+                items_total += float(item.get('metric').get('cost'))
+            bill["itemsTotal"] = items_total
+            bill["expence"] = {
+                "contractor": items_total * ((item.get('fees', {}).get('contractor', 20 )) / 100),
+                "insurance": items_total * ((item.get('fees', {}).get('insurance', 5 )) / 100),
+                "misc": items_total * ((item.get('fees', {}).get('misc', 5 )) / 100),
+                "overhead": items_total *  ((item.get('fees', {}).get('overhead', 5 )) / 100)
+
+            }
+            bill["expence"]["total"] = sum([
+                bill["expence"]["contractor"],
+                bill["expence"]["insurance"],
+                bill["expence"]["misc"],
+                bill["expence"]["overhead"],
+            ])
+
+        
+
+
+
+
+
 
 @router.post('/new_paybill/{id}')
 @login_required
@@ -234,23 +267,23 @@ async def new_paybill(request):
                 paybill[key] = form.get(key) 
         paybill['ref'] = f"{id}-{paybill['ref']}"
         if paybill.get('ref') in bill_refs:
-             return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>That Paybill already exists! .</p>
-                        </div>""")
+            return TEMPLATES.TemplateResponse('/project/account/paybills.html', {
+                "request": request,
+                "paybills":  project.get('account').get('records').get('paybills')
+            }) 
         else:
             project['account']['records']['paybills'].append(paybill)    
             await Project().update(data=project)
 
-            return HTMLResponse(f"""<div uk-alert>
-                            <a href class="uk-alert-close" uk-close></a>
-                            <h3>Notice</h3>
-                            <p>{paybill}</p>
-                        </div>""")
+            return TEMPLATES.TemplateResponse('/project/account/paybills.html', {
+                "request": request,
+                "paybills":  project.get('account').get('records').get('paybills')
+            }) 
     except Exception as e:
-        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
-
+        return TEMPLATES.TemplateResponse('/project/account/paybills.html', {
+                "request": request,
+                "paybills":  project.get('account').get('records').get('paybills')
+            }) 
     finally:
         del(paybill)
 
@@ -303,9 +336,54 @@ async def unpaid_tasks(request):
     unpaid_tasks = await accumulator.unpaid_tasks()
     return TEMPLATES.TemplateResponse("/project/account/unpaidTasks.html", {
         "request": request,
-        "unpaid_tasks": unpaid_tasks
+        "unpaid_tasks": unpaid_tasks,
+        "bill_ref": id
     })
     
+@router.post('/add_task_to_bill/{id}')
+@login_required
+async def add_task_to_bill(request):
+    id = request.path_params.get('id')    
+    project = await Project().get(id=id.split('-')[0])
+    try:
+        async with request.form() as form:
+            task_id = form.get('task')
+        idds = task_id.split('_')
+        for job in project.get('tasks'):
+            if job.get('_id') == idds[0]:
+                for task in job.get('tasks'):
+                    if task.get('_id') == idds[1]:
+                                   
+                        bill_item = {
+                                    "id": task.get('_id'),
+                                        "job_id": task.get('job_id'),
+                                        "title": task.get('title'),
+                                        "description": task.get('description'),
+                                        "metric": task.get('metric'),
+                                        "imperial":task.get('imperial'),
+                                        "assignedto": task.get('assignedto'),
+                                        "paid": task.get('paid'),
+                                        "phase": task.get('phase'),
+                                        "progress": task.get('progress'),
+                                        "category": task.get('category'),
+
+                                    } 
+                        for bill in project.get('account').get('records').get('paybills'):
+                            if bill.get('ref') == id:
+                                bill['items'].append(bill_item)
+            
+        await Project().update(data=project)
+        return TEMPLATES.TemplateResponse("/project/account/paybillItem.html", {
+            "request": request,
+            "bill_items": bill.get('items') })
+       
+    except Exception as e:
+        return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
+
+    finally:
+        del(id)
+
+
 
 
 

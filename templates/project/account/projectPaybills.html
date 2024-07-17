@@ -22,73 +22,73 @@
 </nav>
 
 <div class="uk-overflow-auto">
-<table class="uk-table uk-table-small uk-table-divider">
-    <thead>
-        <tr>
-            <th>Refference</th>
-            <th>Date</th>            
-            <th>Title</th>
-            <th>Description</th>
-            <th>Total</th>
-            <th>Manage</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for bill in p.account.records.paybills %}
-        <tr>
-            <td>
-                <label><input 
-                    class="uk-radio" 
-                    type="radio" 
-                    name="current-bill" 
-                    value="{{ bill.ref }}"
-                    hx-post="/current_paybill/{{bill.ref}}"
-                    hx-target="#message"
-                    
-                    > {{ bill.ref }}</label>
-                
-                
-            </td>
-            <td>
-               
-                {{ bill.date }}
-            </td>
-            
-            <td>{{ bill.mainTitle }}</td>
-            <td>{{ bill.subTitle }}</td>
-            <td>{{ bill.total }}</td>
-            <td>
-                <button class="uk-button uk-button-primary uk-button-small rounded-md" type="button">Manage</button>
-                <div uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-active"><a 
-                            href="#"
-                            hx-get="/paybill/{{bill.ref}}"
-                            hx-target="#account"
-                            >Edit</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li class="uk-nav-header">Header</li>
-                        <li><a href="#">Item</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li><button 
-                            class="uk-button uk-button-danger uk-button-small rounded"
-                            hx-post="/delete_paybill/{{bill.ref}}"
-                            hx-confirm="Are you sure you wish to delete {{ bill.ref }}?"
+    <div id="paybills">
+        <table class="uk-table uk-table-small uk-table-divider">
+            <thead>
+                <tr>
+                    <th>Refference</th>
+                    <th>Date</th>            
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Total</th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in p.account.records.paybills %}
+                <tr>
+                    <td>
+                        <label><input 
+                            class="uk-radio" 
+                            type="radio" 
+                            name="current-bill" 
+                            value="{{ bill.ref }}"
+                            hx-post="/current_paybill/{{bill.ref}}"
                             hx-target="#message"
                             
-                            >Delete</button></li>
-                    </ul>
-                </div>
+                            > {{ bill.ref }}</label>
+                        
+                        
+                    </td>
+                    <td>
+                    
+                        {{ bill.date }}
+                    </td>
+                    
+                    <td>{{ bill.mainTitle }}</td>
+                    <td>{{ bill.subTitle }}</td>
+                    <td>{{ bill.total }}</td>
+                    <td>
+                        <button class="uk-button uk-button-primary uk-button-small rounded-md" type="button">Manage</button>
+                        <div uk-dropdown>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li class="uk-active"><a 
+                                    href="#"
+                                    hx-get="/paybill/{{bill.ref}}"
+                                    hx-target="#account"
+                                    >Edit</a></li>
+                                <li><a href="#">Share</a></li>
+                                
+                                <li class="uk-nav-divider"></li>
+                                <li><button 
+                                    class="uk-button uk-button-danger uk-button-small rounded"
+                                    hx-post="/delete_paybill/{{bill.ref}}"
+                                    hx-confirm="Are you sure you wish to delete {{ bill.ref }}?"
+                                    hx-target="#message"
+                                    
+                                    >Delete</button></li>
+                            </ul>
+                        </div>
+                        
+                    
+                    </td>
+                </tr>
+                {% endfor %}
                 
-               
-            </td>
-        </tr>
-        {% endfor %}
-        
-        
-    </tbody>
-</table>
+                
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -135,7 +135,7 @@
                 <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                 <input class="uk-button uk-button-primary uk-modal-close" type="submit"
                 hx-post="/new_paybill/{{p._id}}"
-                hx-target="#message"
+                hx-target="#paybills"
                 
                 >
             </p>

@@ -6,6 +6,7 @@
         <table class="uk-table uk-table-striped uk-table-small">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Job Id</th>
                     <th>Task Id</th>
                     <th>Title</th>
@@ -16,7 +17,16 @@
             </thead>
             <tbody>
                 {% for task in unpaid_tasks %}
+
+                
                 <tr>
+                    <td><input 
+                        type="checkbox" 
+                        value="{{ task.job_id }}_{{ task._id }}" 
+                        name="task" 
+                        hx-post="/add_task_to_bill/{{bill_ref}}" 
+                        hx-target="#paybill-items" >
+                    </td>
                     <td>{{task.job_id}}</td>
                     <td>{{task._id}}</td>
                     <td>{{task.title}}</td>
