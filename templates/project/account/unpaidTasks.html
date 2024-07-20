@@ -25,7 +25,7 @@
                         value="{{ task.job_id }}_{{ task._id }}" 
                         name="task" 
                         hx-post="/add_task_to_bill/{{bill_ref}}" 
-                        hx-target="#paybill-items" >
+                        hx-target="#account" >
                     </td>
                     <td>{{task.job_id}}</td>
                     <td>{{task._id}}</td>

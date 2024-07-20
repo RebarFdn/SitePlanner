@@ -1,61 +1,79 @@
  <div>
-    <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
-            
-            <label><input 
-                class="uk-radio" 
-                type="radio" 
-                name="current-bill" 
-                value="{{ bill.ref }}"
-                hx-post="/current_paybill/{{bill.ref}}"
-                hx-target="#message"
-                
-                > Make Bill Current</label>
-        </div>
-        <div class="uk-navbar-center">
-    
-            <ul class="uk-navbar-nav">
-                
-                
-                <li><a href="#add-item" uk-toggle>Add Item</a></li>
-            </ul>
-    
-        </div>
-    </nav>
+   
         <div class="uk-card uk-card-hover uk-card-body">
            
             <div class="uk-child-width-expand@s uk-text-center" uk-grid>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div>
-                            <h3 class="uk-card-title">Project Paybill {{bill.ref}}</h3>
-                            <h3 class="uk-card-title">Date {{bill.date}}</h3>
-                            <h3 class="uk-card-title">{{bill.mainTitle}}</h3>
-                            <p class="text-sm">{{bill.subTitle}}</p>
-                          
+                   
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-header">Project Paybill {{bill.ref}}</h2>
+                            <p class="text-content2">{{bill.mainTitle}}</p>
+                            <div>                               
+                                <p class="text-content2">Date {{bill.date}}</p>                                
+                                <p class="text-sm">{{bill.subTitle}}</p>
+                              
+                            </div>
+                            <div class="card-footer">
+                               
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div>
-                            <h3 class="uk-card-title">Bill Total {{bill.ref}} {{bill.total}}</h3>
-                            <h3 class="uk-card-title">Bill Items Total {{bill.itemsTotal}}</h3>
+                
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-header">Bill Total {{bill.total | to_dollars }}</h2>
+                            <p class="text-content2">Bill Items Total {{bill.itemsTotal | to_dollars}}</p>
+                            <p class="text-content2">Renumeration / Expences Total {{ bill.expence.total  | to_dollars}}</p>
+                            <div class="card-footer">
+                               
+                                <a class="btn-secondary btn" href="#add-billitem" uk-toggle>Add Item To Bill</a>
+
+                            </div>
                         </div>
-                        <button 
-                        class="uk-button uk-button-primary uk-margin-small-right rounded" 
-                        type="button" 
-                        uk-toggle="target: #add-item-modal">Add Item</button>
-
-
-                        <div id="modals-here"></div>
-                                            </div>
+                    </div>
                 </div>
                 
             </div>
             <section class="text-xs">
+               
+                <div id="paybill-item" class="bg-yellow-100 text-blue-600 py-1 px-5 border border-yellow-600">
+                   
+                     <nav class="uk-navbar-container" uk-navbar>
+                        <div class="uk-navbar-left">
+                            
+                            <label><input 
+                                class="uk-radio" 
+                                type="radio" 
+                                name="current-bill" 
+                                value="{{ bill.ref }}"
+                                hx-post="/current_paybill/{{bill.ref}}"
+                                hx-target="#message"
+                                
+                                > Make Bill Current</label>
+                        </div>
+                        <div class="uk-navbar-center">
+                    
+                            <ul class="uk-navbar-nav">
+                                
+                                
+                                <li>
+                                    <a href="#" ><p class="moving-text"> 
+                                    For Period Start 
+                                    <span class="badge-sm badge-success">{{ bill.date_starting }}</span> 
+                                    To  Ending 
+                                    <span class="badge-xs badge-secondary">{{ bill.date_ending }}</span>
+                                </p>
+                                </a></li>
+                            </ul>
+                    
+                        </div>
+                    </nav>
+                </div>
                 <div  id="paybill-items">
+                   
                     <table class="uk-table uktable-small">
                         <thead>
                             <th>Id</th>
@@ -67,18 +85,87 @@
                         </thead>
                         <tbody>
                             {% for item in bill.get('items') %}
-                            <tr>
-                                <td>{{ item.id }}</td>
-                                <td>{{ item.description }} {{ item.title}} </td>
+                            <tr id="{{item.id}}" class="cursor-pointer" uk-tooltip="Click to edit"
+                                hx-get="/edit_paybill_item/{{bill.ref}}_{{item.id}}"
+                                hx-target="#paybill-item"
+                                
+                                
+                                
+                            >
+                                <td>{{ item.id }} </td>                                
+                                {% if item.get('description') %}
+
+                                <td>{{ item.description }} </td>
+                                 {% else %}
+                                 <td>{{ item.title }} </td>
+                                 {% endif %}
                                 <td>{{ item.metric.unit }}</td>
                                 <td>{{ item.metric.quantity }}</td>
                                 <td>{{ item.metric.price | to_dollars }}</td>
                                 <td> {{ item.metric.cost | to_dollars }}/{{ item.metric.total | to_dollars }}</td>
                             </tr>
                             {% endfor %}
-                            <tr ></tr>
+                            
+                            <tr > <td>ITALLY</td>
+                                <td>Bill items Total </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ bill.itemsTotal  | to_dollars}}</td></tr>
+                                
+                            <tr>
+                                <td>CRX</td>
+                                <td>Contractor Charges </td>
+                                <td>{{bill.fees.unit}}</td>
+                                <td><span 
+                                    id="contractor-percent" 
+                                    class="cursor-pointer" 
+                                    uk-tooltip="Click to edit contractor percent"
+                                    hx-get="/update_contractor_fee/{{bill.ref}}"
+                                    hx-trigger="click"
+                                    >{{bill.fees.contractor}}</span></td> 
+                                <td></td>
+                                <td>{{ bill.expence.contractor | to_dollars}}</td>
+                            </tr>
+                            <tr>
+                                <td>INS</td>
+                                <td>Insurance </td>
+                                <td>{{bill.fees.unit}}</td>
+                                <td>{{bill.fees.insurance}}</td>
+                                <td></td>
+                                <td>{{ bill.expence.insurance | to_dollars}}</td>
+                            </tr>
+                            <tr>
+                                <td>MSC</td>
+                                <td>Micellaneous </td>
+                                <td>{{bill.fees.unit}}</td>
+                                <td>{{bill.fees.misc}}</td>
+                                <td></td>
+                                <td>{{ bill.expence.misc | to_dollars}}</td>
+                            </tr>
+                            <tr>
+                                <td>OVR</td>
+                                <td>Overhead </td>
+                                <td>{{bill.fees.unit}}</td>
+                                <td>{{bill.fees.overhead}}</td>
+                                <td></td>
+                                <td>{{ bill.expence.overhead | to_dollars}}</td>
+                            </tr>
+                            <tr > <td>ETALLY</td>
+                                <td>Expences Total </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ bill.expence.total  | to_dollars}}</td></tr>
+                            <tr > <td>Grand</td>
+                                    <td>Grand Total </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{ bill.total  | to_dollars}}</td></tr>
                         </tbody>
                     </table>
+                   
                 </div>
             </section>
             
@@ -86,73 +173,27 @@
         </div>
     </div>
 
-    <!-- This is the modal -->
-<div id="add-item" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Add Item to {{bill.ref}}</h2>
-
-        
-        <form class="uk-form-stacked"
-        
-        >
-            <div class="uk-margin">
-                <label class="uk-form-label" for="form-stacked-text">Date</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="form-stacked-text" type="date" placeholder="Bill Date" name="date">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="form-stacked-text">Reference</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill-01" name="ref">
-                </div>
-            </div>
-
-            <div class="uk-margin">
-                <label class="uk-form-label" for="form-stacked-text">Title</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill Title" name="mainTitle">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="form-stacked-text">SubTitle</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill SubTitle" name="subTitle"
-                    >
-                </div>
-            </div>
-           
-
-        
-            <p class="uk-text-right">
-                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <input class="uk-button uk-button-primary uk-modal-close" type="submit"
-                hx-post="/add_paybill_item/{{bill.ref}}"
-                hx-target="#message"
-                
-                >
-            </p>
-        
-        </form>
-        
+    <!-- This is the add item to paybill modal -->
+<div 
+    id="add-billitem"
+    hx-get="/unpaid_tasks/{{bill.ref}}" 
+    hx-target="#unpaid-items" 
+    hx-trigger="mouseenter once" 
+    uk-modal
+    >
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h3 class="uk-modal-title">Unpaid Job Tasks</h3>
+        </div>
+        <div class="uk-modal-body">
+            <div id="unpaid-items">Data Unavailable!</div>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
+            
+        </div>
     </div>
 </div>
 
 
-<!-- This is the modal -->
-<div id="add-item-modal" uk-modal hx-get="/unpaid_tasks/{{bill.ref}}" hx-target="#bill-items" hx-trigger="mouseenter">
-    <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Unpaid Job Tasks</h2>
-        <p id="bill-items">Data Unavailable!</p>
-        <p class="uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-        </p>
-    </div>
-</div>
-
-<script>
-    function doalert(){
-        console.log('Modal alert')
-    }
-</script>

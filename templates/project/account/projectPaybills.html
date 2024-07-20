@@ -109,9 +109,21 @@
                 </div>
             </div>
             <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Period Start</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="date" placeholder="Bill Date" name="date_starting">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Period Ending</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="date" placeholder="Bill Date" name="date_ending">
+                </div>
+            </div>
+            <div class="uk-margin">
                 <label class="uk-form-label" for="form-stacked-text">Reference</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill-01" name="ref">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Bill-01" name="ref" value="{{p.new_billref}}">
                 </div>
             </div>
 

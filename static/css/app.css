@@ -1403,6 +1403,24 @@ html {
   color: rgb(var(--gray-10)/var(--tw-text-opacity));
 }
 
+.input-solid-secondary {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: rgb(var(--purple-4)/var(--tw-bg-opacity));
+  border-color: transparent;
+  color: rgb(var(--purple-11)/var(--tw-text-opacity));
+}
+
+.input-solid-secondary::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(var(--purple-9)/var(--tw-text-opacity));
+}
+
+.input-solid-secondary::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(var(--purple-9)/var(--tw-text-opacity));
+}
+
 .textarea {
   --tw-border-opacity: 1;
   --tw-bg-opacity: 1;
@@ -2350,6 +2368,16 @@ html:has(.modal-state:checked) {
 .badge-warning {
   background-color: rgb(var(--warning)/var(--tw-bg-opacity));
   border-color: rgb(var(--warning)/var(--tw-border-opacity));
+}
+
+.badge-xs {
+  font-size: .65rem;
+  padding: .25rem;
+}
+
+.badge-sm {
+  font-size: .73rem;
+  padding: .25rem .375rem;
 }
 
 .avatar {
@@ -3738,8 +3766,28 @@ html:has(.modal-state:checked) {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
 .border-transparent {
   border-color: transparent;
+}
+
+.border-teal-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(20 184 166 / var(--tw-border-opacity));
+}
+
+.border-yellow-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8 / var(--tw-border-opacity));
+}
+
+.border-yellow-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(202 138 4 / var(--tw-border-opacity));
 }
 
 .border-t-transparent {
@@ -3826,6 +3874,11 @@ html:has(.modal-state:checked) {
   background-color: rgb(204 251 241 / var(--tw-bg-opacity));
 }
 
+.bg-teal-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 246 228 / var(--tw-bg-opacity));
+}
+
 .bg-teal-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(94 234 212 / var(--tw-bg-opacity));
@@ -3844,6 +3897,11 @@ html:has(.modal-state:checked) {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
 .p-1 {

@@ -1,0 +1,26 @@
+<form >
+    <table>
+        <caption>editing Paybill {{ bill_ref}} Item {{bill_item.id}}</caption>
+        <tr>
+            <td><input class="uk-input" type="text" name="id" value="{{  bill_item.get('id') }}" placeholder="Item Id."></td>
+            {% if bill_item.get('description') %}
+
+                <td><input class="uk-input" type="text" name="description" value="{{ bill_item.get('description')}}" placeholder="Description" ></td>
+            {% else %}
+                <td><input class="uk-input" type="text" name="title" value="{{ bill_item.get('title')}}" placeholder="Title"></td>
+            {% endif %}
+            <td><input class="uk-input" type="text" name="metric_unit" value="{{ bill_item.get('metric').get('unit')}}" placeholder="Metric Unit"></td></td>
+            <td>
+                <input class="input input-solid-secondary" type="number" name="metric_quantity" step="0.01" value="{{ bill_item.get('metric').get('quantity')}}"  placeholder="Secondary" />
+            </td>
+            <td> <input class="uk-input" type="number" name="metric_price" step="0.01" value="{{ bill_item.get('metric').get('price') }}" placeholder="Metric Price"></td>
+            <td><button class="uk-button-primary uk-small"
+                hx-post="/edit_paybill_item/{{bill_ref}}_{{bill_item.id}}"                                   
+                hx-target="#account"
+            
+
+            >Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>

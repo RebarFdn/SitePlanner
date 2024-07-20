@@ -212,8 +212,10 @@ async def get_project_account_paybills(request):
                         "paybills": p.get("account").get('records').get('paybills')
                     }
                  
-                }
-            }
+                },
+                "new_billref": f"""Bill-{ len(p.get("account").get('records').get('paybills')) + 1} """
+            },
+            
         })
 
 
@@ -294,18 +296,72 @@ async def get_paybill(request):
     id = request.path_params.get('id')
     idd = id.split('-')
     project = await Project().get(id=idd[0])
-
+    bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref').strip() == id][0]
+    
     try:
-        bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id][0]
-        return TEMPLATES.TemplateResponse(
-            '/project/account/projectPaybill.html',
+       
+        items_total = 0
+        if len(bill.get('items')) == 0:
+            
+            bill["expence"] = {
+                    "contractor": 0,
+                    "insurance": 0,
+                    "misc": 0,
+                    "overhead": 0,
+                    "total": 0
+
+                }
+            return TEMPLATES.TemplateResponse('/project/account/projectPaybill.html',
             {"request": request, "bill": bill, "items_count": len(bill.get('items')) })
+        else:
+
+            for item in bill.get('items'):                    
+                items_total += float(item.get('metric', {}).get('cost', item.get('metric', {}).get('total', 0))) # check for item cost or total
+            if bill.get('fees', {}).get('contractor' ):
+                bill["expence"] = {
+                    "contractor": items_total * ((bill.get('fees', {}).get('contractor', 20 )) / 100),
+                    "insurance": items_total * ((bill.get('fees', {}).get('insurance', 5 )) / 100),
+                    "misc": items_total * ((bill.get('fees', {}).get('misc', 5 )) / 100),
+                    "overhead": items_total *  ((bill.get('fees', {}).get('overhead', 5 )) / 100),
+                    
+
+                }
+            else:
+                bill['fees'] = {
+                    "contractor": 20,
+                    "insurance": 5,
+                    "misc": 5,
+                    "overhead": 5,
+                    "unit": "%"
+                                }
+                bill["expence"] = {
+                    "contractor": items_total * ((bill.get('fees', {}).get('contractor', 20 )) / 100),
+                    "insurance": items_total * ((bill.get('fees', {}).get('insurance', 5 )) / 100),
+                    "misc": items_total * ((bill.get('fees', {}).get('misc', 5 )) / 100),
+                    "overhead": items_total *  ((bill.get('fees', {}).get('overhead', 5 )) / 100)
+
+                }
+
+
+            bill["itemsTotal"] = items_total
+            
+            bill["expence"]["total"] = sum([
+                    bill["expence"]["contractor"],
+                    bill["expence"]["insurance"],
+                    bill["expence"]["misc"],
+                    bill["expence"]["overhead"],
+                ])
+            bill['total'] = items_total + bill.get("expence").get("total")
+
+            return TEMPLATES.TemplateResponse(
+                '/project/account/projectPaybill.html',
+                {"request": request, "bill": bill, "items_count": len(bill.get('items')) })
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
 
     finally:
-        #del(bill)
-        print('done')
+        print(f'Done GET /paybill/{id}')
+       
             
 
 @router.post('/current_paybill/{id}')
@@ -373,9 +429,10 @@ async def add_task_to_bill(request):
                                 bill['items'].append(bill_item)
             
         await Project().update(data=project)
-        return TEMPLATES.TemplateResponse("/project/account/paybillItem.html", {
+        """return TEMPLATES.TemplateResponse("/project/account/paybillItem.html", {
             "request": request,
-            "bill_items": bill.get('items') })
+            "bill_items": bill.get('items') })"""
+        return RedirectResponse(url=f"/paybill/{id}", status_code=302)
        
     except Exception as e:
         return HTMLResponse(f"""<p class="bg-red-400 text-red-800 text-2xl font-bold py-3 px-4"> An error occured! ---- {str(e)}</p> """)
@@ -384,8 +441,69 @@ async def add_task_to_bill(request):
         del(id)
 
 
+@router.get('/edit_paybill_item/{id}')
+@router.post('/edit_paybill_item/{id}')
+@login_required
+async def edit_paybill_item(request):
+    id = request.path_params.get('id')   
+    idd = id.split('_')
+    project = await Project().get(id=id.split('-')[0])
+    paybill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == idd[0]][0]
+    bill_item = [item for item in paybill.get('items') if item.get('id') == idd[1]][0]
+    #print(bill_item)
+    if request.method == 'GET':
+        
+        return TEMPLATES.TemplateResponse('/project/account/editPaybillItem.html', {
+            "request": request, 
+            "bill_item": bill_item,
+            "bill_ref": idd[0]
+            
+            }  )
+    if request.method == 'POST':
+        async with request.form() as form:
+        
+            updates = {
+                "id": form.get('id'),
+                
+            }
+            bill_item['id'] = form.get('id')
+            if form.get('description'):
+                bill_item['description'] = form.get('description')
+            if form.get('title'):
+                bill_item['title'] = form.get('title')
+            bill_item['metric']['unit'] = form.get('metric_unit')
+            bill_item['metric']['quantity'] = form.get('metric_quantity')
+            bill_item['metric']['price'] = form.get('metric_price')
+            bill_item['metric']['cost'] = round(float(bill_item['metric']['quantity']) * float(bill_item['metric']['price']),2)
+            
+        await Project().update(data=project)
 
+        return RedirectResponse(url=f"/paybill/{idd[0]}", status_code=302)
+    
 
+@router.get('/update_contractor_fee/{id}')
+@router.post('/update_contractor_fee/{id}')
+@login_required
+async def update_contractor_fee(request):
+    id = request.path_params.get('id')   
+   
+    project = await Project().get(id=id.split('-')[0])
+    paybill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ][0]
+    
+    if request.method == 'GET':
+        
+        return HTMLResponse(f"""<form>
+                            <input class="uk-range" type="range" min="5" max="40" name="contractor_fee" value="{paybill.get('fees').get('contractor')}">{paybill.get('fees').get('contractor')}
+                            </form> """) 
+            
+    if request.method == 'POST':
+        async with request.form() as form:
+            
+            paybill['fees']['contractor'] = form.get('contractor_fee')
+        await Project().update(data=project)
+
+        return RedirectResponse(url=f"/paybill/{id}", status_code=302)
+    
 
 @router.post('/delete_paybill/{id}')
 @login_required
