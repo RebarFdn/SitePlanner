@@ -117,13 +117,19 @@
                                 <td>CRX</td>
                                 <td>Contractor Charges </td>
                                 <td>{{bill.fees.unit}}</td>
-                                <td><span 
-                                    id="contractor-percent" 
-                                    class="cursor-pointer" 
-                                    uk-tooltip="Click to edit contractor percent"
-                                    hx-get="/update_contractor_fee/{{bill.ref}}"
-                                    hx-trigger="click"
-                                    >{{bill.fees.contractor}}</span></td> 
+                                <td>
+                                    <div 
+                                        id="contractor-percent"
+                                        class="cursor-pointer" 
+                                        uk-tooltip="Click to adjust contractor percent"
+                                    >
+                                        <button 
+                                            hx-get="/update_contractor_fee/{{bill.ref}}"  
+                                            hx-target="#contractor-percent"                                  
+                                        >{{bill.fees.contractor}}
+                                        </button>
+                                    </div>
+                                </td> 
                                 <td></td>
                                 <td>{{ bill.expence.contractor | to_dollars}}</td>
                             </tr>
@@ -131,7 +137,21 @@
                                 <td>INS</td>
                                 <td>Insurance </td>
                                 <td>{{bill.fees.unit}}</td>
-                                <td>{{bill.fees.insurance}}</td>
+                                <td>
+                                    
+                                    <div 
+                                        id="insurance-percent"
+                                        class="cursor-pointer" 
+                                        uk-tooltip="Click to adjust insurance percent"
+                                    >
+                                        <button 
+                                            hx-get="/update_insurance_fee/{{bill.ref}}"  
+                                            hx-target="#insurance-percent"                                  
+                                        >{{bill.fees.insurance}}
+                                        </button>
+                                    </div>
+                                
+                                </td>
                                 <td></td>
                                 <td>{{ bill.expence.insurance | to_dollars}}</td>
                             </tr>
@@ -139,7 +159,19 @@
                                 <td>MSC</td>
                                 <td>Micellaneous </td>
                                 <td>{{bill.fees.unit}}</td>
-                                <td>{{bill.fees.misc}}</td>
+                                <td>
+                                    <div 
+                                        id="misc-percent"
+                                        class="cursor-pointer" 
+                                        uk-tooltip="Click to adjust Micellaneous percent"
+                                    >
+                                        <button 
+                                            hx-get="/update_misc_fee/{{bill.ref}}"  
+                                            hx-target="#misc-percent"                                  
+                                        >{{bill.fees.misc}}
+                                        </button>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td>{{ bill.expence.misc | to_dollars}}</td>
                             </tr>
@@ -147,7 +179,19 @@
                                 <td>OVR</td>
                                 <td>Overhead </td>
                                 <td>{{bill.fees.unit}}</td>
-                                <td>{{bill.fees.overhead}}</td>
+                                <td>
+                                    <div 
+                                        id="overhead-percent"
+                                        class="cursor-pointer" 
+                                        uk-tooltip="Click to adjust overhead percent"
+                                    >
+                                        <button 
+                                            hx-get="/update_overhead_fee/{{bill.ref}}"  
+                                            hx-target="#overhead-percent"                                  
+                                        >{{bill.fees.overhead}}
+                                        </button>
+                                    </div>
+                                </td>
                                 <td></td>
                                 <td>{{ bill.expence.overhead | to_dollars}}</td>
                             </tr>

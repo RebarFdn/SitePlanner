@@ -4,25 +4,42 @@
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Paybills</a></li>
+            <li class="uk-active"><a href="#">Project Paybills</a></li>
             <li>
                 <a href="#">Filter</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Active</a></li>
+                        <li ><a href="#">Active</a></li>
                         <li><a href="#">Item</a></li>
                         <li><a href="#">Item</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="#add-paybill" uk-toggle>New Paybill</a></li>
+            <li class="uk-active"><a href="#add-paybill" uk-toggle>New Paybill</a></li>
         </ul>
 
     </div>
+    <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active">
+                <p 
+                    class="badge badge-outline-primary"
+                    hx-get="/project_paybills_cost/{{p._id}}"
+                    hx-trigger="every 2s"
+
+                    >
+                    Paybills
+                </p>
+            </li>
+        </ul>
+
+    </div>
+
+
 </nav>
 
 <div class="uk-overflow-auto">
-    <div id="paybills">
+    <div id="paybills" class="text-xs">
         <table class="uk-table uk-table-small uk-table-divider">
             <thead>
                 <tr>
@@ -57,7 +74,7 @@
                     
                     <td>{{ bill.mainTitle }}</td>
                     <td>{{ bill.subTitle }}</td>
-                    <td>{{ bill.total }}</td>
+                    <td>{{ bill.total | to_dollars }}</td>
                     <td>
                         <button class="uk-button uk-button-primary uk-button-small rounded-md" type="button">Manage</button>
                         <div uk-dropdown>

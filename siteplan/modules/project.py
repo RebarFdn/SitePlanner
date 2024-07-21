@@ -24,6 +24,13 @@ class Project:
         "database": {"name":"site-projects", "partitioned": False},              
     }
     instances = 0
+    default_fees = {
+        "contractor": 20,
+        "insurance": 0,
+        "misc": 0,
+        "overhead": 0,
+        "unit": "%"
+    }
 
     def __init__(self, data:dict=None): 
         Project.instances += 1      

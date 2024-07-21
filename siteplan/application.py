@@ -12,7 +12,7 @@ from starlette_login.backends import SessionAuthBackend
 from starlette_login.login_manager import LoginManager
 from starlette_login.decorator import login_required
 from starlette_login.middleware import AuthenticationMiddleware
-from apitally.starlette import ApitallyMiddleware
+#from apitally.starlette import ApitallyMiddleware
 
 
 from config import (
@@ -183,11 +183,7 @@ app = Starlette(
             login_manager=login_manager,
             allow_websocket=False,
         ),
-        Middleware(
-            ApitallyMiddleware,
-            client_id=APITALLY_CLIENT_TOKEN,
-            env="dev" # "prod"
-    )
+        
         ],
     routes=routes,
     on_startup= startApp(),

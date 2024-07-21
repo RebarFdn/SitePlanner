@@ -61,6 +61,13 @@
                             <div class="flex flex-col text-center">
                                 <h1 class="text-xxl font-bold">{{ account.transactions.deposit | length}}</h1>
                                 <h5 class="font-bold">Deposits</h5>
+                                <p 
+                                    class="badge badge-outline-primary"
+                                    hx-get="/project_deposits_total/{{id}}"
+                                    hx-trigger="every 3s"
+                                    >
+                                    
+                                </p>
                             </div>
 
                         </div>
@@ -70,25 +77,46 @@
                             <div class="flex flex-col text-center">
                                 <h1 class="text-xxl font-bold">{{ account.transactions.withdraw | length}}</h1>
                                 <h5 class="font-bold">Withdrawals</h5>
+                                <p 
+                                class="badge badge-outline-primary"
+                                hx-get="/project_withdrawals_total/{{id}}"
+                                hx-trigger="every 4s"
+                                >
+                                
+                            </p>
                             </div>
 
                         </div>
                     </div>
+                    <div>
+                        <div class="uk-panel">
+                            <div class="flex flex-col text-center">
+                                <h1 class="text-xxl font-bold">{{ account.expences | length}}</h1>
+                                <h5 class="font-bold">Expences</h5>
+                                <p 
+                                class="badge badge-outline-primary"
+                                hx-get="/project_expences_total/{{id}}"
+                                hx-trigger="every 5s"
+                                >
+                                
+                            </p>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <div>
                         <div class="uk-panel">
                             <div class="flex flex-col text-center">
                                 <h1 class="text-xxl font-bold">{{ account.records.invoices | length}}</h1>
-                                <h5 class="font-bold">Expences</h5>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="uk-panel">
-                            <div class="flex flex-col text-center">
-                                <h1 class="text-xxl font-bold">{{ account.transactions.withdraw | length}}</h1>
                                 <h5 class="font-bold">Purchases</h5>
+                                <p 
+                                class="badge badge-outline-primary"
+                                hx-get="/project_purchases_total/{{id}}"
+                                hx-trigger="every 5.5s"
+                                >
+                                
+                            </p>
                             </div>
 
                         </div>
@@ -99,6 +127,13 @@
                             <div class="flex flex-col text-center">
                                 <h1 class="text-xxl font-bold">{{ account.records.salary_statements | length}}</h1>
                                 <h5 class="font-bold">Salaries</h5>
+                                <p 
+                                class="badge badge-outline-primary"
+                                hx-get="/project_salaries_total/{{id}}"
+                                hx-trigger="every 6.5s"
+                                >
+                                
+                            </p>
                             </div>
 
                         </div>
@@ -109,6 +144,13 @@
                             <div class="flex flex-col text-center">
                                 <h1 class="text-xxl font-bold">{{ account.records.paybills | length}}</h1>
                                 <h5 class="font-bold">Paybills</h5>
+                                <p 
+                                    class="badge badge-outline-primary"
+                                    hx-get="/project_paybills_cost/{{id}}"
+                                    hx-trigger="every 2s"
+                                    >
+                                    
+                                </p>
                             </div>
 
                         </div>

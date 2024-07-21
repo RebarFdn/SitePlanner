@@ -245,12 +245,7 @@ async def paybill_total(request):
                 bill["expence"]["overhead"],
             ])
 
-        
-
-
-
-
-
+ 
 
 @router.post('/new_paybill/{id}')
 @login_required
@@ -258,13 +253,23 @@ async def new_paybill(request):
     bill_refs = set()
     id = request.path_params.get('id')
     project = await Project().get(id=id)
-    paybill = {'project_id': id, 'items': [], 'fees': {}, 'itemsTotal': 0, 'total': 0}
+    paybill = {
+        'project_id': id, 
+        'items': [], 
+        'fees': {
+            "contractor": 10,
+            "insurance": 3,
+            "misc": 3,
+            "overhead": 3,
+            "unit": "%"
+        }, 
+        'itemsTotal': 0, 
+        'total': 0
+    }
     for bill in project.get('account').get('records').get('paybills') :
         bill_refs.add(bill.get('ref'))
-
     try:
-        async with request.form() as form:   
-              
+        async with request.form() as form: 
             for key in form:
                 paybill[key] = form.get(key) 
         paybill['ref'] = f"{id}-{paybill['ref']}"
@@ -276,7 +281,6 @@ async def new_paybill(request):
         else:
             project['account']['records']['paybills'].append(paybill)    
             await Project().update(data=project)
-
             return TEMPLATES.TemplateResponse('/project/account/paybills.html', {
                 "request": request,
                 "paybills":  project.get('account').get('records').get('paybills')
@@ -290,6 +294,7 @@ async def new_paybill(request):
         del(paybill)
 
 
+
 @router.get('/paybill/{id}')
 @login_required
 async def get_paybill(request):
@@ -297,12 +302,11 @@ async def get_paybill(request):
     idd = id.split('-')
     project = await Project().get(id=idd[0])
     bill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref').strip() == id][0]
-    
+    items_total = 0
     try:
-       
-        items_total = 0
-        if len(bill.get('items')) == 0:
-            
+        if bill.get('expence'):
+            pass
+        else:
             bill["expence"] = {
                     "contractor": 0,
                     "insurance": 0,
@@ -310,41 +314,46 @@ async def get_paybill(request):
                     "overhead": 0,
                     "total": 0
 
-                }
+                }       
+        
+        if len(bill.get('items')) == 0: 
+            
+            bill['fees'] = Project().default_fees
+            await Project().update(data=project)
             return TEMPLATES.TemplateResponse('/project/account/projectPaybill.html',
             {"request": request, "bill": bill, "items_count": len(bill.get('items')) })
         else:
 
             for item in bill.get('items'):                    
                 items_total += float(item.get('metric', {}).get('cost', item.get('metric', {}).get('total', 0))) # check for item cost or total
-            if bill.get('fees', {}).get('contractor' ):
-                bill["expence"] = {
-                    "contractor": items_total * ((bill.get('fees', {}).get('contractor', 20 )) / 100),
-                    "insurance": items_total * ((bill.get('fees', {}).get('insurance', 5 )) / 100),
-                    "misc": items_total * ((bill.get('fees', {}).get('misc', 5 )) / 100),
-                    "overhead": items_total *  ((bill.get('fees', {}).get('overhead', 5 )) / 100),
-                    
-
-                }
-            else:
-                bill['fees'] = {
-                    "contractor": 20,
-                    "insurance": 5,
-                    "misc": 5,
-                    "overhead": 5,
-                    "unit": "%"
-                                }
-                bill["expence"] = {
-                    "contractor": items_total * ((bill.get('fees', {}).get('contractor', 20 )) / 100),
-                    "insurance": items_total * ((bill.get('fees', {}).get('insurance', 5 )) / 100),
-                    "misc": items_total * ((bill.get('fees', {}).get('misc', 5 )) / 100),
-                    "overhead": items_total *  ((bill.get('fees', {}).get('overhead', 5 )) / 100)
-
-                }
-
-
-            bill["itemsTotal"] = items_total
             
+            if bill.get('fees', {}).get('contractor' ):
+                bill["expence"]["contractor"] = items_total * ((bill.get('fees').get('contractor' )) / 100)
+            else:
+                bill['fees']['contractor'] = Project().default_fees.get('contractor') # fallback to default fees
+                bill['fees']['unit'] = Project().default_fees.get('unit') # fallback to default fees
+
+                bill["expence"]["contractor"] = items_total * ((bill.get('fees').get('contractor' )) / 100)
+            
+            if bill.get('fees', {}).get('insurance' ):
+                bill["expence"]["insurance"] = items_total * ((bill.get('fees').get('insurance' )) / 100)
+            else:
+                bill['fees']['insurance'] = Project().default_fees.get('insurance') # fallback to default fees  
+                bill["expence"]["insurance"] = items_total * ((bill.get('fees').get('insurance' )) / 100)
+            
+            if bill.get('fees', {}).get('misc' ):
+                bill["expence"]["misc"] = items_total * ((bill.get('fees').get('misc' )) / 100)
+            else:
+                bill['fees']['misc'] = Project().default_fees.get('misc') # fallback to default fees
+                bill["expence"]["misc"] = items_total * ((bill.get('fees').get('misc' )) / 100)
+            
+            if bill.get('fees', {}).get('overhead' ):
+                bill["expence"]["overhead"] = items_total * ((bill.get('fees').get('overhead' )) / 100)
+            else:
+                bill['fees']['overhead'] = Project().default_fees.get('overhead') # fallback to default fees 
+                bill["expence"]["overhead"] = items_total * ((bill.get('fees').get('overhead' )) / 100)
+             
+            bill["itemsTotal"] = items_total            
             bill["expence"]["total"] = sum([
                     bill["expence"]["contractor"],
                     bill["expence"]["insurance"],
@@ -352,6 +361,7 @@ async def get_paybill(request):
                     bill["expence"]["overhead"],
                 ])
             bill['total'] = items_total + bill.get("expence").get("total")
+            await Project().update(data=project)
 
             return TEMPLATES.TemplateResponse(
                 '/project/account/projectPaybill.html',
@@ -492,18 +502,207 @@ async def update_contractor_fee(request):
     
     if request.method == 'GET':
         
-        return HTMLResponse(f"""<form>
-                            <input class="uk-range" type="range" min="5" max="40" name="contractor_fee" value="{paybill.get('fees').get('contractor')}">{paybill.get('fees').get('contractor')}
-                            </form> """) 
+        response =f"""
+        
+            <form><input 
+                            type="range" 
+                            class="range range-secondary" 
+                            name="contractor_fee"
+                            min="0"
+                            max="40"
+                            step="1"
+                            value="{paybill.get('fees').get('contractor')}"
+                            hx-post="/update_contractor_fee/{paybill.get('ref')}"
+                            hx-target="#account"
+                            hx-trigger="change delay:500ms"
+                            />
+                        </form>{paybill.get('fees').get('contractor')}
+            </p>
+        
+        """ 
+        
             
     if request.method == 'POST':
         async with request.form() as form:
+            fee = int(form.get('contractor_fee'))
             
-            paybill['fees']['contractor'] = form.get('contractor_fee')
+        paybill['fees']['contractor'] = fee
         await Project().update(data=project)
-
         return RedirectResponse(url=f"/paybill/{id}", status_code=302)
+    return HTMLResponse(response)
     
+
+
+@router.get('/update_insurance_fee/{id}')
+@router.post('/update_insurance_fee/{id}')
+@login_required
+async def update_insurance_fee(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id.split('-')[0])
+    paybill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ][0]    
+    if request.method == 'GET':        
+        response =f"""        
+            <form><input 
+                            type="range" 
+                            class="range range-secondary" 
+                            name="insurance_fee"
+                            min="0"
+                            max="40"
+                            step="1"
+                            value="{paybill.get('fees').get('insurance')}"
+                            hx-post="/update_insurance_fee/{paybill.get('ref')}"
+                            hx-target="#account"
+                            hx-trigger="change delay:500ms"
+                            />
+            </form>
+            <p>{paybill.get('fees').get('insurance')}</p>
+        
+        """  
+    if request.method == 'POST':
+        async with request.form() as form:
+            fee = int(form.get('insurance_fee'))            
+        paybill['fees']['insurance'] = fee
+        await Project().update(data=project)
+        return RedirectResponse(url=f"/paybill/{id}", status_code=302)
+    return HTMLResponse(response)
+    
+
+
+@router.get('/update_misc_fee/{id}')
+@router.post('/update_misc_fee/{id}')
+@login_required
+async def update_misc_fee(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id.split('-')[0])
+    paybill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ][0]    
+    if request.method == 'GET':        
+        response =f"""        
+            <form><input 
+                            type="number"                            
+                            name="misc_fee"                            
+                            step="1"
+                            value="{paybill.get('fees').get('misc')}"
+                            hx-post="/update_misc_fee/{paybill.get('ref')}"
+                            hx-target="#account"
+                            hx-trigger="change delay:500ms"
+                            />
+            </form>
+            <p>{paybill.get('fees').get('misc')}</p>
+        
+        """  
+    if request.method == 'POST':
+        async with request.form() as form:
+            fee = int(form.get('misc_fee'))            
+        paybill['fees']['misc'] = fee
+        await Project().update(data=project)
+        return RedirectResponse(url=f"/paybill/{id}", status_code=302)
+    return HTMLResponse(response)
+
+
+
+@router.get('/update_overhead_fee/{id}')
+@router.post('/update_overhead_fee/{id}')
+@login_required
+async def update_overhead_fee(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id.split('-')[0])
+    paybill = [bill for bill in project.get('account').get('records').get('paybills') if bill.get('ref') == id ][0]    
+    if request.method == 'GET':        
+        response =f"""        
+            <form><input 
+                            type="range" 
+                            class="range range-secondary" 
+                            name="overhead_fee"
+                            min="0"
+                            max="40"
+                            step="1"
+                            value="{paybill.get('fees').get('overhead')}"
+                            hx-post="/update_overhead_fee/{paybill.get('ref')}"
+                            hx-target="#account"
+                            hx-trigger="change delay:500ms"
+                            />
+            </form>
+            <p>{paybill.get('fees').get('overhead')}</p>
+        
+        """  
+    if request.method == 'POST':
+        async with request.form() as form:
+            fee = int(form.get('overhead_fee'))            
+        paybill['fees']['overhead'] = fee
+        await Project().update(data=project)
+        return RedirectResponse(url=f"/paybill/{id}", status_code=302)
+    return HTMLResponse(response)
+
+
+
+@router.get("/project_paybills_cost/{id}")
+async def project_paybills_cost(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    paybills_cost = [bill.get('total', 0) for bill in project.get('account').get('records').get('paybills')  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectPaybillsCost.html", 
+        {"request": request, "paybills_cost": sum(paybills_cost)}
+        )
+
+
+@router.get("/project_deposits_total/{id}")
+async def project_deposits_total(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    deposits_total = [float(dep.get('amount', 0)) for dep in project.get('account').get('transactions').get('deposit')  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectDepositsTotal.html", 
+        {"request": request, "deposits_total": sum(deposits_total)}
+        )
+
+
+
+@router.get("/project_withdrawals_total/{id}")
+async def project_withdrawals_total(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    withdrawals_total = [float(dep.get('amount', 0)) for dep in project.get('account').get('transactions').get('withdraw')  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectWithdrawalsTotal.html", 
+        {"request": request, "withdrawals_total": sum(withdrawals_total)}
+        )
+
+
+@router.get("/project_expences_total/{id}")
+async def project_expences_total(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    expences_total = [float(exp.get('total', 0)) for exp in project.get('account').get('expences')  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectExpencesTotal.html", 
+        {"request": request, "expences_total": sum(expences_total)}
+        )
+
+
+
+@router.get("/project_purchases_total/{id}")
+async def project_purchases_total(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    purchases_total = [float(exp.get('total', 0)) for exp in project.get('account').get('records', {}).get('invoices', [])  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectPurchasesTotal.html", 
+        {"request": request, "purchases_total": sum(purchases_total)}
+        )
+
+
+
+@router.get("/project_salaries_total/{id}")
+async def project_salaries_total(request):
+    id = request.path_params.get('id')  
+    project = await Project().get(id=id)
+    salaries_total = [float(exp.get('total', 0)) for exp in project.get('account').get('records', {}).get('salary_statements', [])  ]
+    return TEMPLATES.TemplateResponse(
+        "/project/account/projectSalariesTotal.html", 
+        {"request": request, "salaries_total": sum(salaries_total)}
+        )
+
 
 @router.post('/delete_paybill/{id}')
 @login_required
