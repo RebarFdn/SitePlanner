@@ -14,6 +14,50 @@ from database import RedisCache
 router = Router()
 
 
+
+@router.POST('/new_project')
+@login_required
+async def gnew_project(request):    
+    username =  request.user.username        
+    async with request.form() as form:
+        data = {
+            "name": form.get('name'),
+            "category": form.get('category'),
+            "standard": form.get('standard'),
+            "address": {
+                "lot": form.get('lot'), 
+                "street": form.get('standard'), 
+                "town": form.get('standard'),
+                "city_parish": form.get('city_parish'),
+                "country": form.get('country', "Jamaica") 
+            },
+            "owner": {
+            "name": form.get('owner'),
+            "contact": None,
+            "address": {"lot": None, "street": None, "town": None,"city_parish": None,"country": None, }
+            },
+            "admin": {
+                "leader": form.get('lead'),
+                "staff": {
+                "accountant": None,
+                "architect": None,
+                "engineer":None,
+                "quantitysurveyor": None,
+                "landsurveyor": None,
+                "supervisors": []
+                }
+            },
+            "created_by": username
+            
+
+        }   
+    p = Project(data=data)
+    p.setup()
+    p.runsetup() 
+    new_project = await p.save()    
+    return RedirectResponse(url=f'/project/{new_project.get("_id")}', status_code=303)
+   
+
 @router.GET('/projects')
 @login_required
 async def get_projects(request):    
@@ -59,8 +103,15 @@ async def get_project_account(request):
 @login_required
 async def get_project_account_deposits(request):
     id = request.path_params.get('id')
-    generator =  Project().html_account_deposits_generator(id=id)
-    return StreamingResponse(generator, media_type="text/html")
+    p = await Project().get(id=id)
+    return TEMPLATES.TemplateResponse(
+        '/project/account/depositsIndex.html', 
+        {
+            "request": request,
+            "id": id,
+            "index": p.get('account').get('transactions').get('deposit', []),
+            "total_deposits": sum([float(item.get('amount')) for item in p.get('account').get('transactions').get('deposit', [])])
+        })
 
 
 @router.post('/account_deposit/{id}')
@@ -641,20 +692,26 @@ async def project_paybills_cost(request):
     project = await Project().get(id=id)
     paybills_cost = [bill.get('total', 0) for bill in project.get('account').get('records').get('paybills')  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectPaybillsCost.html", 
-        {"request": request, "paybills_cost": sum(paybills_cost)}
+        "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(paybills_cost), "title": "Total"}
         )
+
+       
 
 
 @router.get("/project_deposits_total/{id}")
 async def project_deposits_total(request):
     id = request.path_params.get('id')  
     project = await Project().get(id=id)
-    deposits_total = [float(dep.get('amount', 0)) for dep in project.get('account').get('transactions').get('deposit')  ]
+    if len(project.get('account').get('transactions').get('deposit')) == 0:
+        deposits_total = []
+    else:
+        deposits_total = [float(dep.get('amount', 0)) for dep in project.get('account').get('transactions').get('deposit')  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectDepositsTotal.html", 
-        {"request": request, "deposits_total": sum(deposits_total)}
+         "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(deposits_total), "title": "Total"}
         )
+
 
 
 
@@ -664,9 +721,11 @@ async def project_withdrawals_total(request):
     project = await Project().get(id=id)
     withdrawals_total = [float(dep.get('amount', 0)) for dep in project.get('account').get('transactions').get('withdraw')  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectWithdrawalsTotal.html", 
-        {"request": request, "withdrawals_total": sum(withdrawals_total)}
+        "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(withdrawals_total), "title": "Total"}
         )
+
+       
 
 
 @router.get("/project_expences_total/{id}")
@@ -675,8 +734,8 @@ async def project_expences_total(request):
     project = await Project().get(id=id)
     expences_total = [float(exp.get('total', 0)) for exp in project.get('account').get('expences')  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectExpencesTotal.html", 
-        {"request": request, "expences_total": sum(expences_total)}
+        "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(expences_total), "title": "Total"}
         )
 
 
@@ -687,8 +746,8 @@ async def project_purchases_total(request):
     project = await Project().get(id=id)
     purchases_total = [float(exp.get('total', 0)) for exp in project.get('account').get('records', {}).get('invoices', [])  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectPurchasesTotal.html", 
-        {"request": request, "purchases_total": sum(purchases_total)}
+         "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(purchases_total), "title": "Total"}
         )
 
 
@@ -699,8 +758,8 @@ async def project_salaries_total(request):
     project = await Project().get(id=id)
     salaries_total = [float(exp.get('total', 0)) for exp in project.get('account').get('records', {}).get('salary_statements', [])  ]
     return TEMPLATES.TemplateResponse(
-        "/project/account/projectSalariesTotal.html", 
-        {"request": request, "salaries_total": sum(salaries_total)}
+        "/project/account/accountPropertyTally.html", 
+        {"request": request, "property_total": sum(salaries_total), "title": "Total"}
         )
 
 
@@ -732,9 +791,18 @@ async def delete_paybill(request):
 @login_required
 async def get_project_account_salaries(request):
     id = request.path_params.get('id')
-    generator = await Project().html_account_salaries_generator(id=id)
-    #return StreamingResponse(generator, media_type="text/html")
-    return HTMLResponse(f"""<div class="bg-yellow-500 py-5 px-5">{generator}</div>""")
+    p = await Project().get(id=id)
+    
+    return TEMPLATES.TemplateResponse(
+        "/project/account/salaryIndex.html",
+        {
+            "request": request,
+            "id": id,
+            "salaries": p.get('account').get('records').get('salary_statements', []),
+            "total_salary": sum([float(item.get('total', 0)) for item in p.get('account').get('records').get('salary_statements', [])])
+         
+         }
+        )
 
 
 # PROCESS EXPENCES & purchases

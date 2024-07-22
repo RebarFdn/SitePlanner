@@ -40,7 +40,9 @@ class Project:
         self.project:dict = {}
         if data :
             self.meta_data["created"] = timestamp()  
-            self.meta_data['properties'] = list(data.keys())          
+            self.meta_data["created_by"] = data.get('created_by')
+            self.meta_data['properties'] = list(data.keys())    
+            del(data['created_by'])      
             self.data = data
             self.data["meta_data"] = self.meta_data
                       
@@ -126,17 +128,27 @@ class Project:
         }
         if "account" in check_list: pass
         else: self.data['account'] = {
-            "ballance": 0,
-            "started": timestamp(),
-            "transactions": {
-                "deposits": [], 
-                "withdraw": []
-            },
-            "records": {
-                "invoices": [],
-                "purchase_orders": []
+                "bank": {
+                    "name": None,
+                    "branch": None,
+                    "account": None,
+                    "account_type": None
+                    },
+                "budget": None,
+                "ballance": 0,
+                "started": timestamp(),
+                "transactions": {
+                    "deposit": [], 
+                    "withdraw": []
+                },
+                "expences": [],
+                "records": {
+                    "invoices": [],
+                    "purchase_orders": [],
+                    "salary_statements": [],
+                    "paybills": []
+                }
             }
-        }
         if "tasks" in check_list: pass
         else:self.data['tasks'] = [] 
         if "workers" in check_list: pass
@@ -154,44 +166,84 @@ class Project:
         """is called after data has been mounted """
         
         PROJECT_TEMPLATE = dict( 
+            name = None,
+            category = "residential",
+            standard = "metric",
             address = {"lot": None, "street": None, "town": None,"city_parish": None,"country": "Jamaica", },
             owner = {
             "name": None,
             "contact": None,
             "address": {"lot": None, "street": None, "town": None,"city_parish": None,"country": None, }
         },
-        account = {
-            "ballance": 0,
-            "started": timestamp(),
-            "transactions": {
-                "deposits": [], 
-                "withdraw": []
+            account = {
+                "bank": {
+                    "name": None,
+                    "branch": None,
+                    "account": None,
+                    "account_type": None
+                    },
+                "budget": None,
+                "ballance": 0,
+                "started": timestamp(),
+                "transactions": {
+                    "deposits": [], 
+                    "withdraw": []
+                },
+                "expences": [],
+                "records": {
+                    "invoices": [],
+                    "purchase_orders": [],
+                    "salary_statements": [],
+                    "paybills": []
+                }
             },
-            "records": {
-                "invoices": [],
-                "purchase_orders": []
+            admin = {
+            "leader": None,
+            "staff": {
+            "accountant": None,
+            "architect": None,
+            "engineer":None,
+            "quantitysurveyor": None,
+            "landsurveyor": None,
+            "supervisors": []
             }
-        },
-        tasks = [],
-        workers = [],
-        inventory = [],
-        activity_log = [],
-        event = {
-            "started": 0,
-            "completed": 0,
-            "paused": [],
-            "restart": [],
-            "terminated": 0
-        },
-        state =  {
-            "active": False,
-            "completed": False,
-            "paused": False,
-            "terminated": False
-        }
-        )
+  },
+            workers = [],
+            tasks = [],
+            rates = [],
+            daywork = [],
+            inventory = [],            
+            event = {
+                "started": 0,
+                "completed": 0,
+                "paused": [],
+                "restart": [],
+                "terminated": 0
+            },
+            state =  {
+                "active": False,
+                "completed": False,
+                "paused": False,
+                "terminated": False
+            },      
+            progress =  {
+            "overall": None,
+            "planning": None,
+            "design": None,
+            "estimates": None,
+            "contract": None,
+            "development": None,
+            "build": None,
+            "unit": None
+            },
+            activity_log = [],
+            reports = [],
+            estimates = [],
+            meta_data = None
+            
+              )
         #self.data.update(PROJECT_TEMPLATE | self.data)
-        self.data = self.data | PROJECT_TEMPLATE
+        self.data = PROJECT_TEMPLATE | self.data 
         self.meta_data['properties'] = list(self.data.keys())
         self.meta_data['properties'].remove('meta_data')
 
@@ -1142,7 +1194,7 @@ class Project:
     # DATA OPERATIONS 
     async def getRemoteProject(self, id:str=None):
         ''' Retrieves data from a remote server 
-            returns null on network error
+            returns None on network error
         '''
         import httpx
         endpoint = f"http://192.168.0.19:6757/project/{id}"
@@ -1855,6 +1907,12 @@ class Project:
             yield f""" <div class="flex flex-col">
                     <div class="m-1.5 overflow-x-auto">
                     <a href="#deposit-modal" uk-toggle>Deposit Funds</a>
+                    <p                                     
+                      hx-get="/project_deposits_total/{id}"
+                       hx-trigger="every 2s"
+                    >
+                                    
+                                </p>
                     <div id="deposit-result"></div>
 
                         <div class="p-1.5 min-w-full h-screen inline-block align-middle overflow-y-auto">
@@ -1972,6 +2030,10 @@ class Project:
             yield f""" <div class="flex flex-col">
                     <div class="m-1.5 overflow-x-auto">
                     <a href="#withdraw-modal" uk-toggle>Withdraw Funds</a>
+                    <p                                     
+                      hx-get="/project_withdrawals_total/{id}"
+                       hx-trigger="every 2s"
+                    >
                     <div id="result"></div>
 
                         <div class="p-1.5 min-w-full h-screen inline-block align-middle overflow-y-auto">

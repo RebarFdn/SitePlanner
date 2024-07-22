@@ -186,9 +186,10 @@ async def login(request: Request):
         #body = (await request.body()).decode()
         #data = dict(parse_qsl(body))
         user = user_list.get_by_username(username)
+        print('LOGIN', user)
         if not user:
             error = 'Invalid username'
-        elif user.check_password(password_hash=user.password_hash, password=password) is False:
+        elif await user.check_password(password_hash=user.password_hash, password=password) is False:
             error = 'Invalid password'
         else:
             await login_user(request, user)
